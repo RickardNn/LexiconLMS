@@ -39,6 +39,8 @@ namespace Lexicon_LMS.Models
         public DbSet<Activity> Activities { get; set; }
         public DbSet<Document> Documents { get; set; }
 
+        //public System.Data.Entity.DbSet<Lexicon_LMS.Models.ApplicationUser> ApplicationUsers { get; set; }
+
 
     }
 }
