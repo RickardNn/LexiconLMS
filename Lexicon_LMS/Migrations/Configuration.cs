@@ -32,7 +32,18 @@ namespace Lexicon_LMS.Migrations
 
             context.Groups.AddOrUpdate(
                 p => p.Name,
-                new Group { Name = ".NET utvecklare", Teacher = "Oscar Jakobsson", Description = "Bla, bla ...", StartDate = DateTime.Today, EndDate = DateTime.Today });
+                new Group { Name = ".NET utvecklare 2015", Teacher = "Oscar Jakobsson", Description = "Bla, bla 1.", StartDate = DateTime.Today, EndDate = DateTime.Today },
+                new Group { Name = "Java Del 1", Teacher = "Adrian", Description = "Enkel kurs.", StartDate = DateTime.Today, EndDate = DateTime.Today },
+                new Group { Name = ".NET utvecklare 2016", Teacher = "Oscar Jakobsson", Description = "Bla, bla 2.", StartDate = DateTime.Today, EndDate = DateTime.Today },
+                new Group { Name = "C++", Teacher = "Pontus", Description = "Bla, bla ...", StartDate = DateTime.Today, EndDate = DateTime.Today },
+                new Group { Name = "Java Del 2", Teacher = "Adrian", Description = "Svår kurs.", StartDate = DateTime.Today, EndDate = DateTime.Today },
+                new Group { Name = "Grundläggande C", Teacher = "Anders Andersson", Description = "Hello world.", StartDate = DateTime.Today, EndDate = DateTime.Today },
+                new Group { Name = "Avancerad C Del 1", Teacher = "Anders Andersson", Description = "Moment 1.", StartDate = DateTime.Today, EndDate = DateTime.Today },
+                new Group { Name = "Assembler", Teacher = "Karin Larsson", Description = "Grundkurs.", StartDate = DateTime.Today, EndDate = DateTime.Today },
+                new Group { Name = "HTML Grunderna", Teacher = "Olov Hansson", Description = "Del 1", StartDate = DateTime.Today, EndDate = DateTime.Today },
+                new Group { Name = "Avancerad C Del 2", Teacher = "Anders Andersson", Description = "Moment 2.", StartDate = DateTime.Today, EndDate = DateTime.Today }
+            );
+
 
             var roleStore = new RoleStore<IdentityRole>(context);
             var roleManager = new RoleManager<IdentityRole>(roleStore);
