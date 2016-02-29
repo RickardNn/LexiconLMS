@@ -17,7 +17,12 @@ namespace Lexicon_LMS
         // GET: Courses
         public ActionResult Index()
         {
-            var courses = db.Courses.Include(c => c.Group);
+            var ActiveUser = db.Users.Where(u => u.UserName == User.Identity.Name.ToString()).ToList().FirstOrDefault();
+
+            ViewBag.Message = "Du är en godkänd användare " + ActiveUser.FirstName + " " + ActiveUser.LastName;
+            var courses = db.Courses.Where(c => c.GroupId == ActiveUser.GroupId);
+
+            //var courses = db.Courses.Include(c => c.Group).Where(c => c.GroupId == db.Users.Where(u => u.GroupId.ToString() == c.GroupId()).ToList().FirstOrDefault().FirstName;
             return View(courses.ToList());
         }
 
