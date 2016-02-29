@@ -79,6 +79,18 @@ namespace Lexicon_LMS.Migrations
 
             user = userManager.FindByEmail("oscar.jakobsson@lexicon.se");
             userManager.AddToRole(user.Id, "Teacher");
+
+// Disas kod
+
+            context.Courses.AddOrUpdate(
+            a => a.Name,
+            new Activity { CourseId = 1, Type = , Name = "E-learning", Teacher = "Oscar Jacobsson", Description = "Plural sight",  StartDate = DateTime.ParseExact("2016-02-07", "yyyy-MM-dd", EndDate = },
+            new Activity { CourseId = 1, Type = , Name = "E-learning", Teacher = "Oscar Jacobsson", Description = "Plural sight",  StartDate = DateTime.ParseExact("2016-02-07", "yyyy-MM-dd", EndDate = },
+            new Activity { CourseId = 1, Type = , Name = "E-learning", Teacher = "Oscar Jacobsson", Description = "Plural sight",  StartDate = DateTime.ParseExact("2016-02-07", "yyyy-MM-dd", EndDate = },
+            new Activity { CourseId = 1, Type = , Name = "E-learning", Teacher = "Oscar Jacobsson", Description = "Plural sight",  StartDate = DateTime.ParseExact("2016-02-07", "yyyy-MM-dd", EndDate = },
+
+            
+
         }
     }
 }
