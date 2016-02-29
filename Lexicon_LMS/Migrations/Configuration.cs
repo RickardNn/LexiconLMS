@@ -51,6 +51,7 @@ namespace Lexicon_LMS.Migrations
                {
                    Name = "C# 2015",
                    GroupId = 1,
+                   CourseId = 1,
                    Teacher = "Oscar Jakobsson",
                    Description = "Bla, bla 888.",
                    StartDate = DateTime.ParseExact("2015-12-03", "yyyy-MM-dd", CultureInfo.InvariantCulture),
@@ -61,6 +62,7 @@ namespace Lexicon_LMS.Migrations
                {
                    Name = "C# 2015 del2",
                    GroupId = 1,
+                   CourseId = 2,
                    Teacher = "Oscar Jakobsson",
                    Description = "Bla, bla, bla, ...",
                    StartDate = DateTime.ParseExact("2016-01-24", "yyyy-MM-dd", CultureInfo.InvariantCulture),
@@ -71,6 +73,7 @@ namespace Lexicon_LMS.Migrations
                {
                    Name = "Test 2015",
                    GroupId = 1,
+                   CourseId = 3,
                    Teacher = "Mattias Östholm",
                    Description = "Test är bra, bla, bla, ...",
                    StartDate = DateTime.ParseExact("2016-02-13", "yyyy-MM-dd", CultureInfo.InvariantCulture),
@@ -81,6 +84,7 @@ namespace Lexicon_LMS.Migrations
                {
                    Name = "SCRUM 2015",
                    GroupId = 1,
+                   CourseId = 4,
                    Teacher = "Adrian",
                    Description = "SCRUM är bättre, bla, bla, ...",
                    StartDate = DateTime.ParseExact("2016-02-18", "yyyy-MM-dd", CultureInfo.InvariantCulture),
@@ -91,6 +95,7 @@ namespace Lexicon_LMS.Migrations
                {
                    Name = "AngularJS 2015",
                    GroupId = 1,
+                   CourseId = 5, 
                    Teacher = "Oscar Jakobsson",
                    Description = "AngularJS är bäst, bla, bla, ...",
                    StartDate = DateTime.ParseExact("2016-02-22", "yyyy-MM-dd", CultureInfo.InvariantCulture),
@@ -101,6 +106,7 @@ namespace Lexicon_LMS.Migrations
                {
                    Name = "MVC5 2015",
                    GroupId = 1,
+                   CourseId = 6,
                    Teacher = "Adrian",
                    Description = "MVC5 är ? , bla, bla, ...",
                    StartDate = DateTime.ParseExact("2016-02-25", "yyyy-MM-dd", CultureInfo.InvariantCulture),
@@ -111,7 +117,8 @@ namespace Lexicon_LMS.Migrations
                {
                    Name = "LMS Projekt 2015",
                    GroupId = 1,
-                   Teacher = "Oscar Jakobsson",
+                   CourseId = 7,
+                   Teacher = "Oscar JAkobsson",
                    Description = "MVC5 är ? , bla, bla, ...",
                    StartDate = DateTime.ParseExact("2016-03-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                    EndDate = DateTime.ParseExact("2016-03-18", "yyyy-MM-dd", CultureInfo.InvariantCulture)
@@ -121,6 +128,7 @@ namespace Lexicon_LMS.Migrations
                {
                    Name = "C# 2016",
                    GroupId = 2,
+                   CourseId = 8,
                    Teacher = "Oscar Jakobsson",
                    Description = "Bla, mer bla 888.",
                    StartDate = DateTime.ParseExact("2016-04-07", "yyyy-MM-dd", CultureInfo.InvariantCulture),
@@ -131,6 +139,7 @@ namespace Lexicon_LMS.Migrations
                {
                    Name = "C# 2016 del2",
                    GroupId = 2,
+                   CourseId = 9,
                    Teacher = "Adrian",
                    Description = "Bla, bla, bla, pust, ...",
                    StartDate = DateTime.ParseExact("2016-04-30", "yyyy-MM-dd", CultureInfo.InvariantCulture),
@@ -141,6 +150,7 @@ namespace Lexicon_LMS.Migrations
                {
                    Name = "C# 2016 del3",
                    GroupId = 2,
+                   CourseId = 10,
                    Teacher = "Pontus",
                    Description = "Bla, bla, bla, ...",
                    StartDate = DateTime.ParseExact("2016-05-13", "yyyy-MM-dd", CultureInfo.InvariantCulture),
@@ -151,6 +161,7 @@ namespace Lexicon_LMS.Migrations
                {
                    Name = "Test 2016",
                    GroupId = 2,
+                   CourseId = 11,
                    Teacher = "Mattias Östholm",
                    Description = "Test är bra, bla, bla, ...",
                    StartDate = DateTime.ParseExact("2016-06-27", "yyyy-MM-dd", CultureInfo.InvariantCulture),
@@ -161,6 +172,7 @@ namespace Lexicon_LMS.Migrations
                {
                    Name = "SCRUM 2016",
                    GroupId = 2,
+                   CourseId = 12,
                    Teacher = "Adrian",
                    Description = "SCRUM är bättre, bla, bla, ...",
                    StartDate = DateTime.ParseExact("2016-06-30", "yyyy-MM-dd", CultureInfo.InvariantCulture),
@@ -171,6 +183,7 @@ namespace Lexicon_LMS.Migrations
                {
                    Name = "AngularJS 2016",
                    GroupId = 2,
+                   CourseId = 13,
                    Teacher = "Oscar Jakobsson",
                    Description = "AngularJS är bäst, bla, bla, ...",
                    StartDate = DateTime.ParseExact("2016-07-05", "yyyy-MM-dd", CultureInfo.InvariantCulture),
@@ -181,6 +194,7 @@ namespace Lexicon_LMS.Migrations
                {
                    Name = "MVC5 2016",
                    GroupId = 2,
+                   CourseId = 14,
                    Teacher = "Adrian",
                    Description = "MVC5 är ? , bla, bla, ...",
                    StartDate = DateTime.ParseExact("2016-07-13", "yyyy-MM-dd", CultureInfo.InvariantCulture),
@@ -191,13 +205,16 @@ namespace Lexicon_LMS.Migrations
                {
                    Name = "LMS Projekt 2016",
                    GroupId = 2,
-                   Teacher = "Oscar Jakobsson",
+                   CourseId = 15,
+                   Teacher = "Oscar JAkobsson",
                    Description = "MVC5 är ? , bla, bla, ...",
                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                }
              );
 
+            //"plåster" för att få databaskoppling innan vi la till CourseId i Courese seeden.
+            // context.SaveChanges();
 
             var roleStore = new RoleStore<IdentityRole>(context);
             var roleManager = new RoleManager<IdentityRole>(roleStore);
@@ -244,6 +261,102 @@ namespace Lexicon_LMS.Migrations
 
             user = userManager.FindByEmail("oscar.jakobsson@lexicon.se");
             userManager.AddToRole(user.Id, "Teacher");
+
+// Disas kod
+
+            context.Activities.AddOrUpdate(
+                a => a.Name,
+                new Activity 
+                { 
+                    CourseId = 1, 
+                    Type = "Lärarledd kurs", 
+                    Name = "Databaser del 1", 
+                    Teacher = "Adrian Lozano", 
+                    Description = "Databas är bra att ha bla bla bla",  
+                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture), 
+                    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                },
+
+                new Activity 
+                {
+                    CourseId = 8, 
+                    Type = "Självstudier", 
+                    Name = "E-learning", 
+                    Teacher = "Oscar Jacobsson", 
+                    Description = "Plural sight kurs",  
+                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture), 
+                    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                },
+
+                new Activity 
+                { 
+                    CourseId = 2, 
+                    Type = "Lärarledd kurs", 
+                    Name = "C# fortsättningskurs", 
+                    Teacher = "Oscar Jacobsson", 
+                    Description = "I denna kurs kommer vi att lära oss mer om  C#", 
+                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture), 
+                    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                },
+
+                new Activity 
+                { 
+                    CourseId = 6, 
+                    Type = "Lärarledd kurs", 
+                    Name = "Mvc grunder", 
+                    Teacher = "Adrian Lozano", 
+                    Description = "Kursen kommer att gå igenom grunderna i mvc",  
+                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture), 
+                    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                },
+
+                new Activity
+                { 
+                    CourseId = 1, 
+                    Type = "Självstudier", 
+                    Name = "E-learning C#", 
+                    Teacher = "Oskar Jakobsson", 
+                    Description = "E-learning C# är bra för att bla bla bla",  
+                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture), 
+                    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                },
+
+                new Activity 
+                {
+                    CourseId = 8, 
+                    Type = "Lärarledd kurs", 
+                    Name = "C#", 
+                    Teacher = "Oscar Jacobsson", 
+                    Description = "I denna kur skommer vi gå igenom bla bla bla bla.",  
+                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture), 
+                    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                },
+
+                 new Activity 
+                { 
+                    CourseId = 2, 
+                    Type = "Lärarledd kurs", 
+                    Name = "C# fortsättningskurs 2015", 
+                    Teacher = "Oscar Jacobsson", 
+                    Description = "I denna kurs kommer vi att lära oss mer om  C# och bla bla bla bla", 
+                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture), 
+                    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                },
+
+                new Activity 
+                { 
+                    CourseId = 6, 
+                    Type = "Självstudier", 
+                    Name = "E-learning", 
+                    Teacher = "Adrian Lozano", 
+                    Description = "Kursen kommer att bestå av e-learning på pluralsight",  
+                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture), 
+                    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                }
+            );
+
+            
+
         }
     }
 }
