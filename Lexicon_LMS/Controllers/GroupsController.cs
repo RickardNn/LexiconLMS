@@ -8,8 +8,10 @@ using System.Web;
 using System.Web.Mvc;
 using Lexicon_LMS.Models;
 
+
 namespace Lexicon_LMS
 {
+    [Authorize(Roles = "Teacher")]
     public class GroupsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -17,7 +19,36 @@ namespace Lexicon_LMS
         // GET: Groups
         public ActionResult Index()
         {
-            return View(db.Groups.ToList());
+            string userName = User.Identity.Name;
+
+            var firstName = (from u in db.Users
+                             where u.UserName == userName
+                             select u.FirstName).FirstOrDefault();
+
+            var lastName = (from u in db.Users
+                           where u.UserName == userName
+                           select u.LastName).FirstOrDefault();
+
+            string fullName = firstName + " " + lastName;
+
+
+            //var _firstName = db.Users.Where(u => u.UserName == userName);
+            //var _lastName = db.Users.Where(u => u.UserName == userName);
+
+            //var iD = db.Users.Where(i => i.Email == userName);
+            //var iD = (from p in db.Users where p.Email == userName select p.Id).FirstOrDefault();
+            //var user = db.Users.Where(u => u.Id == iD).FirstOrDefault().Roles.FirstOrDefault().;
+
+           // User.IsInRole("Teacher");
+            //User.IsInRole("Student");
+
+            //var roleId = from r in db. where r. == iD select r.Id;
+            //var rId = roleId;
+
+            //int userId = db.
+            //if (User.Identity.Name == "oscar.jakobsson@lexicon.se")
+
+            return View(db.Groups.Where(g => g.Teacher == fullName).OrderBy(d => d.StartDate));
         }
 
         // GET: Groups/Details/5
