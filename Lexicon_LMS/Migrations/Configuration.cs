@@ -44,6 +44,16 @@ namespace Lexicon_LMS.Migrations
                 new Group { Name = "Avancerad C Del 2", Teacher = "Anders Andersson", Description = "Moment 2.", StartDate = DateTime.Today, EndDate = DateTime.Today }
             );
 
+            //context.Courses.AddOrUpdate(
+            //r => r.Name,
+            //new Course { GroupId = 2, Name = "Test1", Teacher = "Oscar Jakobsson1", Description = "Bla, bla 1. test", StartDate = DateTime.Today, EndDate = DateTime.Today },
+            //new Course { GroupId = 2, Name = "Test2", Teacher = "Oscar Jakobsson2", Description = "Bla, bla 2. test", StartDate = DateTime.Today, EndDate = DateTime.Today },
+            //new Course { GroupId = 3, Name = "Test1", Teacher = "Oscar Jakobsson3", Description = "Bla, bla 3. test", StartDate = DateTime.Today, EndDate = DateTime.Today },
+            //new Course { GroupId = 3, Name = "Test2", Teacher = "Oscar Jakobsson4", Description = "Bla, bla 4. test", StartDate = DateTime.Today, EndDate = DateTime.Today },
+            //new Course { GroupId = 2, Name = "Test1", Teacher = "Oscar Jakobsson5", Description = "Bla, bla 5. test", StartDate = DateTime.Today, EndDate = DateTime.Today },
+            //new Course { GroupId = 3, Name = "Test2", Teacher = "Oscar Jakobsson6", Description = "Bla, bla 6. test", StartDate = DateTime.Today, EndDate = DateTime.Today }
+            //);
+
 
             var roleStore = new RoleStore<IdentityRole>(context);
             var roleManager = new RoleManager<IdentityRole>(roleStore);
