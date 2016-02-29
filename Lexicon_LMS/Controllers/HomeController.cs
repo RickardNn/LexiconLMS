@@ -10,6 +10,14 @@ namespace Lexicon_LMS.Controllers
     {
         public ActionResult Index()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                ViewBag.Message = "Du är en godkänd användare";
+            }
+            else
+            {
+                ViewBag.Message = "Du är ej inloggad";
+            };
             return View();
         }
 

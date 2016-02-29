@@ -6,6 +6,7 @@ namespace Lexicon_LMS.Migrations
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
+    using System.Globalization;
     using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<Lexicon_LMS.Models.ApplicationDbContext>
@@ -32,7 +33,171 @@ namespace Lexicon_LMS.Migrations
 
             context.Groups.AddOrUpdate(
                 p => p.Name,
-                new Group { Name = ".NET utvecklare", Teacher = "Oscar Jakobsson", Description = "Bla, bla ...", StartDate = DateTime.Today, EndDate = DateTime.Today });
+                new Group { GroupId = 1, Name = ".NET utvecklare 2015", Teacher = "Oscar Jakobsson", Description = "Bla, bla 1.", StartDate = DateTime.Today, EndDate = DateTime.Today },
+                new Group { Name = "Java Del 1", Teacher = "Adrian", Description = "Enkel kurs.", StartDate = DateTime.Today, EndDate = DateTime.Today },
+                new Group { GroupId = 2, Name = ".NET utvecklare 2016", Teacher = "Oscar Jakobsson", Description = "Bla, bla 2.", StartDate = DateTime.Today, EndDate = DateTime.Today },
+                new Group { Name = "C++", Teacher = "Pontus", Description = "Bla, bla ...", StartDate = DateTime.Today, EndDate = DateTime.Today },
+                new Group { Name = "Java Del 2", Teacher = "Adrian", Description = "Svår kurs.", StartDate = DateTime.Today, EndDate = DateTime.Today },
+                new Group { Name = "Grundläggande C", Teacher = "Anders Andersson", Description = "Hello world.", StartDate = DateTime.Today, EndDate = DateTime.Today },
+                new Group { Name = "Avancerad C Del 1", Teacher = "Anders Andersson", Description = "Moment 1.", StartDate = DateTime.Today, EndDate = DateTime.Today },
+                new Group { Name = "Assembler", Teacher = "Karin Larsson", Description = "Grundkurs.", StartDate = DateTime.Today, EndDate = DateTime.Today },
+                new Group { Name = "HTML Grunderna", Teacher = "Olov Hansson", Description = "Del 1", StartDate = DateTime.Today, EndDate = DateTime.Today },
+                new Group { Name = "Avancerad C Del 2", Teacher = "Anders Andersson", Description = "Moment 2.", StartDate = DateTime.Today, EndDate = DateTime.Today }
+            );
+
+            context.Courses.AddOrUpdate(
+                c => c.Name,
+               new Course
+               {
+                   Name = "C# 2015",
+                   GroupId = 1,
+                   Teacher = "Oscar Jakobsson",
+                   Description = "Bla, bla 888.",
+                   StartDate = DateTime.ParseExact("2015-12-03", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                   EndDate = DateTime.ParseExact("2016-01-23", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+               },
+
+               new Course
+               {
+                   Name = "C# 2015 del2",
+                   GroupId = 1,
+                   Teacher = "Oscar Jakobsson",
+                   Description = "Bla, bla, bla, ...",
+                   StartDate = DateTime.ParseExact("2016-01-24", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                   EndDate = DateTime.ParseExact("2016-02-12", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+               },
+
+               new Course
+               {
+                   Name = "Test 2015",
+                   GroupId = 1,
+                   Teacher = "Mattias Östholm",
+                   Description = "Test är bra, bla, bla, ...",
+                   StartDate = DateTime.ParseExact("2016-02-13", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                   EndDate = DateTime.ParseExact("2016-02-17", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+               },
+
+               new Course
+               {
+                   Name = "SCRUM 2015",
+                   GroupId = 1,
+                   Teacher = "Adrian",
+                   Description = "SCRUM är bättre, bla, bla, ...",
+                   StartDate = DateTime.ParseExact("2016-02-18", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                   EndDate = DateTime.ParseExact("2016-02-21", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+               },
+
+               new Course
+               {
+                   Name = "AngularJS 2015",
+                   GroupId = 1,
+                   Teacher = "Oscar Jakobsson",
+                   Description = "AngularJS är bäst, bla, bla, ...",
+                   StartDate = DateTime.ParseExact("2016-02-22", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                   EndDate = DateTime.ParseExact("2016-02-24", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+               },
+
+               new Course
+               {
+                   Name = "MVC5 2015",
+                   GroupId = 1,
+                   Teacher = "Adrian",
+                   Description = "MVC5 är ? , bla, bla, ...",
+                   StartDate = DateTime.ParseExact("2016-02-25", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                   EndDate = DateTime.ParseExact("2016-03-01", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+               },
+
+               new Course
+               {
+                   Name = "LMS Projekt",
+                   GroupId = 1,
+                   Teacher = "Oscar JAkobsson",
+                   Description = "MVC5 är ? , bla, bla, ...",
+                   StartDate = DateTime.ParseExact("2016-03-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                   EndDate = DateTime.ParseExact("2016-03-18", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+               },
+
+               new Course
+               {
+                   Name = "C# 2016",
+                   GroupId = 2,
+                   Teacher = "Oscar Jakobsson",
+                   Description = "Bla, mer bla 888.",
+                   StartDate = DateTime.ParseExact("2016-04-07", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                   EndDate = DateTime.ParseExact("2016-04-29", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+               },
+
+               new Course
+               {
+                   Name = "C# 2016 del2",
+                   GroupId = 2,
+                   Teacher = "Adrian",
+                   Description = "Bla, bla, bla, pust, ...",
+                   StartDate = DateTime.ParseExact("2016-04-30", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                   EndDate = DateTime.ParseExact("2016-05-12", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+               },
+
+               new Course
+               {
+                   Name = "C# 2016 del3",
+                   GroupId = 2,
+                   Teacher = "Pontus",
+                   Description = "Bla, bla, bla, ...",
+                   StartDate = DateTime.ParseExact("2016-05-13", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                   EndDate = DateTime.ParseExact("2016-05-26", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+               },
+
+               new Course
+               {
+                   Name = "Test 2016",
+                   GroupId = 2,
+                   Teacher = "Mattias Östholm",
+                   Description = "Test är bra, bla, bla, ...",
+                   StartDate = DateTime.ParseExact("2016-06-27", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                   EndDate = DateTime.ParseExact("2016-06-29", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+               },
+
+               new Course
+               {
+                   Name = "SCRUM 2016",
+                   GroupId = 2,
+                   Teacher = "Adrian",
+                   Description = "SCRUM är bättre, bla, bla, ...",
+                   StartDate = DateTime.ParseExact("2016-06-30", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                   EndDate = DateTime.ParseExact("2016-07-04", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+               },
+
+               new Course
+               {
+                   Name = "AngularJS 2016",
+                   GroupId = 2,
+                   Teacher = "Oscar Jakobsson",
+                   Description = "AngularJS är bäst, bla, bla, ...",
+                   StartDate = DateTime.ParseExact("2016-07-05", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                   EndDate = DateTime.ParseExact("2016-07-12", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+               },
+
+               new Course
+               {
+                   Name = "MVC5 2016",
+                   GroupId = 2,
+                   Teacher = "Adrian",
+                   Description = "MVC5 är ? , bla, bla, ...",
+                   StartDate = DateTime.ParseExact("2016-07-13", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                   EndDate = DateTime.ParseExact("2016-07-14", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+               },
+
+            new Course
+               {
+                   Name = "LMS Projekt 2016",
+                   GroupId = 2,
+                   Teacher = "Oscar JAkobsson",
+                   Description = "MVC5 är ? , bla, bla, ...",
+                   StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                   EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+               }
+             );
+
 
             var roleStore = new RoleStore<IdentityRole>(context);
             var roleManager = new RoleManager<IdentityRole>(roleStore);
