@@ -315,7 +315,7 @@ namespace Lexicon_LMS.Migrations
                     CourseId = 1, 
                     Type = "Självstudier", 
                     Name = "E-learning C#", 
-                    Teacher = "Oskar Jakobsson", 
+                    Teacher = "Oscar Jakobsson", 
                     Description = "E-learning C# är bra för att bla bla bla",  
                     StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture), 
                     EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)

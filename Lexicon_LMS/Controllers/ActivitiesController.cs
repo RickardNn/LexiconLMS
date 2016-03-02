@@ -14,12 +14,29 @@ namespace Lexicon_LMS
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Activities
+
+        // GET: 
         public ActionResult Index()
         {
+            var ActiveUser = db.Users.Where(u => u.UserName == User.Identity.Name.ToString()).ToList().FirstOrDefault();
+
+            ViewBag.Message = "Du är en godkänd användare " + ActiveUser.FirstName + " " + ActiveUser.LastName;
+
             var activities = db.Activities.Include(a => a.Course);
+            
+            //var courses = db.Courses.Where(c => c.GroupId == ActiveUser.GroupId);
+            //var activities = db.Activities.Where(a => a.CourseId == AKTUELL_KURS_ID).ToList();
+
             return View(activities.ToList());
         }
+
+        
+        //// GET: Activities
+        //public ActionResult Index()
+        //{
+        //    var activities = db.Activities.Include(a => a.Course);
+        //    return View(activities.ToList());
+        //}
 
         // GET: Activities/Details/5
         public ActionResult Details(int? id)
