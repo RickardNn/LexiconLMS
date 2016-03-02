@@ -15,15 +15,36 @@ namespace Lexicon_LMS
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Courses
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    var ActiveUser = db.Users.Where(u => u.UserName == User.Identity.Name.ToString()).ToList().FirstOrDefault();
+
+        //    ViewBag.Message = "Du är inloggad " + ActiveUser.FirstName + " " + ActiveUser.LastName + " du deltager i: " + db.Groups.First().Name;
+        //    ViewBag.Message2 = db.Groups.First().Name;
+        //    var courses = db.Courses.Where(c => c.GroupId == ActiveUser.GroupId);
+        //    //            var activities = db.Activities.Where(a => a.CourseId == AKTUELLT_KURS_ID).ToList();
+
+        //    //var courses = db.Courses.Include(c => c.Group).Where(c => c.GroupId == db.Users.Where(u => u.GroupId.ToString() == c.GroupId()).ToList().FirstOrDefault().FirstName;
+        //    return View(courses.ToList());
+        //}
+
+        // GET: Courses/5
+        public ActionResult Index(int? id)
         {
             var ActiveUser = db.Users.Where(u => u.UserName == User.Identity.Name.ToString()).ToList().FirstOrDefault();
+            ViewBag.Message = "Du är inloggad " + ActiveUser.FirstName + " " + ActiveUser.LastName + " du deltager i: " + db.Groups.First().Name;
+            ViewBag.Message2 = db.Groups.First().Name;
+            if (id != null)
+            {
+                var courses = db.Courses.Where(c => c.GroupId == id);
+                return View(courses.ToList());
+            }
+            else
+            {
+                var courses = db.Courses.Where(c => c.GroupId == ActiveUser.GroupId);
+                return View(courses.ToList());
+            }
 
-            ViewBag.Message = "Du är en godkänd användare " + ActiveUser.FirstName + " " + ActiveUser.LastName;
-            var courses = db.Courses.Where(c => c.GroupId == ActiveUser.GroupId);
-
-            //var courses = db.Courses.Include(c => c.Group).Where(c => c.GroupId == db.Users.Where(u => u.GroupId.ToString() == c.GroupId()).ToList().FirstOrDefault().FirstName;
-            return View(courses.ToList());
         }
 
         // GET: Courses/Details/5

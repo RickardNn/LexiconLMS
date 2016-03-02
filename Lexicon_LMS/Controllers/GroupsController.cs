@@ -48,8 +48,36 @@ namespace Lexicon_LMS
             //int userId = db.
             //if (User.Identity.Name == "oscar.jakobsson@lexicon.se")
 
+            ViewBag.TeacherName = fullName;
+
             return View(db.Groups.Where(g => g.Teacher == fullName).OrderBy(d => d.StartDate));
         }
+
+
+        // GET: All Groups
+        public ActionResult ListAllGroups()
+        {
+            string userName = User.Identity.Name;
+
+            var firstName = (from u in db.Users
+                             where u.UserName == userName
+                             select u.FirstName).FirstOrDefault();
+
+            var lastName = (from u in db.Users
+                            where u.UserName == userName
+                            select u.LastName).FirstOrDefault();
+
+            string fullName = firstName + " " + lastName;
+
+           // ViewBag.TeacherName = fullName;
+
+            return View(db.Groups.OrderBy(d => d.StartDate));
+
+        }
+
+
+
+
 
         // GET: Groups/Details/5
         public ActionResult Details(int? id)

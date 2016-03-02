@@ -1,23 +1,25 @@
-﻿@model IEnumerable<Lexicon_LMS.Models.Group>
+﻿@model IEnumerable<Lexicon_LMS.Models.Course>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "CourseOfGroup";
 }
 
-<h2>@ViewBag.TeacherName:s grupper</h2>
+<h2>CourseOfGroup</h2>
 
 <p>
-    @*@Html.ActionLink("Create New", "Create")*@
-    @Html.ActionLink("Lista samtliga grupper på Lexicon", "ListAllGroups")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.Group.Name)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
-        @*<th>
+        <th>
             @Html.DisplayNameFor(model => model.Teacher)
-        </th>*@
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
@@ -33,11 +35,14 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.ActionLink(item.Name, "Index", "Courses", new { id = item.GroupId }, null)
+            @Html.DisplayFor(modelItem => item.Group.Name)
         </td>
-        @*<td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Teacher)
-        </td>*@
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Description)
         </td>
@@ -48,9 +53,9 @@
             @Html.DisplayFor(modelItem => item.EndDate)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.GroupId }) |
-            @*@Html.ActionLink("Details", "Details", new { id=item.GroupId }) |*@
-            @Html.ActionLink("Delete", "Delete", new { id=item.GroupId })
+            @Html.ActionLink("Edit", "Edit", new { id=item.CourseId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CourseId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CourseId })
         </td>
     </tr>
 }

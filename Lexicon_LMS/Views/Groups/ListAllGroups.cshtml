@@ -1,19 +1,14 @@
-﻿@model IEnumerable<Lexicon_LMS.Models.Course>
+﻿@model IEnumerable<Lexicon_LMS.Models.Group>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "ListAllGroups";
 }
 
+<h2>Alla grupper på Lexicon</h2>
 
-<h2>@ViewBag.Message</h2>
-<h2>@ViewBag.Message2 / Kurser</h2>
-
-@if (User.IsInRole("Teacher"))
-{
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-}
+<p>
+    @Html.ActionLink("Tillbaka", "Index")
+</p>
 <table class="table">
     <tr>
         <th>
@@ -38,8 +33,7 @@
     {
         <tr>
             <td>
-                @Html.ActionLink(item.Name, "Index", "Activities", new { id = item.CourseId }, null)
-                @*@Html.DisplayFor(modelItem => item.Name)*@
+                @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Teacher)
@@ -53,22 +47,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.EndDate)
             </td>
-            @if (User.IsInRole("Teacher"))
-            {
-                <td>
-                    @Html.ActionLink("Details", "Details", new { id = item.CourseId }) |
-                    @Html.ActionLink("Edit", "Edit", new { id = item.CourseId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.CourseId })
-                </td>
-            }
-            else
-            {
-                <td>
-                    @Html.ActionLink("Details", "Details", new { id = item.CourseId })
-                </td>
-
-            }
+            @*<td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.GroupId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.GroupId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.GroupId })
+            </td>*@
         </tr>
     }
 
 </table>
+
+
