@@ -264,6 +264,7 @@
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Groups\ListAllGroups.cshtml" />
+    <Content Include="Views\Courses\CourseOfGroup.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

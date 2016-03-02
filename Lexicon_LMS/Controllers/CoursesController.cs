@@ -28,6 +28,20 @@ namespace Lexicon_LMS
             return View(courses.ToList());
         }
 
+        // GET: Courses/5
+        public ActionResult CourseOfGroup(int? id)
+        {
+            var ActiveUser = db.Users.Where(u => u.UserName == User.Identity.Name.ToString()).ToList().FirstOrDefault();
+
+            ViewBag.Message = "Du är inloggad " + ActiveUser.FirstName + " " + ActiveUser.LastName + " du deltager i: " + db.Groups.First().Name;
+            ViewBag.Message2 = db.Groups.First().Name;
+            var courses = db.Courses.Where(c => c.GroupId == id);
+            //            var activities = db.Activities.Where(a => a.CourseId == AKTUELLT_KURS_ID).ToList();
+
+            //var courses = db.Courses.Include(c => c.Group).Where(c => c.GroupId == db.Users.Where(u => u.GroupId.ToString() == c.GroupId()).ToList().FirstOrDefault().FirstName;
+            return View(courses.ToList());
+        }
+
         // GET: Courses/Details/5
         public ActionResult Details(int? id)
         {
