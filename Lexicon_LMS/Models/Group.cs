@@ -20,6 +20,7 @@ namespace Lexicon_LMS.Models
         [DisplayName("Lärare")]
         public string Teacher { get; set; }
 
+        [Required]
         [DisplayName("Beskrivning")]
         public string Description { get; set; }
 
