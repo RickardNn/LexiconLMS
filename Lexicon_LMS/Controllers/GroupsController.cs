@@ -20,16 +20,20 @@ namespace Lexicon_LMS
         public ActionResult Index()
         {
             string userName = User.Identity.Name;
+            string fullName = FindTeacherName(userName); //anropar metod som utifrån mailadress(userName) returnerar för- och efternamn på lärare.
 
-            var firstName = (from u in db.Users
-                             where u.UserName == userName
-                             select u.FirstName).FirstOrDefault();
+            //var firstName = (from u in db.Users
+            //                 where u.UserName == userName
+            //                 select u.FirstName).FirstOrDefault();
 
-            var lastName = (from u in db.Users
-                           where u.UserName == userName
-                           select u.LastName).FirstOrDefault();
+            //var lastName = (from u in db.Users
+            //               where u.UserName == userName
+            //               select u.LastName).FirstOrDefault();
 
-            string fullName = firstName + " " + lastName;
+            ////string fullName = firstName + " " + lastName;
+            //string fullName = firstName + " " + lastName;
+
+
 
 
             //var _firstName = db.Users.Where(u => u.UserName == userName);
@@ -49,7 +53,6 @@ namespace Lexicon_LMS
             //if (User.Identity.Name == "oscar.jakobsson@lexicon.se")
 
             ViewBag.TeacherName = fullName;
-
             return View(db.Groups.Where(g => g.Teacher == fullName).OrderBy(d => d.StartDate));
         }
 
@@ -74,8 +77,6 @@ namespace Lexicon_LMS
             return View(db.Groups.OrderBy(d => d.StartDate));
 
         }
-
-
 
 
 
@@ -117,9 +118,14 @@ namespace Lexicon_LMS
             return View(group);
         }
 
+
         // GET: Groups/Edit/5
         public ActionResult Edit(int? id)
         {
+            string userName = User.Identity.Name;
+            string fullName = FindTeacherName(userName);
+            ViewBag.TeacherName = fullName;
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -131,6 +137,8 @@ namespace Lexicon_LMS
             }
             return View(group);
         }
+
+
 
         // POST: Groups/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -181,6 +189,22 @@ namespace Lexicon_LMS
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+
+        //Metod som tar emot mailadress(userName) för inloggad lärare och returnerar för- och efternamn.
+        private string FindTeacherName(string name)
+        {
+            var firstName = (from u in db.Users
+                             where u.UserName == name
+                             select u.FirstName).FirstOrDefault();
+
+            var lastName = (from u in db.Users
+                            where u.UserName == name
+                            select u.LastName).FirstOrDefault();
+
+            string fullName = firstName + " " + lastName;
+            return fullName;
         }
     }
 }
