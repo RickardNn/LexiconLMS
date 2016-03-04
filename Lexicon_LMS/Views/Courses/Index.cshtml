@@ -11,7 +11,7 @@
 @if (User.IsInRole("Teacher"))
 {
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Skapa ny", "Create")
     </p>
 }
 <table class="table">
@@ -56,15 +56,15 @@
             @if (User.IsInRole("Teacher"))
             {
                 <td>
-                    @Html.ActionLink("Details", "Details", new { id = item.CourseId }) |
-                    @Html.ActionLink("Edit", "Edit", new { id = item.CourseId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.CourseId })
+                    @Html.ActionLink("Detaljer", "Details", new { id = item.CourseId }) |
+                    @Html.ActionLink("Ändra", "Edit", new { id = item.CourseId }) |
+                    @Html.ActionLink("Ta bort", "Delete", new { id = item.CourseId })
                 </td>
             }
             else
             {
                 <td>
-                    @Html.ActionLink("Details", "Details", new { id = item.CourseId })
+                    @Html.ActionLink("Detaljer", "Details", new { id = item.CourseId })
                 </td>
 
             }
