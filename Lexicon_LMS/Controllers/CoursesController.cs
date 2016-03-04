@@ -32,8 +32,10 @@ namespace Lexicon_LMS
         public ActionResult Index(int? id)
         {
             var ActiveUser = db.Users.Where(u => u.UserName == User.Identity.Name.ToString()).ToList().FirstOrDefault();
-            ViewBag.Message = "Du är inloggad " + ActiveUser.FirstName + " " + ActiveUser.LastName + " du deltager i: " + db.Groups.First().Name;
-            ViewBag.Message2 = db.Groups.First().Name;
+            var ActiveGroup = db.Groups.Where(g => g.GroupId == ActiveUser.GroupId);
+            ViewBag.Message = "Du är inloggad " + ActiveUser.FirstName + " " + ActiveUser.LastName + " du deltager i: " + ActiveGroup.First().Name;
+            ViewBag.GroupName = ActiveGroup.First().Name;
+            ViewBag.GroupId = ActiveGroup.First().GroupId;
             if (id != null)
             {
                 var courses = db.Courses.Where(c => c.GroupId == id);

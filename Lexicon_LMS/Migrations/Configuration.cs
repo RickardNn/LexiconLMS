@@ -4,6 +4,7 @@ namespace Lexicon_LMS.Migrations
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Globalization;
@@ -18,23 +19,58 @@ namespace Lexicon_LMS.Migrations
 
         protected override void Seed(Lexicon_LMS.Models.ApplicationDbContext context)
         {
-            context.Groups.AddOrUpdate(
-                p => p.Name,
-                new Group
-                { 
+            var roleStore = new RoleStore<IdentityRole>(context);
+            var roleManager = new RoleManager<IdentityRole>(roleStore);
+
+            foreach (string roleName in new[] { "Teacher", "Student" })
+            {
+                if (!context.Roles.Any(r => r.Name == roleName))
+                {
+                    var role = new IdentityRole { Name = roleName };
+                    roleManager.Create(role);
+                }
+
+            }
+
+
+            var userStore = new UserStore<ApplicationUser>(context);
+            var userManager = new UserManager<ApplicationUser>(userStore);
+
+            var users = new List<ApplicationUser> {
+                new ApplicationUser {FirstName = "Oscar", LastName = "Jakobsson", Email = "oscar.jakobsson@lexicon.se", UserName = "oscar.jakobsson@lexicon.se"},
+                new ApplicationUser {FirstName = "Adrian", LastName = "Lozano", Email = "adrian.lozano@lexicon.se", UserName = "adrian.lozano@lexicon.se"},
+                
+            };
+
+            var NewUserList = new List<ApplicationUser>();
+
+            foreach (var u in users)
+            {
+                userManager.Create(u, "foobar");
+                var user = userManager.FindByEmail(u.Email);
+                NewUserList.Add(user);
+                userManager.AddToRole(user.Id, "Teacher");
+            }
+
+
+
+            var groups = new List<Group> {
+                new Group 
+                {
                     GroupId = 1,
                     Name = ".NET utvecklare 2015",
-                    Teacher = "Oscar Jakobsson",
+                    TeacherId = NewUserList[0].Id,
+                    //Teacher = "Oscar Jakobsson",
                     Description = "Grunderna i C#.",
                     StartDate = DateTime.ParseExact("2015-12-03", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                     EndDate = DateTime.ParseExact("2016-02-03", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                 },
-
                 new Group
                 { 
                     GroupId = 2,
                     Name = ".NET utvecklare 2016",
-                    Teacher = "Oscar Jakobsson",
+                    TeacherId = NewUserList[0].Id,
+                    //Teacher = "Oscar Jakobsson",
                     Description = "Grundkurs i C#.",
                     StartDate = DateTime.ParseExact("2016-01-03", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                     EndDate = DateTime.ParseExact("2016-04-13", "yyyy-MM-dd", CultureInfo.InvariantCulture)
@@ -44,7 +80,8 @@ namespace Lexicon_LMS.Migrations
                 { 
                     GroupId = 3,
                     Name = "Java Del 1",
-                    Teacher = "Adrian Lozano",
+                    //Teacher = "Adrian Lozano",
+                    TeacherId = NewUserList[1].Id,
                     Description = "Grundkurs.",
                     StartDate = DateTime.ParseExact("2015-11-04", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                     EndDate = DateTime.ParseExact("2016-04-17", "yyyy-MM-dd", CultureInfo.InvariantCulture)
@@ -54,7 +91,8 @@ namespace Lexicon_LMS.Migrations
                 { 
                     GroupId = 4,
                     Name = "C++",
-                    Teacher = "Adrian Lozano",
+                    //Teacher = "Adrian Lozano",
+                    TeacherId = NewUserList[1].Id,
                     Description = "Objektorienterad programmering.",
                     StartDate = DateTime.ParseExact("2015-10-14", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                     EndDate = DateTime.ParseExact("2015-12-28", "yyyy-MM-dd", CultureInfo.InvariantCulture)
@@ -64,7 +102,8 @@ namespace Lexicon_LMS.Migrations
                 { 
                     GroupId = 5,
                     Name = "Java Del 2",
-                    Teacher = "Adrian Lozano",
+                    //Teacher = "Adrian Lozano",
+                    TeacherId = NewUserList[1].Id,
                     Description = "Fortsättningskurs.",
                     StartDate = DateTime.ParseExact("2016-02-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                     EndDate = DateTime.ParseExact("2016-05-09", "yyyy-MM-dd", CultureInfo.InvariantCulture)
@@ -74,7 +113,8 @@ namespace Lexicon_LMS.Migrations
                 { 
                     GroupId = 6,
                     Name = "Grundläggande C",
-                    Teacher = "Oscar Jakobsson",
+                    //Teacher = "Oscar Jakobsson",
+                    TeacherId = NewUserList[0].Id,
                     Description = "Hello world.",
                     StartDate = DateTime.ParseExact("2015-12-03", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                     EndDate = DateTime.ParseExact("2016-03-23", "yyyy-MM-dd", CultureInfo.InvariantCulture)
@@ -84,7 +124,8 @@ namespace Lexicon_LMS.Migrations
                 { 
                     GroupId = 7,
                     Name = "Avancerad C Del 1",
-                    Teacher = "Oscar Jakobsson",
+                    //Teacher = "Oscar Jakobsson",
+                    TeacherId = NewUserList[0].Id,
                     Description = "Moment 1.",
                     StartDate = DateTime.ParseExact("2015-11-18", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                     EndDate = DateTime.ParseExact("2016-04-07", "yyyy-MM-dd", CultureInfo.InvariantCulture)
@@ -94,7 +135,8 @@ namespace Lexicon_LMS.Migrations
                 { 
                     GroupId = 8,
                     Name = "Assembler",
-                    Teacher = "Adrian Lozano",
+                    //Teacher = "Adrian Lozano",
+                    TeacherId = NewUserList[1].Id,
                     Description = "Grundkurs.",
                     StartDate = DateTime.ParseExact("2015-12-13", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                     EndDate = DateTime.ParseExact("2016-03-08", "yyyy-MM-dd", CultureInfo.InvariantCulture)
@@ -104,7 +146,8 @@ namespace Lexicon_LMS.Migrations
                 { 
                     GroupId = 9,
                     Name = "HTML Grunderna",
-                    Teacher = "Adrian Lozano",
+                    //Teacher = "Adrian Lozano",
+                    TeacherId = NewUserList[1].Id,
                     Description = "Skapa en hemsida.",
                     StartDate = DateTime.ParseExact("2016-03-13", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                     EndDate = DateTime.ParseExact("2016-05-28", "yyyy-MM-dd", CultureInfo.InvariantCulture)
@@ -114,14 +157,21 @@ namespace Lexicon_LMS.Migrations
                 { 
                     GroupId = 10,
                     Name = "Avancerad C Del 2",
-                    Teacher = "Oscar Jakobsson",
+                    //Teacher = "Oscar Jakobsson",
+                    TeacherId = NewUserList[0].Id,
                     Description = "Moment 2.",
                     StartDate = DateTime.ParseExact("2016-04-08", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                     EndDate = DateTime.ParseExact("2016-07-07", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                 }
-            );
 
+            };
 
+            foreach (var gr in groups)
+            {
+                context.Groups.AddOrUpdate(g => g.Name, gr);
+            }
+
+            //context.SaveChanges();
 
             context.Courses.AddOrUpdate(
                 c => c.Name,
@@ -173,7 +223,7 @@ namespace Lexicon_LMS.Migrations
                {
                    Name = "AngularJS 2015",
                    GroupId = 1,
-                   CourseId = 5, 
+                   CourseId = 5,
                    Teacher = "Oscar Jakobsson",
                    Description = "AngularJS del 1.",
                    StartDate = DateTime.ParseExact("2016-02-22", "yyyy-MM-dd", CultureInfo.InvariantCulture),
@@ -294,161 +344,185 @@ namespace Lexicon_LMS.Migrations
             //"plåster" för att få databaskoppling innan vi la till CourseId i Courese seeden.
             // context.SaveChanges();
 
-            var roleStore = new RoleStore<IdentityRole>(context);
-            var roleManager = new RoleManager<IdentityRole>(roleStore);
 
-            foreach (string roleName in new[] { "Teacher", "Student" })
+            var users2 = new List<ApplicationUser> {
+                new ApplicationUser { FirstName = "Nina", LastName = "Eriksson", Email = "nina@hemma.se", UserName = "nina@hemma.se", GroupId = 1 },              
+                new ApplicationUser { FirstName = "Rickard", LastName = "Nilsson", Email = "rickard@hemma.se", UserName = "rickard@hemma.se", GroupId = 1 },
+                new ApplicationUser { FirstName = "Disa", LastName = "Hiltunen", Email = "disa@hemma.se", UserName = "disa@hemma.se", GroupId = 1 },
+                new ApplicationUser { FirstName = "Anna", LastName = "Andersson", Email = "anna@hemma.se", UserName = "anna@hemma.se", GroupId = 2 },
+                new ApplicationUser { FirstName = "Kalle", LastName = "Karlsson", Email = "kalle@hemma.se", UserName = "kalle@hemma.se", GroupId = 2 },
+                new ApplicationUser { FirstName = "Stina", LastName = "Persson", Email = "stina@hemma.se", UserName = "stina@hemma.se", GroupId = 2 }
+            };
+
+            foreach (var u in users2)
             {
-                if (!context.Roles.Any(r => r.Name == roleName))
-                {
-                    var role = new IdentityRole { Name = roleName };
-                    roleManager.Create(role);
-                }
-
+                userManager.Create(u, "foobar");
+                userManager.AddToRole(u.Id, "Student");
             }
 
 
-            var userStore = new UserStore<ApplicationUser>(context);
-            var userManager = new UserManager<ApplicationUser>(userStore);
-
-
             //context.Users.AddOrUpdate(
-            var appUser = new ApplicationUser { FirstName = "Nina", LastName = "Eriksson", Email = "nina@hemma.se", UserName = "nina@hemma.se", GroupId = 1 };
-            userManager.Create(appUser, "foobar");
+            //var appUser = new ApplicationUser { FirstName = "Nina", LastName = "Eriksson", Email = "nina@hemma.se", UserName = "nina@hemma.se", GroupId = 1 };
+            //userManager.Create(appUser, "foobar");
 
-            appUser = new ApplicationUser { FirstName = "Rickard", LastName = "Nilsson", Email = "rickard@hemma.se", UserName = "rickard@hemma.se", GroupId = 1 };
-            userManager.Create(appUser, "foobar");
+            //appUser = new ApplicationUser { FirstName = "Rickard", LastName = "Nilsson", Email = "rickard@hemma.se", UserName = "rickard@hemma.se", GroupId = 1 };
+            //userManager.Create(appUser, "foobar");
 
-            appUser = new ApplicationUser { FirstName = "Disa", LastName = "Hiltunen", Email = "disa@hemma.se", UserName = "disa@hemma.se", GroupId = 1 };
-            userManager.Create(appUser, "foobar");
+            //appUser = new ApplicationUser { FirstName = "Disa", LastName = "Hiltunen", Email = "disa@hemma.se", UserName = "disa@hemma.se", GroupId = 1 };
+            //userManager.Create(appUser, "foobar");
 
-            appUser = new ApplicationUser { FirstName = "Anna", LastName = "Andersson", Email = "anna@hemma.se", UserName = "anna@hemma.se", GroupId = 2 };
-            userManager.Create(appUser, "foobar");
+            //appUser = new ApplicationUser { FirstName = "Anna", LastName = "Andersson", Email = "anna@hemma.se", UserName = "anna@hemma.se", GroupId = 2 };
+            //userManager.Create(appUser, "foobar");
 
-            appUser = new ApplicationUser { FirstName = "Kalle", LastName = "Karlsson", Email = "kalle@hemma.se", UserName = "kalle@hemma.se", GroupId = 2 };
-            userManager.Create(appUser, "foobar");
+            //appUser = new ApplicationUser { FirstName = "Kalle", LastName = "Karlsson", Email = "kalle@hemma.se", UserName = "kalle@hemma.se", GroupId = 2 };
+            //userManager.Create(appUser, "foobar");
 
-            appUser = new ApplicationUser { FirstName = "Stina", LastName = "Persson", Email = "stina@hemma.se", UserName = "stina@hemma.se", GroupId = 2 };
-            userManager.Create(appUser, "foobar");
+            //appUser = new ApplicationUser { FirstName = "Stina", LastName = "Persson", Email = "stina@hemma.se", UserName = "stina@hemma.se", GroupId = 2 };
+            //userManager.Create(appUser, "foobar");
 
-            appUser = new ApplicationUser { FirstName = "Oscar", LastName = "Jakobsson", Email = "oscar.jakobsson@lexicon.se", UserName = "oscar.jakobsson@lexicon.se", GroupId = 1 };
-            userManager.Create(appUser, "foobar");
+            //appUser = new ApplicationUser { FirstName = "Oscar", LastName = "Jakobsson", Email = "oscar.jakobsson@lexicon.se", UserName = "oscar.jakobsson@lexicon.se", GroupId = 1 };
+            //userManager.Create(appUser, "foobar");
 
-            appUser = new ApplicationUser { FirstName = "Adrian", LastName = "Lozano", Email = "adrian.lozano@lexicon.se", UserName = "adrian.lozano@lexicon.se", GroupId = 2 };
-            userManager.Create(appUser, "foobar");
-
-
+            //appUser = new ApplicationUser { FirstName = "Adrian", LastName = "Lozano", Email = "adrian.lozano@lexicon.se", UserName = "adrian.lozano@lexicon.se", GroupId = 2 };
+            //userManager.Create(appUser, "foobar");
 
 
-            var user = userManager.FindByEmail("nina@hemma.se");
-            userManager.AddToRole(user.Id, "Student");
-            user = userManager.FindByEmail("disa@hemma.se");
-            userManager.AddToRole(user.Id, "Student");
-            user = userManager.FindByEmail("rickard@hemma.se");
-            userManager.AddToRole(user.Id, "Student");
-            user = userManager.FindByEmail("kalle@hemma.se");
-            userManager.AddToRole(user.Id, "Student");
-            user = userManager.FindByEmail("stina@hemma.se");
-            userManager.AddToRole(user.Id, "Student");
 
-            user = userManager.FindByEmail("oscar.jakobsson@lexicon.se");
-            userManager.AddToRole(user.Id, "Teacher");
-            user = userManager.FindByEmail("adrian.lozano@lexicon.se");
-            userManager.AddToRole(user.Id, "Teacher");
+
+            //var user = userManager.FindByEmail("nina@hemma.se");
+            //userManager.AddToRole(user.Id, "Student");
+            //user = userManager.FindByEmail("disa@hemma.se");
+            //userManager.AddToRole(user.Id, "Student");
+            //user = userManager.FindByEmail("rickard@hemma.se");
+            //userManager.AddToRole(user.Id, "Student");
+            //user = userManager.FindByEmail("kalle@hemma.se");
+            //userManager.AddToRole(user.Id, "Student");
+            //user = userManager.FindByEmail("stina@hemma.se");
+            //userManager.AddToRole(user.Id, "Student");
+
+            //user = userManager.FindByEmail("oscar.jakobsson@lexicon.se");
+            //userManager.AddToRole(user.Id, "Teacher");
+            //user = userManager.FindByEmail("adrian.lozano@lexicon.se");
+            //userManager.AddToRole(user.Id, "Teacher");
 
 
 
             context.Activities.AddOrUpdate(
                 a => a.Name,
-                new Activity 
-                { 
-                    CourseId = 1, 
-                    Type = "Lärarledd kurs", 
-                    Name = "Databaser del 1", 
-                    Teacher = "Adrian Lozano", 
-                    Description = "Databas är bra att ha bla bla bla",  
-                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture), 
-                    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                },
-
-                new Activity 
+                new Activity
                 {
-                    CourseId = 8, 
-                    Type = "Självstudier", 
-                    Name = "E-learning", 
-                    Teacher = "Oscar Jakobsson", 
-                    Description = "Plural sight kurs",  
-                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture), 
-                    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                },
-
-                new Activity 
-                { 
-                    CourseId = 2, 
-                    Type = "Lärarledd kurs", 
-                    Name = "C# fortsättningskurs", 
-                    Teacher = "Oscar Jakobsson", 
-                    Description = "I denna kurs kommer vi att lära oss mer om  C#", 
-                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture), 
-                    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                },
-
-                new Activity 
-                { 
-                    CourseId = 6, 
-                    Type = "Lärarledd kurs", 
-                    Name = "Mvc grunder", 
-                    Teacher = "Adrian Lozano", 
-                    Description = "Kursen kommer att gå igenom grunderna i mvc",  
-                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture), 
+                    CourseId = 1,
+                    Type = "Lärarledd kurs",
+                    Name = "Databaser del 1",
+                    Teacher = "Adrian Lozano",
+                    Description = "Databas är bra att ha bla bla bla",
+                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                     EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                 },
 
                 new Activity
-                { 
-                    CourseId = 1, 
-                    Type = "Självstudier", 
-                    Name = "E-learning C#", 
-                    Teacher = "Oscar Jakobsson", 
-                    Description = "E-learning C# är bra för att bla bla bla",  
-                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture), 
-                    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                },
-
-                new Activity 
                 {
-                    CourseId = 8, 
-                    Type = "Lärarledd kurs", 
-                    Name = "C#", 
-                    Teacher = "Oscar Jakobsson", 
-                    Description = "I denna kur skommer vi gå igenom bla bla bla bla.",  
-                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture), 
+                    CourseId = 8,
+                    Type = "Självstudier",
+                    Name = "E-learning",
+                    Teacher = "Oscar Jakobsson",
+                    Description = "Plural sight kurs",
+                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                     EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                 },
 
-                 new Activity 
-                { 
-                    CourseId = 2, 
-                    Type = "Lärarledd kurs", 
-                    Name = "C# fortsättningskurs 2015", 
-                    Teacher = "Oscar Jakobsson", 
-                    Description = "I denna kurs kommer vi att lära oss mer om  C# och bla bla bla bla", 
-                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture), 
+                new Activity
+                {
+                    CourseId = 2,
+                    Type = "Lärarledd kurs",
+                    Name = "C# fortsättningskurs",
+                    Teacher = "Oscar Jakobsson",
+                    Description = "I denna kurs kommer vi att lära oss mer om  C#",
+                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                     EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                 },
 
-                new Activity 
-                { 
-                    CourseId = 6, 
-                    Type = "Självstudier", 
-                    Name = "E-learning", 
-                    Teacher = "Adrian Lozano", 
-                    Description = "Kursen kommer att bestå av e-learning på pluralsight",  
-                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture), 
+                new Activity
+                {
+                    CourseId = 6,
+                    Type = "Lärarledd kurs",
+                    Name = "Mvc grunder",
+                    Teacher = "Adrian Lozano",
+                    Description = "Kursen kommer att gå igenom grunderna i mvc",
+                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                },
+
+                new Activity
+                {
+                    CourseId = 1,
+                    Type = "Självstudier",
+                    Name = "E-learning C#",
+                    Teacher = "Oscar Jakobsson",
+                    Description = "E-learning C# är bra för att bla bla bla",
+                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                },
+
+                new Activity
+                {
+                    CourseId = 8,
+                    Type = "Lärarledd kurs",
+                    Name = "C#",
+                    Teacher = "Oscar Jakobsson",
+                    Description = "I denna kur skommer vi gå igenom bla bla bla bla.",
+                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                },
+
+                 new Activity
+                {
+                    CourseId = 2,
+                    Type = "Lärarledd kurs",
+                    Name = "C# fortsättningskurs 2015",
+                    Teacher = "Oscar Jakobsson",
+                    Description = "I denna kurs kommer vi att lära oss mer om  C# och bla bla bla bla",
+                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                },
+
+                new Activity
+                {
+                    CourseId = 6,
+                    Type = "Självstudier",
+                    Name = "E-learning",
+                    Teacher = "Adrian Lozano",
+                    Description = "Kursen kommer att bestå av e-learning på pluralsight",
+                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                     EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                 }
             );
 
+            //var groups = new List<Group> {
+            //    new Group { },
+            //    new Group { },
+            //    new Group { },
+            //};
+
+            //foreach (var g in groups) { 
+            //    context.Groups.AddOrUpdate(g => g.Name, groups);
+            //}
+
+            //var users = new List<ApplicationUser> {
+            //    new ApplicationUser { },
+            //    new ApplicationUser { },
+            //    new ApplicationUser { },
+            //};
+
+            //foreach (var u in users)
+            //{
+            //    int userIndex = users.IndexOf(u);
+            //    userManager.Create(u, "foobar");
+            //    userManager.AddToRole(u.Id, userIndex < 5 ? "Teacher" : "Student");
+            //}
+
+            //groups[0].UserId = users[2].Id;
+            //users[1].GroupId = groups[1].GroupId;
             
 
         }

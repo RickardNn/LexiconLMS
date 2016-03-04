@@ -175,7 +175,6 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Activity.cs" />
-    <Compile Include="Models\ApplicationDbContext.Views.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Document.cs" />
     <Compile Include="Models\Group.cs" />
