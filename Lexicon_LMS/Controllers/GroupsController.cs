@@ -53,7 +53,8 @@ namespace Lexicon_LMS
             //if (User.Identity.Name == "oscar.jakobsson@lexicon.se")
 
             ViewBag.TeacherName = fullName;
-            return View(db.Groups.Where(g => g.Teacher == fullName).OrderBy(d => d.StartDate));
+            return View();
+ //           return View(db.Groups.Where(g => g.Users.Where() == fullName).OrderBy(d => d.StartDate));
         }
 
 
