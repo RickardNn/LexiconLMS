@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Foolproof;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -31,9 +32,11 @@ namespace Lexicon_LMS.Models
         [DataType(DataType.Date)]
         public DateTime StartDate { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Slutdatum kan ej vara tidigare än startdatum.")]
+        //[GreaterThan("StartDate")]
         [DisplayName("Slutdatum")]
         [DataType(DataType.Date)]
+        [GreaterThanOrEqualTo("StartDate")]
         public DateTime EndDate { get; set; }
 
         //[ForeignKey("TeacherId")]
