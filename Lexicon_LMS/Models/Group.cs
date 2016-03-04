@@ -29,11 +29,10 @@ namespace Lexicon_LMS.Models
         [DataType(DataType.Date)]
         public DateTime StartDate { get; set; }
 
-        [Required(ErrorMessage = "Slutdatum kan ej vara tidigare än startdatum.")]
-        //[GreaterThan("StartDate")]
+        [Required]
         [DisplayName("Slutdatum")]
         [DataType(DataType.Date)]
-        [GreaterThanOrEqualTo("StartDate")]
+        [GreaterThanOrEqualTo("StartDate", ErrorMessage = "Slutdatum kan ej vara tidigare än startdatum.")]
         public DateTime EndDate { get; set; }
 
         public virtual ICollection<Course> Courses { get; set; }

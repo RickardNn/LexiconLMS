@@ -61,18 +61,20 @@ namespace Lexicon_LMS
         public ActionResult ListAllGroups()
         {
             string userName = User.Identity.Name;
+            string fullName = FindTeacherName(userName); //anropar metod som utifrån mailadress(userName) returnerar för- och efternamn på lärare.
 
-            var firstName = (from u in db.Users
-                             where u.UserName == userName
-                             select u.FirstName).FirstOrDefault();
+            //var firstName = (from u in db.Users
+            //                 where u.UserName == userName
+            //                 select u.FirstName).FirstOrDefault();
 
-            var lastName = (from u in db.Users
-                            where u.UserName == userName
-                            select u.LastName).FirstOrDefault();
+            //var lastName = (from u in db.Users
+            //                where u.UserName == userName
+            //                select u.LastName).FirstOrDefault();
 
-            string fullName = firstName + " " + lastName;
+           // fullName = firstName + " " + lastName;
 
-           // ViewBag.TeacherName = fullName;
+            ViewBag.TeacherName = fullName;
+            ViewBag.Teacher = User.Identity.Name;
 
             return View(db.Groups.OrderBy(d => d.StartDate));
 
@@ -195,16 +197,21 @@ namespace Lexicon_LMS
         //Metod som tar emot mailadress(userName) för inloggad lärare och returnerar för- och efternamn.
         private string FindTeacherName(string name)
         {
-            var firstName = (from u in db.Users
-                             where u.UserName == name
-                             select u.FirstName).FirstOrDefault();
+            var user = db.Users.FirstOrDefault(u => u.UserName == name);
+            return user.FirstName + " " + user.LastName;
+                        
 
-            var lastName = (from u in db.Users
-                            where u.UserName == name
-                            select u.LastName).FirstOrDefault();
 
-            string fullName = firstName + " " + lastName;
-            return fullName;
+            //var firstName = (from u in db.Users
+            //                 where u.UserName == name
+            //                 select u.FirstName).FirstOrDefault();
+
+            //var lastName = (from u in db.Users
+            //                where u.UserName == name
+            //                select u.LastName).FirstOrDefault();
+
+            //string fullName = firstName + " " + lastName;
+            //return fullName;
         }
     }
 }
