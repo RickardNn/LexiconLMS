@@ -20,8 +20,9 @@ namespace Lexicon_LMS
         public ActionResult Index()
         {
             string userName = User.Identity.Name;
+            var activeUser = db.Users.Where(u => u.UserName == User.Identity.Name.ToString()).ToList().FirstOrDefault();
+            //string activeUser = User.Identity.ToString();
             string fullName = FindTeacherName(userName); //anropar metod som utifrån mailadress(userName) returnerar för- och efternamn på lärare.
-
             //var firstName = (from u in db.Users
             //                 where u.UserName == userName
             //                 select u.FirstName).FirstOrDefault();
@@ -53,8 +54,8 @@ namespace Lexicon_LMS
             //if (User.Identity.Name == "oscar.jakobsson@lexicon.se")
 
             ViewBag.TeacherName = fullName;
-            return View();
- //           return View(db.Groups.Where(g => g.Users.Where() == fullName).OrderBy(d => d.StartDate));
+            //return View();
+            return View(db.Groups.Where(g => g.TeacherId == activeUser.Id).OrderBy(d => d.StartDate));
         }
 
 
@@ -75,7 +76,7 @@ namespace Lexicon_LMS
            // fullName = firstName + " " + lastName;
 
             ViewBag.TeacherName = fullName;
-            ViewBag.Teacher = User.Identity.Name;
+            //ViewBag.Teacher = User.Identity.Name;
 
             return View(db.Groups.OrderBy(d => d.StartDate));
 
