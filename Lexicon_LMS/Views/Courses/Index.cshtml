@@ -6,12 +6,12 @@
 
 
 <h2>@ViewBag.Message</h2>
-<h2>@ViewBag.Message2 / Kurser</h2>
+<h4>@ViewBag.GroupName / Kurser</h4>
 
 @if (User.IsInRole("Teacher"))
 {
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Skapa ny", "Create")
     </p>
 }
 <table class="table">
@@ -56,15 +56,15 @@
             @if (User.IsInRole("Teacher"))
             {
                 <td>
-                    @Html.ActionLink("Details", "Details", new { id = item.CourseId }) |
-                    @Html.ActionLink("Edit", "Edit", new { id = item.CourseId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.CourseId })
+                    @Html.ActionLink("Detaljer", "Details", new { id = item.CourseId }) |
+                    @Html.ActionLink("Ändra", "Edit", new { id = item.CourseId }) |
+                    @Html.ActionLink("Ta bort", "Delete", new { id = item.CourseId })
                 </td>
             }
             else
             {
                 <td>
-                    @Html.ActionLink("Details", "Details", new { id = item.CourseId })
+                    @Html.ActionLink("Detaljer", "Details", new { id = item.CourseId })
                 </td>
 
             }
@@ -72,3 +72,4 @@
     }
 
 </table>
+<p>@Html.ActionLink("Se samtliga elever", "Index", "Users", new { groupId = @ViewBag.GroupId }, null)</p>

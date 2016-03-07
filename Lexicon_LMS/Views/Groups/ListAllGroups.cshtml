@@ -7,7 +7,7 @@
 <h2>Alla grupper på Lexicon</h2>
 
 <p>
-    @Html.ActionLink("Tillbaka", "Index")
+    @Html.ActionLink("Åter till mina grupper.", "Index")
 </p>
 <table class="table">
     <tr>
@@ -15,7 +15,7 @@
             @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Teacher)
+            @Html.DisplayNameFor(model => model.TeacherId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Description)
@@ -33,10 +33,11 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @Html.ActionLink(item.Name, "Index", "Courses", new { id = item.GroupId }, null)
+                @*@Html.DisplayFor(modelItem => item.Name)*@
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Teacher)
+                @Html.DisplayFor(modelItem => item.TeacherId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
@@ -48,10 +49,26 @@
                 @Html.DisplayFor(modelItem => item.EndDate)
             </td>
             @*<td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.GroupId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.GroupId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.GroupId })
-            </td>*@
+                    @Html.ActionLink("Edit", "Edit", new { id = item.GroupId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.GroupId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.GroupId })
+                </td>*@
+
+
+
+
+            @*@if (ViewBag.TeacherName == item.Teacher) //om inloggad lärare är huvudlärare för gruppen skrivs länkar för Edit/Delete ut
+            {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.GroupId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.GroupId })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.GroupId })
+                </td>
+            }
+            else
+            {
+                <td>    </td>
+            }*@
         </tr>
     }
 

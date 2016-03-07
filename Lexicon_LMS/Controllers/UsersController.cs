@@ -15,9 +15,26 @@ namespace Lexicon_LMS.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Users
-        public ActionResult Index()
+        public ActionResult Index(int? groupId)
         {
-            return View(db.Users.ToList());
+            var ActiveUser = db.Users.Where(u => u.UserName == User.Identity.Name.ToString()).ToList().FirstOrDefault();
+            var ActiveGroup = db.Groups.Where(g => g.GroupId == ActiveUser.GroupId);
+
+            if (groupId != null)
+            {
+                ViewBag.Message = "Du är inloggad " + ActiveUser.FirstName + " " + ActiveUser.LastName + " du deltager i: " + ActiveGroup.First().Name;
+                ViewBag.GroupId = ActiveGroup.First().Name;
+
+                var users = db.Users.Where(u => u.GroupId == groupId);
+                return View(users.ToList());
+            }
+            else
+            {
+                ViewBag.Message = "Du är inloggad " + ActiveUser.FirstName + " " + ActiveUser.LastName + " du deltager i: " + ActiveGroup.First().Name;
+                ViewBag.GroupId = ActiveGroup.First().Name + " null";
+
+                return View(db.Users.ToList());
+            }
         }
 
         // GET: Users/Details/5

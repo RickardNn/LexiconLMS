@@ -7,8 +7,10 @@
 <h2>@ViewBag.TeacherName:s grupper</h2>
 
 <p>
-    @*@Html.ActionLink("Create New", "Create")*@
     @Html.ActionLink("Lista samtliga grupper på Lexicon", "ListAllGroups")
+</p>
+<p>
+    @Html.ActionLink("Skapa ny grupp", "Create")
 </p>
 <table class="table">
     <tr>
@@ -30,16 +32,23 @@
         <th></th>
     </tr>
 
+
 @foreach (var item in Model) {
     <tr>
         <td>
             @Html.ActionLink(item.Name, "Index", "Courses", new { id = item.GroupId }, null)
         </td>
         @*<td>
-            @Html.DisplayFor(modelItem => item.Teacher)
+            @Html.DisplayFor(modelItem => item.Name)
         </td>*@
         <td>
-            @Html.DisplayFor(modelItem => item.Description)
+            @{
+                string str = (string)item.Description;
+                str = str.Substring(0, 7);
+            }
+            @str...
+            @*@Html.DisplayFor(modelItem => item.Description)*@
+
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.StartDate)
@@ -49,7 +58,7 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.GroupId }) |
-            @*@Html.ActionLink("Details", "Details", new { id=item.GroupId }) |*@
+            @Html.ActionLink("Details", "Details", new { id=item.GroupId }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.GroupId })
         </td>
     </tr>
