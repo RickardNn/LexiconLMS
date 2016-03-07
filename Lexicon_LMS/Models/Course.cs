@@ -28,7 +28,7 @@ namespace Lexicon_LMS.Models
         [Required]
         [DisplayName("Slutdatum")]
         [DataType(DataType.Date)]
-        [GreaterThan("StartDate")]
+        [GreaterThanOrEqualTo("StartDate", ErrorMessage = "Slutdatum kan ej vara tidigare än startdatum.")]
         public DateTime EndDate { get; set; }
 
         public virtual Group Group { get; set; }

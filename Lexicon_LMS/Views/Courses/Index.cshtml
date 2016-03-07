@@ -72,4 +72,11 @@
     }
 
 </table>
-<p>@Html.ActionLink("Se samtliga elever", "Index", "Users", new { groupId = @ViewBag.GroupId }, null)</p>
+@if (User.IsInRole("Teacher"))
+{
+    <p>@Html.ActionLink("Se samtliga elever för lärare", "Index", "Users", new { groupId = @ViewBag.TeachersGroupId }, null)</p>
+}
+else
+{
+    <p>@Html.ActionLink("Se samtliga elever", "Index", "Users", new { groupId = @ViewBag.GroupId }, null)</p>
+}
