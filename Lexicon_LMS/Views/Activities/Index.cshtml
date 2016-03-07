@@ -7,9 +7,16 @@
 <h2>Aktiviteter</h2>
 <h2>@ViewBag.Message</h2>
 
-<p>
+@if (User.IsInRole("Teacher"))
+{
+    <p>
+        @Html.ActionLink("Skapa ny", "Create")
+    </p>
+}
+
+@*<p>
     @Html.ActionLink("Skapa ny", "Create")
-</p>
+</p>*@
 <table class="table">
     <tr>
         <th>
@@ -59,11 +66,28 @@
         <td>
             @Html.DisplayFor(modelItem => item.EndDate)
         </td>
-        <td>
+        @if (User.IsInRole("Teacher"))
+        {
+            <td>
+                @Html.ActionLink("Detaljer", "Details", new { id = item.CourseId }) |
+                @Html.ActionLink("Ändra", "Edit", new { id = item.CourseId }) |
+                @Html.ActionLink("Ta bort", "Delete", new { id = item.CourseId })
+            </td>
+        }
+        else
+        {
+            <td>
+                @Html.ActionLink("Detaljer", "Details", new { id = item.CourseId })
+            </td>
+
+        }
+
+        
+        @*<td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ActivityId }) |
             @Html.ActionLink("Details", "Details", new { id=item.ActivityId }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ActivityId })
-        </td>
+        </td>*@
     </tr>
 }
 
