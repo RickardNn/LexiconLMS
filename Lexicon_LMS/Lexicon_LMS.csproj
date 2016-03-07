@@ -184,7 +184,11 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Bilder\37586996-Learning-Management-System-LMS-word-cloud-business-concept-Stock-Photo.jpg" />
+    <Content Include="Bilder\37836325-Learning-Management-System-LMS-word-cloud-business-concept-Stock-Photo.jpg" />
+    <Content Include="Bilder\38144876-Learning-Management-System-LMS-word-cloud-business-concept-Stock-Photo.jpg" />
     <Content Include="Bilder\ladda ned.png" />
+    <Content Include="Bilder\learning-management-system.jpg" />
     <Content Include="Client Scripts\mvcfoolproof.unobtrusive.js" />
     <Content Include="Client Scripts\mvcfoolproof.unobtrusive.min.js" />
     <Content Include="Client Scripts\MvcFoolproofJQueryValidation.js" />
