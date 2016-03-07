@@ -32,19 +32,42 @@ namespace Lexicon_LMS
         public ActionResult Index(int? id)
         {
             var ActiveUser = db.Users.Where(u => u.UserName == User.Identity.Name.ToString()).ToList().FirstOrDefault();
-            var ActiveGroup = db.Groups.Where(g => g.GroupId == ActiveUser.GroupId);
-            ViewBag.Message = "Du är inloggad " + ActiveUser.FirstName + " " + ActiveUser.LastName + " du deltager i: " + ActiveGroup.First().Name;
-            ViewBag.GroupName = ActiveGroup.First().Name;
-            ViewBag.GroupId = ActiveGroup.First().GroupId;
+
             if (id != null)
             {
-                var courses = db.Courses.Where(c => c.GroupId == id);
-                return View(courses.ToList());
+                if (User.IsInRole("Teacher"))
+                {
+                    var courses = db.Courses.Where(c => c.GroupId == id);
+                    ViewBag.TeachersGroupId = id;
+                    return View(courses.ToList());
+                }
+                else
+                {
+                    return RedirectToAction("index");
+                }
             }
             else
             {
-                var courses = db.Courses.Where(c => c.GroupId == ActiveUser.GroupId);
-                return View(courses.ToList());
+                if (ActiveUser.GroupId != null)
+                {
+                    var ActiveGroup = db.Groups.Where(g => g.GroupId == ActiveUser.GroupId);
+                    ViewBag.Message = "Du är inloggad " + ActiveUser.FirstName + " " + ActiveUser.LastName + " du deltager i: " + ActiveGroup.First().Name;
+                    ViewBag.GroupName = ActiveGroup.First().Name;
+                    ViewBag.GroupId = ActiveGroup.First().GroupId;
+                    var courses = db.Courses.Where(c => c.GroupId == ActiveUser.GroupId);
+                    return View(courses.ToList());
+                }
+                else
+                {
+                    if (User.IsInRole("Teacher"))
+                    {
+                        return RedirectToAction("Index", "Groups");
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                }
             }
 
         }
