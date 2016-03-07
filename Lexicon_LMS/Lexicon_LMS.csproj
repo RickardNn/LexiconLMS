@@ -172,7 +172,6 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Activity.cs" />
-    <Compile Include="Models\ApplicationDbContext.Views.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Document.cs" />
     <Compile Include="Models\Group.cs" />
@@ -183,35 +182,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Bilder\ladda ned.png" />
-    <Content Include="bootstrap-3.3.6-dist\css\bootstrap-theme.css" />
-    <Content Include="bootstrap-3.3.6-dist\css\bootstrap-theme.min.css" />
-    <Content Include="bootstrap-3.3.6-dist\css\bootstrap.css" />
-    <Content Include="bootstrap-3.3.6-dist\css\bootstrap.min.css" />
-    <Content Include="bootstrap-3.3.6-dist\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="bootstrap-3.3.6-dist\js\bootstrap.js" />
-    <Content Include="bootstrap-3.3.6-dist\js\bootstrap.min.js" />
-    <Content Include="bootstrap-3.3.6-dist\js\npm.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ClassDiagram1.cd" />
-    <Content Include="bootstrap-3.3.6-dist\css\bootstrap-theme.css.map" />
-    <Content Include="bootstrap-3.3.6-dist\css\bootstrap-theme.min.css.map" />
-    <Content Include="bootstrap-3.3.6-dist\css\bootstrap.css.map" />
-    <Content Include="bootstrap-3.3.6-dist\css\bootstrap.min.css.map" />
-    <Content Include="bootstrap-3.3.6-dist\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="bootstrap-3.3.6-dist\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="bootstrap-3.3.6-dist\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="bootstrap-3.3.6-dist\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Scripts\bootstrap.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -219,7 +203,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\_references.js" />
+    <None Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -234,7 +218,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />

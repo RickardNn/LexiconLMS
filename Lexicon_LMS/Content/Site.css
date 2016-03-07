@@ -22,3 +22,51 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+/*huvundmeny
+.main-header {
+    padding: 10px 0px 10px 0px;
+    font-weight: 600;
+    font-size: 58px;
+    font-family: beamweapon;
+    text-align: center;
+    color: #4cff00;
+    background-color: darkblue;
+    margin-bottom: 1px;
+    border-bottom: 5px solid grey;
+    border-top: 5px solid grey;
+    background-image: url('../Images/chi-dk5883-disney-cars-garage-metal-black-wallpaper-0.jpg');
+    background-image: url('../Images/3067193_230736-2-jual-plat-bordes-stainless-steel-dan-alumunium.jpg');
+   
+}*/
+
+
+.box1 {
+    padding: 20px 20px 20px 20px;
+    margin: 10px 10px 10px 10px;
+    background-color: red;
+    color: white;
+    border-radius: 3px;
+}
+
+.box2 {
+    padding: 20px 20px 20px 20px;
+    background-color: red;
+    color: white;
+}
+
+.box3 {
+    padding: 20px 20px 20px 20px;
+    background-color: red;
+    color: white;
+}
+
+.footerbox{
+    /*background-color: darkgrey;*/
+    width: 100%;
+    height: 50px;
+    /*color: grey;*/
+    position: fixed;
+    
+}
