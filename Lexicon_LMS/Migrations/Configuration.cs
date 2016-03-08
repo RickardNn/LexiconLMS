@@ -357,7 +357,8 @@ namespace Lexicon_LMS.Migrations
             foreach (var u in users2)
             {
                 userManager.Create(u, "foobar");
-                userManager.AddToRole(u.Id, "Student");
+                var user = userManager.FindByEmail(u.Email);
+                userManager.AddToRole(user.Id, "Student");
             }
 
 
@@ -490,7 +491,7 @@ namespace Lexicon_LMS.Migrations
                 {
                     CourseId = 6,
                     Type = "Självstudier",
-                    Name = "E-learning",
+                    Name = "E-learning2",
                     Teacher = "Adrian Lozano",
                     Description = "Kursen kommer att bestå av e-learning på pluralsight",
                     StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
