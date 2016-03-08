@@ -44,7 +44,7 @@ namespace Lexicon_LMS
             //var iD = (from p in db.Users where p.Email == userName select p.Id).FirstOrDefault();
             //var user = db.Users.Where(u => u.Id == iD).FirstOrDefault().Roles.FirstOrDefault().;
 
-           // User.IsInRole("Teacher");
+            // User.IsInRole("Teacher");
             //User.IsInRole("Student");
 
             //var roleId = from r in db. where r. == iD select r.Id;
@@ -54,6 +54,7 @@ namespace Lexicon_LMS
             //if (User.Identity.Name == "oscar.jakobsson@lexicon.se")
 
             ViewBag.TeacherName = fullName;
+            ViewBag.TeacherId = User.Identity.Name;
             //return View();
             return View(db.Groups.Where(g => g.TeacherId == activeUser.Id).OrderBy(d => d.StartDate));
         }
@@ -64,6 +65,14 @@ namespace Lexicon_LMS
         {
             string userName = User.Identity.Name;
             string fullName = FindTeacherName(userName); //anropar metod som utifrån mailadress(userName) returnerar för- och efternamn på lärare.
+            // var activeUser = db.Users.Where(u => u.UserName == User.Identity.Name.ToString()).ToList().FirstOrDefault();
+            var activeUserId = db.Users.Where(u => u.UserName == User.Identity.Name.ToString()).ToList().FirstOrDefault();
+
+            //var activeUserId = (from u in db.Users
+            //                    where u.UserName == userName
+            //                    select u.Id).FirstOrDefault();
+
+
 
             //var firstName = (from u in db.Users
             //                 where u.UserName == userName
@@ -73,10 +82,14 @@ namespace Lexicon_LMS
             //                where u.UserName == userName
             //                select u.LastName).FirstOrDefault();
 
-           // fullName = firstName + " " + lastName;
+            // fullName = firstName + " " + lastName;
 
-            ViewBag.TeacherName = fullName;
+            //ViewBag.TeacherName = fullName;
+            ViewBag.TeacherId = activeUserId;
+
+            //ViewData["AllUsers"] = db.Users;
             //ViewBag.Teacher = User.Identity.Name;
+
 
             return View(db.Groups.OrderBy(d => d.StartDate));
 
@@ -102,6 +115,16 @@ namespace Lexicon_LMS
         // GET: Groups/Create
         public ActionResult Create()
         {
+            //ViewBag.All = db.Groups.Select(h => new SelectListItem
+            //{
+            //    Value = h.TeacherId.ToString(),
+            //});
+            //return View();
+           // ViewBag.GroupId = new SelectList(db.Groups, "GroupId", "Name");
+           
+            ViewBag.TeacherId = new SelectList(db.Users.Where(u => u.GroupId == null), "Id", "FirstName");
+            //ViewBag.GroupId = new SelectList(db.Users.Where(u => u.GroupId == null), "GroupId", "FirstName");
+
             return View();
         }
 
@@ -110,7 +133,7 @@ namespace Lexicon_LMS
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "GroupId,Name,Teacher,Description,StartDate,EndDate")] Group group)
+        public ActionResult Create([Bind(Include = "GroupId,Name,TeacherId,Description,StartDate,EndDate")] Group group)
         {
             if (ModelState.IsValid)
             {
@@ -118,6 +141,7 @@ namespace Lexicon_LMS
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.TeacherId = new SelectList(db.Users.Where(u => u.GroupId == null), "Id", "FirstName");
 
             return View(group);
         }
@@ -201,7 +225,7 @@ namespace Lexicon_LMS
         {
             var user = db.Users.FirstOrDefault(u => u.UserName == name);
             return user.FirstName + " " + user.LastName;
-                        
+
 
 
             //var firstName = (from u in db.Users

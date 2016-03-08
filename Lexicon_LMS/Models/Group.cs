@@ -13,15 +13,14 @@ namespace Lexicon_LMS.Models
     {
         public int GroupId { get; set; }
 
+        [DisplayName("Lärare")]        
         public string TeacherId { get; set; }
+        [ForeignKey("TeacherId")]
+        public virtual ApplicationUser Teacher { get; set; }
 
         [Required]
         [DisplayName("Gruppnamn")]
         public string Name { get; set; }
-
-        //[Required]
-        //[DisplayName("Lärare")]
-        //public string Teacher { get; set; }
 
         [Required]
         [DisplayName("Beskrivning")]
@@ -37,10 +36,7 @@ namespace Lexicon_LMS.Models
         [DataType(DataType.Date)]
         [GreaterThanOrEqualTo("StartDate", ErrorMessage = "Slutdatum kan ej vara tidigare än startdatum.")]
         public DateTime EndDate { get; set; }
-
-        //[ForeignKey("TeacherId")]
-        //public virtual ApplicationUser Teacher { get; set; }
-
+        
         public virtual ICollection<ApplicationUser> Users { get; set; }
 
         public virtual ICollection<Course> Courses { get; set; }
