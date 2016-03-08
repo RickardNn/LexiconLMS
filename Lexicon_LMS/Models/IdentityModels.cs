@@ -5,6 +5,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel;
 
 namespace Lexicon_LMS.Models
 {
@@ -15,6 +16,14 @@ namespace Lexicon_LMS.Models
         public int? GroupId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        [DisplayName("Namn")]
+        public string FullName
+        {
+            get
+            {
+                return FirstName + " " + LastName;
+            }
+        }
 
 
 
