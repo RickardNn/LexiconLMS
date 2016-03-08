@@ -21,8 +21,8 @@ namespace Lexicon_LMS
             var ActiveUser = db.Users.Where(u => u.UserName == User.Identity.Name.ToString()).ToList().FirstOrDefault();
 
             ViewBag.Message = "Du är en godkänd användare " + ActiveUser.FirstName + " " + ActiveUser.LastName;
-           
-                       ViewBag.Message2 = db.Courses.First().Name;
+
+            ViewBag.Message2 = db.Courses.First().Name;
             if (id != null)
             {
                 var activities = db.Activities.Where(a => a.CourseId == id);
@@ -33,13 +33,13 @@ namespace Lexicon_LMS
                 return RedirectToAction("Index", "Courses");
             }
 
-         
+
             //var courses = db.Courses.Where(c => c.GroupId == ActiveUser.GroupId);
             //var activities = db.Activities.Where(a => a.CourseId == AKTUELL_KURS_ID).ToList();
 
-  
+
         }
-       
+
         //// GET: Activities
         //public ActionResult Index()
         //{

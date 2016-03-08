@@ -17,10 +17,7 @@
             @Html.DisplayNameFor(model => model.GroupId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastName)
+            @Html.DisplayNameFor(model => model.FullName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Email)
@@ -37,11 +34,9 @@
             @Html.DisplayFor(modelItem => item.GroupId)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
+            @Html.DisplayFor(modelItem => item.FullName)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
+       
         <td>
             @Html.DisplayFor(modelItem => item.Email)
         </td>

@@ -150,9 +150,10 @@ namespace Lexicon_LMS.Controllers
         public ActionResult DeleteConfirmed(string id)
         {
             ApplicationUser applicationUser = db.Users.Find(id);
+            var groupId = applicationUser.GroupId;
             db.Users.Remove(applicationUser);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { GroupId = groupId });
         }
 
         protected override void Dispose(bool disposing)
