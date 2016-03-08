@@ -18,23 +18,46 @@ namespace Lexicon_LMS.Controllers
         public ActionResult Index(int? groupId)
         {
             var ActiveUser = db.Users.Where(u => u.UserName == User.Identity.Name.ToString()).ToList().FirstOrDefault();
-            var ActiveGroup = db.Groups.Where(g => g.GroupId == ActiveUser.GroupId);
 
             if (groupId != null)
             {
-                ViewBag.Message = "Du är inloggad " + ActiveUser.FirstName + " " + ActiveUser.LastName + " du deltager i: " + ActiveGroup.First().Name;
-                ViewBag.GroupId = ActiveGroup.First().Name;
-
-                var users = db.Users.Where(u => u.GroupId == groupId);
-                return View(users.ToList());
+                if (User.IsInRole("Teacher"))
+                {
+                    var users = db.Users.Where(u => u.GroupId == groupId);
+                    return View(users.ToList());
+                }
+                else
+                {
+                    var ActiveGroup = db.Groups.Where(g => g.GroupId == ActiveUser.GroupId);
+                    ViewBag.Message = "Du är inloggad " + ActiveUser.FirstName + " " + ActiveUser.LastName + " du deltager i: " + ActiveGroup.First().Name;
+                    ViewBag.GroupName = ActiveGroup.First().Name;
+                    ViewBag.GroupId = ActiveGroup.First().GroupId;
+                    var users = db.Users.Where(u => u.GroupId == ActiveUser.GroupId);
+                    return View(users.ToList());
+                }
             }
             else
             {
-                ViewBag.Message = "Du är inloggad " + ActiveUser.FirstName + " " + ActiveUser.LastName + " du deltager i: " + ActiveGroup.First().Name;
-                ViewBag.GroupId = ActiveGroup.First().Name + " null";
-
-                return View(db.Users.ToList());
+                if (ActiveUser.GroupId != null)
+                {
+                    return RedirectToAction("index");
+                }
+                else
+                {
+                    if (User.IsInRole("Teacher"))
+                    {
+                        var ActiveGroup = db.Groups.Where(g => g.GroupId == ActiveUser.GroupId);
+                        ViewBag.GroupId = ActiveGroup.First().GroupId;
+                        var users = db.Users.Where(u => u.GroupId == ActiveGroup.FirstOrDefault().GroupId);
+                        return View(users.ToList());
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                }
             }
+
         }
 
         // GET: Users/Details/5
