@@ -16,6 +16,8 @@ namespace Lexicon_LMS.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
+
+
         //[ForeignKey("GroupId")]
         public virtual Group Group { get; set; }
 
