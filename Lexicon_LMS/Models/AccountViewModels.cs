@@ -64,6 +64,8 @@ namespace Lexicon_LMS.Models
 
     public class RegisterViewModel
     {
+        public int GroupId { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
@@ -79,6 +81,15 @@ namespace Lexicon_LMS.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        public string FirstName { get; set; }
+
+        [Required]
+        public string LastName { get; set; }
+
+        public virtual Group Group { get; set; }
+
     }
 
     public class ResetPasswordViewModel
