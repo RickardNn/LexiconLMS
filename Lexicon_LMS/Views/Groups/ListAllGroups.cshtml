@@ -37,7 +37,9 @@
                 @*@Html.DisplayFor(modelItem => item.Name)*@
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TeacherId)
+                @Html.DisplayFor(modelItem => item.Teacher.FirstName)
+                @Html.DisplayFor(modelItem => item.Teacher.LastName)
+                @*@Html.DisplayFor(modelItem => item.Teacher.LastName)*@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
@@ -55,20 +57,18 @@
                 </td>*@
 
 
-
-
-            @*@if (ViewBag.TeacherName == item.Teacher) //om inloggad lärare är huvudlärare för gruppen skrivs länkar för Edit/Delete ut
+            @if (ViewBag.TeacherId == item.Teacher) //om inloggad lärare är huvudlärare för gruppen skrivs länkar för Edit/Delete ut
             {
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.GroupId }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.GroupId })
+                    @Html.ActionLink("Details", "Details", new { id = item.GroupId }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.GroupId })
                 </td>
             }
             else
             {
                 <td>    </td>
-            }*@
+            }
         </tr>
     }
 
