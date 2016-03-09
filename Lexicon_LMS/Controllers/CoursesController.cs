@@ -51,7 +51,7 @@ namespace Lexicon_LMS
                 if (ActiveUser.GroupId != null)
                 {
                     var ActiveGroup = db.Groups.Where(g => g.GroupId == ActiveUser.GroupId);
-                    ViewBag.Message = "Du är inloggad " + ActiveUser.FirstName + " " + ActiveUser.LastName + " du deltager i: " + ActiveGroup.First().Name;
+                    ViewBag.Message = "Du är inloggad " + ActiveUser.FullName + " du deltager i: " + ActiveGroup.First().Name;
                     ViewBag.GroupName = ActiveGroup.First().Name;
                     ViewBag.GroupId = ActiveGroup.First().GroupId;
                     var courses = db.Courses.Where(c => c.GroupId == ActiveUser.GroupId);

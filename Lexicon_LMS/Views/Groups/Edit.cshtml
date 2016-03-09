@@ -5,17 +5,20 @@
     //ViewBag.UserID = User.Identity.Name;
 }
 
-<h2>Editera grupper för @ViewBag.TeacherName</h2>
+<h2>Editera @ViewBag.TeacherName:s grupp.</h2>
 
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
+    
     <div class="form-horizontal">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.GroupId)
+        @*@Html.HiddenFor(model => model.TeacherId)*@
+
 
         <div class="form-group">
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -25,53 +28,74 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Teacher, htmlAttributes: new { @class = "control-label col-md-2" })
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.TeacherId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Teacher, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Teacher, "", new { @class = "text-danger" })
             </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
-            </div>
         </div>*@
 
+        @Html.HiddenFor(model => model.TeacherId)   
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Spara" class="btn btn-default" />
+            @*<div class="form-group">
+                @Html.LabelFor(model => model.TeacherId, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TeacherId, new { htmlAttributes = new { @class = "form-control" } })
+
+                    @Html.DropDownList("TeacherId", Teacher.ToString(), htmlAttributes: new { @class = "form-control" })
+
+                    @Html.DropDownList("TeacherId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.DropDownList("GroupId", null, htmlAttributes: new { _Enabled = "false" })
+
+
+                    @Html.DropDownList(model => model.Teacher, model => model.Teacher.ToString())
+                    @Html.ValidationMessageFor(model => model.TeacherId, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @*<div class="form-group">
+                @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Spara" class="btn btn-default" />
+                </div>
             </div>
         </div>
-    </div>
 }
 
 <div>

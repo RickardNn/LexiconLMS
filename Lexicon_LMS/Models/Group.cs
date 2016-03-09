@@ -15,6 +15,8 @@ namespace Lexicon_LMS.Models
 
         [DisplayName("Lärare")]        
         public string TeacherId { get; set; }
+
+        [DisplayName("Lärare")]   
         [ForeignKey("TeacherId")]
         public virtual ApplicationUser Teacher { get; set; }
 

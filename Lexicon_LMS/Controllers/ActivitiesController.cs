@@ -19,27 +19,40 @@ namespace Lexicon_LMS
         public ActionResult Index(int? id)
         {
             var ActiveUser = db.Users.Where(u => u.UserName == User.Identity.Name.ToString()).ToList().FirstOrDefault();
+            var ActiveGroup = db.Groups.Where(g => g.GroupId == ActiveUser.GroupId);
+            var ActiveCourse = db.Courses.Where(g => g.GroupId == ActiveUser.GroupId);
 
-            ViewBag.Message = "Du är en godkänd användare " + ActiveUser.FirstName + " " + ActiveUser.LastName;
-           
-                       ViewBag.Message2 = db.Courses.First().Name;
             if (id != null)
             {
-                var activities = db.Activities.Where(a => a.CourseId == id);
-                return View(activities.ToList());
-            }
-            else
-            {
-                return RedirectToAction("Index", "Courses");
+                if (User.IsInRole("Teacher"))
+                {
+                    ViewBag.Message = "Du är inloggad " + ActiveUser.FullName + " du är lärare för: ";
+                    var activities = db.Activities.Where(a => a.CourseId == id);
+                    return View(activities.ToList());
+
+                }
+                else
+                {
+                    ViewBag.Message = "Du är inloggad " + ActiveUser.FullName + " du deltager i: " + ActiveGroup.First().Name;
+                    ViewBag.GroupId = ActiveGroup.First().GroupId;
+                    ViewBag.CourseId = ActiveCourse.First().Name;
+                    var activities = db.Activities.Where(a => a.CourseId == id);
+                    return View(activities.ToList());
+                }
             }
 
-         
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+
             //var courses = db.Courses.Where(c => c.GroupId == ActiveUser.GroupId);
             //var activities = db.Activities.Where(a => a.CourseId == AKTUELL_KURS_ID).ToList();
 
-  
+
         }
-       
+
         //// GET: Activities
         //public ActionResult Index()
         //{

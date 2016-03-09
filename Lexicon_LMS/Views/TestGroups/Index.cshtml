@@ -4,22 +4,19 @@
     ViewBag.Title = "Index";
 }
 
-<h2>@ViewBag.TeacherName:s grupper</h2>
+<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Lista samtliga grupper på Lexicon", "ListAllGroups")
-</p>
-<p>
-    @Html.ActionLink("Skapa ny grupp", "Create")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.Teacher.FirstName)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.Teacher)
-        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
@@ -32,42 +29,16 @@
         <th></th>
     </tr>
 
-
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.ActionLink(item.Name, "Index", "Courses", new { id = item.GroupId }, null)
+            @Html.DisplayFor(modelItem => item.Teacher.FirstName)
         </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>*@
         <td>
-           
-            
-            @*@{
-                string str = (string)item.Description;
-                //str = str.Substring(0, 7); << vad händer om det bara finns 7 stycken tecken??
-            }
-            @str...*@
-            @*@Html.DisplayFor(modelItem => item.Description)*@
-
-
-
-
-            @{
-                string str = (string)item.Description;
-                if(str.Count() > 7)
-                {
-                    str = str.Substring(0, 7); 
-                }
-                //str = str.Substring(0, 7); << vad händer om det bara finns 7 stycken tecken??
-            }
-            @str...
-            @*@Html.DisplayFor(modelItem => item.Description)*@
-
-
-
-
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.StartDate)
