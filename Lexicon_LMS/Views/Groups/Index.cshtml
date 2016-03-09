@@ -44,12 +44,28 @@
         <td>
            
             
+            @*@{
+                string str = (string)item.Description;
+                //str = str.Substring(0, 7); << vad händer om det bara finns 7 stycken tecken??
+            }
+            @str...*@
+            @*@Html.DisplayFor(modelItem => item.Description)*@
+
+
+
+
             @{
                 string str = (string)item.Description;
+                if(str.Count() > 7)
+                {
+                    str = str.Substring(0, 7); 
+                }
                 //str = str.Substring(0, 7); << vad händer om det bara finns 7 stycken tecken??
             }
             @str...
             @*@Html.DisplayFor(modelItem => item.Description)*@
+
+
 
 
         </td>

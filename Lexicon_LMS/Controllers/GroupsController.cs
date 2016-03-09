@@ -109,6 +109,8 @@ namespace Lexicon_LMS
             {
                 return HttpNotFound();
             }
+            ViewBag.GroupName = group.Name;
+
             return View(group);
         }
 
@@ -163,6 +165,8 @@ namespace Lexicon_LMS
             {
                 return HttpNotFound();
             }
+            ViewBag.TeacherId = group.TeacherId;
+
             return View(group);
         }
 
@@ -173,7 +177,7 @@ namespace Lexicon_LMS
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "GroupId,Name,Teacher,Description,StartDate,EndDate")] Group group)
+        public ActionResult Edit([Bind(Include = "GroupId,TeacherId, Teacher, Name,Description,StartDate,EndDate")] Group group)
         {
             if (ModelState.IsValid)
             {

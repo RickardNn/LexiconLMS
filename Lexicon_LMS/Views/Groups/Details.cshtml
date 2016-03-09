@@ -4,55 +4,55 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Gruppdetaljer: @ViewBag.GroupName</h2>
 
-<div>
-    <h4>Group</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+    <div>
+        @*<h4>Gruppdetaljer om gruppen: @ViewBag.GroupName</h4>*@
+        <hr />
+        <dl class="dl-horizontal">
+            @*<dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>*@
 
-        @*<dt>
-            @Html.DisplayNameFor(model => model.Teacher)
-        </dt>
+            @*<dt>
+                    @Html.DisplayNameFor(model => model.Teacher)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Teacher)
-        </dd>*@
+                <dd>
+                    @Html.DisplayFor(model => model.Teacher)
+                </dd>*@
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StartDate)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.StartDate)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.StartDate)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EndDate)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.EndDate)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.EndDate)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.EndDate)
+            </dd>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.GroupId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Ändra", "Edit", new { id = Model.GroupId }) |
+        @Html.ActionLink("Tillbaka till listan över mina grupper", "Index")
+    </p>

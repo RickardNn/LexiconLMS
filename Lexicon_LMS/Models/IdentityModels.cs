@@ -25,6 +25,8 @@ namespace Lexicon_LMS.Models
             }
         }
 
+
+
         //[ForeignKey("GroupId")]
         public virtual Group Group { get; set; }
 
