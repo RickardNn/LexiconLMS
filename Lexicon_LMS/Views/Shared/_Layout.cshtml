@@ -26,7 +26,25 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Hem", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Administrera", "About", "Home")</li>
+
+                    
+                    @*if (User.IsInRole("Teacher"))
+                    <div class="text-hide">
+
+                        <li><@Html.ActionLink.("Administrera", "About", "Home")</li>
+                    </div>*@
+
+
+    @*if (User.IsInRole("Teacher"))
+    {
+    <li>@Html.ActionLink("Administrera", "About", "Home")</li>
+    }
+    else
+    {
+    " "
+    };*@
+
+                   
 
                     @*<li>@Html.ActionLink("Home", "Index", "Home")</li>
                       <li>@Html.ActionLink("About", "About", "Home")</li>
