@@ -1,13 +1,16 @@
 ﻿@model IEnumerable<Lexicon_LMS.Models.Group>
 
 @{
-    ViewBag.Title = "ListAllGroups";
+    ViewBag.Title = "AdministrateGroups";
 }
 
-<h2>Alla grupper på Lexicon</h2>
+<h2>Administrera grupper</h2>
 
 <p>
-    @Html.ActionLink("Åter till mina grupper.", "Index")
+    @Html.ActionLink("Åter till mina grupper", "Index")
+</p>
+<p>
+    @Html.ActionLink("Skapa ny grupp", "Create")
 </p>
 <table class="table">
     <tr>
@@ -33,8 +36,8 @@
     {
         <tr>
             <td>
-                @Html.ActionLink(item.Name, "Index", "Courses", new { id = item.GroupId }, null)
-                @*@Html.DisplayFor(modelItem => item.Name)*@
+                @*@Html.ActionLink(item.Name, "Index", "Courses", new { id = item.GroupId }, null)*@
+                @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Teacher.FirstName)
@@ -50,25 +53,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.EndDate)
             </td>
-            @*<td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.GroupId }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.GroupId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.GroupId })
-                </td>*@
 
-
-            @if (ViewBag.TeacherId == item.Teacher) //om inloggad lärare är huvudlärare för gruppen skrivs länkar för Edit/Delete ut
-            {
                 <td>
                     @Html.ActionLink("Detaljer", "Details", new { id = item.GroupId }) |
-                    @Html.ActionLink("Ändra", "Edit", new { id = item.GroupId }) |
+                    @Html.ActionLink("Ändra", "AdministrateGroupsEdit", new { id = item.GroupId }) |
                     @Html.ActionLink("Ta Bort", "Delete", new { id = item.GroupId })
                 </td>
-            }
-            else
-            {
-                <td>    </td>
-            }
+
         </tr>
     }
 

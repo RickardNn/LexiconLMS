@@ -54,6 +54,23 @@ namespace Lexicon_LMS.Controllers
             }
         }
 
+        [ChildActionOnly]
+        [AllowAnonymous]
+        public ActionResult _LoginPartial()
+        {
+            ApplicationUser ActiveUser = new ApplicationUser();
+            if (User.Identity.IsAuthenticated)
+            {
+                var ActiveUserList = db.Users.Where(u => u.UserName == User.Identity.Name);
+                if (ActiveUserList.Count() != 0)
+                {
+                    ActiveUser = ActiveUserList.FirstOrDefault();
+                }
+                return PartialView(ActiveUser);
+            }
+            return PartialView();
+        }
+
         //
         // GET: /Account/Login
         [AllowAnonymous]
