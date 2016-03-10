@@ -1,29 +1,21 @@
-﻿@model Lexicon_LMS.Models.Activity
+﻿@model Lexicon_LMS.Models.Group
 
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Detaljer</h2>
+<h2>Details</h2>
 
 <div>
-    <h4>Aktivitet</h4>
+    <h4>Group</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Course.Name)
+            @Html.DisplayNameFor(model => model.Teacher.FirstName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Course.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Type)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Type)
+            @Html.DisplayFor(model => model.Teacher.FirstName)
         </dd>
 
         <dt>
@@ -32,14 +24,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Teacher)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Teacher)
         </dd>
 
         <dt>
@@ -69,7 +53,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Editera", "Edit", new { id = Model.ActivityId }) |
-    @Html.ActionLink("Tillbaka till listan", "Index", new { id = Model.ActivityId })
+    @Html.ActionLink("Edit", "Edit", new { id = Model.GroupId }) |
+    @Html.ActionLink("Back to List", "Index")
 </p>
-

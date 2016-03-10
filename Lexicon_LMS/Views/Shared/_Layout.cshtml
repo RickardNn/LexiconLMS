@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
-
+     
         <div class="container">
 
             <div class="navbar-header">
@@ -43,8 +43,8 @@
 
 
                     @*<li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                      <li>@Html.ActionLink("About", "About", "Home")</li>
+                      <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
                 </ul>
                 @Html.Action("_LoginPartial", "Account")
             </div>
@@ -57,19 +57,19 @@
 
 
 
+    
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <div class="footerbox">
+                <footer>
+                    <p>&copy; @DateTime.Now.Year - Skapad av Nina, Rickard, Disa</p>
+                </footer>
+            </div>
+            </div>
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <div class="footerbox">
-            <footer>
-                <p>&copy; @DateTime.Now.Year - Skapad av Nina, Rickard, Disa</p>
-            </footer>
-        </div>
-    </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
 </body>
 </html>
