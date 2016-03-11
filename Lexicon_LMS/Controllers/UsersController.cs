@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Lexicon_LMS.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity;
 
 namespace Lexicon_LMS.Controllers
 {
@@ -24,14 +26,15 @@ namespace Lexicon_LMS.Controllers
                 if (User.IsInRole("Teacher"))
                 {
                     var users = db.Users.Where(u => u.GroupId == groupId);
+                    ViewBag.GroupName = users.FirstOrDefault().Group.Name;
+                    ViewBag.Group_Id = groupId;
                     return View(users.ToList());
                 }
                 else
                 {
                     var ActiveGroup = db.Groups.Where(g => g.GroupId == ActiveUser.GroupId);
-                    ViewBag.Message = "Du är inloggad " + ActiveUser.FirstName + " " + ActiveUser.LastName + " du deltager i: " + ActiveGroup.First().Name;
                     ViewBag.GroupName = ActiveGroup.First().Name;
-                    ViewBag.GroupId = ActiveGroup.First().GroupId;
+                    ViewBag.Group_Id = ActiveGroup.First().GroupId;
                     var users = db.Users.Where(u => u.GroupId == ActiveUser.GroupId);
                     return View(users.ToList());
                 }
@@ -46,9 +49,8 @@ namespace Lexicon_LMS.Controllers
                 {
                     if (User.IsInRole("Teacher"))
                     {
-                        var ActiveGroup = db.Groups.Where(g => g.GroupId == ActiveUser.GroupId);
-                        ViewBag.GroupId = ActiveGroup.First().GroupId;
-                        var users = db.Users.Where(u => u.GroupId == ActiveGroup.FirstOrDefault().GroupId);
+                        ViewBag.Group_Id = groupId;
+                        var users = db.Users.Where(u => u.GroupId == groupId);
                         return View(users.ToList());
                     }
                     else
@@ -72,6 +74,7 @@ namespace Lexicon_LMS.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.Group_Id = applicationUser.GroupId;
             return View(applicationUser);
         }
 
@@ -110,6 +113,7 @@ namespace Lexicon_LMS.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.Group_Id = applicationUser.GroupId;
             return View(applicationUser);
         }
 
@@ -118,13 +122,26 @@ namespace Lexicon_LMS.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,GroupId,FirstName,LastName,Email,EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount,UserName")] ApplicationUser applicationUser)
+        //public ActionResult Edit([Bind(Include = "Id,GroupId,FirstName,LastName,Email,EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount,UserName")] ApplicationUser applicationUser)
+        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,Email")] ApplicationUser applicationUser)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(applicationUser).State = EntityState.Modified;
+                var userStore = new UserStore<ApplicationUser>(db);
+                var userManager = new UserManager<ApplicationUser>(userStore);
+
+                var user = db.Users.Where(u => u.Id == applicationUser.Id).FirstOrDefault();
+                var groupId = user.GroupId;
+                user.FirstName = applicationUser.FirstName;
+                user.LastName = applicationUser.LastName;
+                user.Email = applicationUser.Email;
+                user.UserName = user.Email;
+
+
+                userManager.Update(user);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                return RedirectToAction("Index", new { GroupId = groupId });
             }
             return View(applicationUser);
         }
@@ -141,6 +158,7 @@ namespace Lexicon_LMS.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.Group_Id = applicationUser.GroupId;
             return View(applicationUser);
         }
 
