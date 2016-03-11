@@ -2,18 +2,30 @@
 
 @{
     ViewBag.Title = "Index";
+    string GroupName = "ERROR";
+    if (ViewBag.GroupName != null)
+    {
+        GroupName = ViewBag.GroupName;
+    }
 }
 
 
-<h2>@ViewBag.Message</h2>
-<h4>@ViewBag.GroupName / Kurser</h4>
-
 @if (User.IsInRole("Teacher"))
 {
+    <h4>/ @Html.ActionLink("Lista samtliga grupper på Lexicon", "ListAllGroups", "Groups") / @Html.ActionLink("Mina grupper", "Index", "Groups") / @ViewBag.GroupName / Kurser
+    </h4>
+
     <p>
         @Html.ActionLink("Skapa ny", "Create")
     </p>
 }
+else
+{
+    <h4>
+       / @ViewBag.GroupName / Kurser
+    </h4>
+}
+
 <table class="table">
     <tr>
         <th>
@@ -74,9 +86,9 @@
 </table>
 @if (User.IsInRole("Teacher"))
 {
-    <p>@Html.ActionLink("Se samtliga elever för lärare", "Index", "Users", new { groupId = @ViewBag.TeachersGroupId }, null)</p>
+    <p>@Html.ActionLink("Se samtliga elever", "Index", "Users", new { groupId = @ViewBag.Group_Id }, null)</p>
 }
 else
 {
-    <p>@Html.ActionLink("Se samtliga elever", "Index", "Users", new { groupId = @ViewBag.GroupId }, null)</p>
+    <p>@Html.ActionLink("Se samtliga elever", "Index", "Users", new { groupId = @ViewBag.Group_Id }, null)</p>
 }

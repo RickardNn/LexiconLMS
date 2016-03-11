@@ -14,7 +14,9 @@ namespace Lexicon_LMS.Models
     {
         [ForeignKey("Group")]
         public int? GroupId { get; set; }
+        [DisplayName("Förnamn")]
         public string FirstName { get; set; }
+        [DisplayName("Efternamn")]
         public string LastName { get; set; }
         [DisplayName("Namn")]
         public string FullName
