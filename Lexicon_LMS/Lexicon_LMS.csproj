@@ -284,6 +284,8 @@
     <Content Include="Views\TestGroups\Details.cshtml" />
     <Content Include="Views\TestGroups\Edit.cshtml" />
     <Content Include="Views\TestGroups\Index.cshtml" />
+    <Content Include="Views\Groups\AdministrateGroups.cshtml" />
+    <Content Include="Views\Groups\AdministrateGroupsEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

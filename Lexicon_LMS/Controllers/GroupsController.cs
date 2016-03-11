@@ -97,6 +97,80 @@ namespace Lexicon_LMS
 
 
 
+        // GET: All Groups
+        public ActionResult AdministrateGroups()
+        {
+            string userName = User.Identity.Name;
+            string fullName = FindTeacherName(userName); //anropar metod som utifrån mailadress(userName) returnerar för- och efternamn på lärare.
+            var activeUserId = db.Users.Where(u => u.UserName == User.Identity.Name.ToString()).ToList().FirstOrDefault();
+
+            ViewBag.TeacherId = activeUserId;
+
+            //ViewData["AllUsers"] = db.Users;
+            //ViewBag.Teacher = User.Identity.Name;
+            return View(db.Groups.OrderBy(d => d.StartDate));
+
+        }
+
+        // GET: All Groups
+        //public ActionResult AdministrateGroupsEdit()
+        //{
+        //    string userName = User.Identity.Name;
+        //    string fullName = FindTeacherName(userName); //anropar metod som utifrån mailadress(userName) returnerar för- och efternamn på lärare.
+        //    var activeUserId = db.Users.Where(u => u.UserName == User.Identity.Name.ToString()).ToList().FirstOrDefault();
+
+        //    ViewBag.TeacherId = activeUserId;
+
+        //    //ViewData["AllUsers"] = db.Users;
+        //    //ViewBag.Teacher = User.Identity.Name;
+        //    return View(db.Groups.OrderBy(d => d.StartDate));
+        //}
+
+        // GET: Groups/AdministrateGroupsEdit/5
+        public ActionResult AdministrateGroupsEdit(int? id)
+        {
+            string userName = User.Identity.Name;
+            string fullName = FindTeacherName(userName);
+            ViewBag.TeacherName = fullName;
+            var defaultGroup = db.Groups.Where(u => u.GroupId == id);
+                        
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Group group = db.Groups.Find(id);
+            if (group == null)
+            {
+                return HttpNotFound();
+            }
+            //ViewBag.TeacherId = group.TeacherId;
+            ViewBag.TeacherId = new SelectList(db.Users.Where(u => u.GroupId == null), "Id", "FullName", group.TeacherId);
+            return View(group);
+        }
+
+
+        // POST: Groups/AdministrateGroupsEdit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        //public ActionResult AdministrateGroupsEdit([Bind(Include = "GroupId,TeacherId,Teacher,Name,Description,StartDate,EndDate")] Group group)
+        public ActionResult AdministrateGroupsEdit([Bind(Include = "GroupId,TeacherId,Name,Description,StartDate,EndDate")] Group group)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(group).State = EntityState.Modified;
+                db.SaveChanges();
+                //return RedirectToAction("Index");
+                return RedirectToAction("../Groups/AdministrateGroups");
+            }
+            //ViewBag.TeacherId = new SelectList(db.Users.Where(u => u.GroupId == null), "Id", "FullName");
+            ViewBag.TeacherId = new SelectList(db.Users.Where(u => u.GroupId == null), "Id", "FullName", group.TeacherId);
+            //ViewBag.TeacherId = group.TeacherId;
+            return View(group);
+        }
+
+
         // GET: Groups/Details/5
         public ActionResult Details(int? id)
         {
@@ -124,9 +198,7 @@ namespace Lexicon_LMS
             //return View();
            // ViewBag.GroupId = new SelectList(db.Groups, "GroupId", "Name");
            
-            ViewBag.TeacherId = new SelectList(db.Users.Where(u => u.GroupId == null), "Id", "FirstName");
-            //ViewBag.GroupId = new SelectList(db.Users.Where(u => u.GroupId == null), "GroupId", "FirstName");
-
+            ViewBag.TeacherId = new SelectList(db.Users.Where(u => u.GroupId == null), "Id", "FullName");
             return View();
         }
 
@@ -143,7 +215,7 @@ namespace Lexicon_LMS
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.TeacherId = new SelectList(db.Users.Where(u => u.GroupId == null), "Id", "FirstName");
+            ViewBag.TeacherId = new SelectList(db.Users.Where(u => u.GroupId == null), "Id", "FullName", group.TeacherId);
 
             return View(group);
         }
@@ -187,6 +259,7 @@ namespace Lexicon_LMS
             }
             return View(group);
         }
+
 
         // GET: Groups/Delete/5
         public ActionResult Delete(int? id)
