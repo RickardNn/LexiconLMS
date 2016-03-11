@@ -4,14 +4,30 @@
     ViewBag.Title = "AdministrateGroups";
 }
 
-<h2>Administrera grupper</h2>
+<h2>Administrera grupper/lärare</h2>
+<br />
 
-<p>
+@*<p>
     @Html.ActionLink("Åter till mina grupper", "Index")
 </p>
 <p>
     @Html.ActionLink("Skapa ny grupp", "Create")
 </p>
+<p>
+    @Html.ActionLink("Skapa ny lärare", "../Account/CreateTeacher")
+</p>
+<p>
+    @Html.ActionLink("Lista alla lärare", "Index", "Users")
+</p>*@
+
+<td>
+    @Html.ActionLink("Åter till mina grupper", "Index")  <b>|</b>
+    @Html.ActionLink("Skapa ny grupp", "Create")  <b>|</b>
+    @Html.ActionLink("Skapa ny lärare", "../Account/CreateTeacher")  <b>|</b>
+    @Html.ActionLink("Lista alla lärare", "Index", "Users")
+    <br /><br />
+</td>
+
 <table class="table">
     <tr>
         <th>

@@ -4,7 +4,7 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Ändra</h2>
+<h2>Ändra aktiviteter</h2>
 
 
 @using (Html.BeginForm())
@@ -12,7 +12,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Aktivitet</h4>
+        @*<h4>Aktivitet</h4>*@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.ActivityId)
@@ -76,13 +76,14 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Spara" class="btn btn-default" />
+
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Tillbaka till listan", "Index", new { id = Model.ActivityId })
+    @Html.ActionLink("Tillbaka till listan", "Index", new { id = Model.ActivityId }, new { @class = "btn btn-default btn-m" })
 </div>
 
 @section Scripts {

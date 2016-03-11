@@ -55,10 +55,10 @@ namespace Lexicon_LMS.Models
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Lösenord")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "Kom ihåg mig")]
         public bool RememberMe { get; set; }
     }
 
@@ -74,22 +74,23 @@ namespace Lexicon_LMS.Models
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Lösenord")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = "Bekräfta lösenord")]
+        [Compare("Password", ErrorMessage = "Lösenorden är ej likadana.")]
         public string ConfirmPassword { get; set; }
 
         [Required]
+        [Display(Name = "Förnamn")]
         public string FirstName { get; set; }
 
         [Required]
+        [Display(Name = "Efternamn")]
         public string LastName { get; set; }
 
         public virtual Group Group { get; set; }
-
     }
 
     public class ResetPasswordViewModel
