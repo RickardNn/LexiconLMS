@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<Lexicon_LMS.Models.Activity>
 
 @{
-    ViewBag.Title = "Index";
+   ViewBag.Title = "Index";
 
     int GroupId = 0;
     if (ViewBag.GroupId != null)
     {
         GroupId = (int)ViewBag.GroupId;
-    }
-    
+}
+
     string GroupName = ViewBag.GroupName;
 
     string CourseName = "ERROR";
@@ -25,7 +25,7 @@
     </h4>
 
     <p>
-        @Html.ActionLink("Skapa ny", "Create")
+        @Html.ActionLink("Skapa ny", "Create", new { courseId = ViewBag.ActualCourseId })
     </p>
 }
 else
@@ -36,14 +36,11 @@ else
 }
 
 
-@*<p>
-        @Html.ActionLink("Skapa ny", "Create")
-    </p>*@
 <table class="table">
     <tr>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Course.Name)
-        </th>
+            </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Type)
         </th>
@@ -67,51 +64,52 @@ else
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Course.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Teacher)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EndDate)
-            </td>
-            @if (User.IsInRole("Teacher"))
-            {
-                <td>
-                    @Html.ActionLink("Detaljer", "Details", new { id = item.CourseId }) |
-                    @Html.ActionLink("Ändra", "Edit", new { id = item.CourseId }) |
-                    @Html.ActionLink("Ta bort", "Delete", new { id = item.CourseId })
-                </td>
-            }
-            else
-            {
-                <td>
-                    @Html.ActionLink("Detaljer", "Details", new { id = item.CourseId })
-                </td>
-
-            }
-
-
+    <tr>
             @*<td>
-                    @Html.ActionLink("Edit", "Edit", new { id=item.ActivityId }) |
-                    @Html.ActionLink("Details", "Details", new { id=item.ActivityId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id=item.ActivityId })
+            @Html.DisplayFor(modelItem => item.Course.Name)
                 </td>*@
-        </tr>
-    }
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Teacher)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndDate)
+        </td>
+        @if (User.IsInRole("Teacher"))
+        {
+            <td>
+
+                    @Html.ActionLink("Detaljer", "Details", new { id = item.CourseId }, new { @class = "btn btn-default btn-xs" })
+                    @Html.ActionLink("Ändra", "Edit", new { id = item.CourseId }, new { @class = "btn btn-default btn-xs" })
+                    @Html.ActionLink("Ta bort", "Delete", new { id = item.CourseId }, new { @class = "btn btn-default btn-xs" })
+            </td>
+        }
+        else
+        {
+            <td>
+                    @Html.ActionLink("Detaljer", "Details", new { id = item.CourseId }, new { @class = "btn btn-default btn-xs" })
+            </td>
+
+        }
+
+        
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ActivityId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ActivityId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ActivityId })
+        </td>*@
+    </tr>
+}
 
 </table>

@@ -22,6 +22,7 @@ namespace Lexicon_LMS
 
             if (id != null)
             {
+                ViewBag.ActualCourseId = id;
                 if (User.IsInRole("Teacher"))
                 {
                     var activities = db.Activities.Where(a => a.CourseId == id);
@@ -78,9 +79,10 @@ namespace Lexicon_LMS
         }
 
         // GET: Activities/Create
-        public ActionResult Create()
+        public ActionResult Create(int? courseId = null)
         {
             ViewBag.CourseId = new SelectList(db.Courses, "CourseId", "Name");
+            ViewBag.ActualCourseId = courseId;
             return View();
         }
 
