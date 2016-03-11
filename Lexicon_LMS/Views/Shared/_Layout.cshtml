@@ -25,18 +25,26 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Hem", "Index", "Home")</li>
+
+
+                    @*<li>@Html.ActionLink("Hem", "Index", "Home")</li>*@
+
                     @*<li>@Html.ActionLink("Administrera", "About", "Home")</li>*@
-
-
 
 
                     @{
                         if (User.IsInRole("Teacher"))
                         {
                             <li>@Html.ActionLink("Administrera", "Index", "Groups/AdministrateGroups")</li>
+                            <li>@Html.ActionLink("Hem", "Index", "Groups")</li>
                         }
-                    }
+
+                        if (User.IsInRole("Student"))
+                        {
+
+                            <li>@Html.ActionLink("Hem", "Index", "Courses")</li>
+                        }
+}
                     @*<li>@Html.ActionLink("Administrera", "Index", "Groups/AdministrateGroups")</li>*@
 
 
@@ -47,6 +55,8 @@
                       <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
                 </ul>
                 @Html.Action("_LoginPartial", "Account")
+
+            
             </div>
             <div class="navbar-line"> </div>
 

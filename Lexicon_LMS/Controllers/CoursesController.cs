@@ -44,7 +44,10 @@ namespace Lexicon_LMS
                 }
                 else
                 {
-                    return RedirectToAction("index");
+                    var courses = db.Courses.Where(c => c.GroupId == id);
+                    ViewBag.GroupName = db.Groups.Where(g => g.GroupId == id).FirstOrDefault().Name;
+                    ViewBag.Group_Id = id;
+                    return View(courses.ToList());
                 }
             }
             else
