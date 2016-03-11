@@ -46,9 +46,11 @@ namespace Lexicon_LMS.Controllers
                 {
                     if (User.IsInRole("Teacher"))
                     {
-                        var ActiveGroup = db.Groups.Where(g => g.GroupId == ActiveUser.GroupId);
-                        ViewBag.GroupId = ActiveGroup.First().GroupId;
-                        var users = db.Users.Where(u => u.GroupId == ActiveGroup.FirstOrDefault().GroupId);
+                        //var ActiveGroup = db.Groups.Where(g => g.GroupId == ActiveUser.GroupId);
+                        //ViewBag.GroupId = ActiveGroup.First().GroupId;
+                        //var users = db.Users.Where(u => u.GroupId == ActiveGroup.FirstOrDefault().GroupId);
+                        var users = db.Users.Where(u => u.GroupId == groupId);
+
                         return View(users.ToList());
                     }
                     else
@@ -97,6 +99,25 @@ namespace Lexicon_LMS.Controllers
 
             return View(applicationUser);
         }
+
+
+        // POST: Users/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateTeacher([Bind(Include = "Id,GroupId,FirstName,LastName,Email,EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount,UserName")] ApplicationUser applicationUser)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Users.Add(applicationUser);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(applicationUser);
+        }
+
 
         // GET: Users/Edit/5
         public ActionResult Edit(string id)

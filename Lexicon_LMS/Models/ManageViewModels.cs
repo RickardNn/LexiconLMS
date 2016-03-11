@@ -28,14 +28,20 @@ namespace Lexicon_LMS.Models
     public class SetPasswordViewModel
     {
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        //[StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "{0}et måste innehålla minst {2} tecken.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "New password")]
+        //[Display(Name = "New password")]
+        [Display(Name = "Nytt lösenord")]
+
         public string NewPassword { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm new password")]
-        [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
+        //[Display(Name = "Confirm new password")]
+        [Display(Name = "Bekräfta nytt lösenord")]
+        //[Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
+        [Compare("NewPassword", ErrorMessage = "Lösenorden matchade inte varandra.")]
+
         public string ConfirmPassword { get; set; }
     }
 
@@ -43,18 +49,23 @@ namespace Lexicon_LMS.Models
     {
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Current password")]
+        //[Display(Name = "Current password")]
+        [Display(Name = "Nuvarande lösenord")]
         public string OldPassword { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        //[StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "{0}et måste innehålla minst {2} tecken.", MinimumLength = 6)]
+
         [DataType(DataType.Password)]
-        [Display(Name = "New password")]
+        //[Display(Name = "New password")]
+        [Display(Name = "Nytt lösenord")]
         public string NewPassword { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm new password")]
-        [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
+        //[Display(Name = "Confirm new password")]
+        [Display(Name = "Bekräfta lösenord")]
+        [Compare("NewPassword", ErrorMessage = "Det nya lösenordet matchade inte det tidigare.")]
         public string ConfirmPassword { get; set; }
     }
 
@@ -62,7 +73,8 @@ namespace Lexicon_LMS.Models
     {
         [Required]
         [Phone]
-        [Display(Name = "Phone Number")]
+        //[Display(Name = "Phone Number")]
+        [Display(Name = "Telefonnummer")]
         public string Number { get; set; }
     }
 
