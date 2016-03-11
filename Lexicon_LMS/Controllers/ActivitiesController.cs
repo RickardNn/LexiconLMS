@@ -19,23 +19,26 @@ namespace Lexicon_LMS
         public ActionResult Index(int? id)
         {
             var ActiveUser = db.Users.Where(u => u.UserName == User.Identity.Name.ToString()).ToList().FirstOrDefault();
-            var ActiveGroup = db.Groups.Where(g => g.GroupId == ActiveUser.GroupId);
-            var ActiveCourse = db.Courses.Where(g => g.GroupId == ActiveUser.GroupId);
 
             if (id != null)
             {
+                ViewBag.ActualCourseId = id;
                 if (User.IsInRole("Teacher"))
                 {
-                    ViewBag.Message = "Du är inloggad " + ActiveUser.FullName + " du är lärare för: ";
                     var activities = db.Activities.Where(a => a.CourseId == id);
+                    ViewBag.GroupId = activities.FirstOrDefault().Course.GroupId;
+                    ViewBag.GroupName = activities.FirstOrDefault().Course.Group.Name;
+                    ViewBag.CourseName = db.Courses.Where(c => c.CourseId == id).FirstOrDefault().Name;
                     return View(activities.ToList());
 
                 }
                 else
                 {
-                    ViewBag.Message = "Du är inloggad " + ActiveUser.FullName + " du deltager i: " + ActiveGroup.First().Name;
-                    ViewBag.GroupId = ActiveGroup.First().GroupId;
-                    ViewBag.CourseId = ActiveCourse.First().Name;
+                    var ActiveGroup = db.Groups.Where(g => g.GroupId == ActiveUser.GroupId);
+                    var ActiveCourse = db.Courses.Where(g => g.GroupId == ActiveUser.GroupId);
+                    ViewBag.GroupId = ActiveGroup.FirstOrDefault().GroupId;
+                    ViewBag.GroupName = ActiveGroup.FirstOrDefault().Name;
+                    ViewBag.CourseName = ActiveCourse.FirstOrDefault().Name;
                     var activities = db.Activities.Where(a => a.CourseId == id);
                     return View(activities.ToList());
                 }
@@ -76,9 +79,10 @@ namespace Lexicon_LMS
         }
 
         // GET: Activities/Create
-        public ActionResult Create()
+        public ActionResult Create(int? courseId = null)
         {
             ViewBag.CourseId = new SelectList(db.Courses, "CourseId", "Name");
+            ViewBag.ActualCourseId = courseId;
             return View();
         }
 

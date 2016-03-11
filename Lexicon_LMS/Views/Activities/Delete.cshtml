@@ -74,7 +74,7 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Ta bort" class="btn btn-default" /> |
-            @Html.ActionLink("Tillbaka till lista", "Index")
+            @Html.ActionLink("Tillbaka till lista", "Index", new { id = Model.ActivityId })
         </div>
     }
 </div>
