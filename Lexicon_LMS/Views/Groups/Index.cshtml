@@ -4,11 +4,14 @@
     ViewBag.Title = "Index";
 }
 
-<h2>@ViewBag.TeacherName:s grupper</h2>
+<h4>
+    / @Html.ActionLink("Lista samtliga grupper på Lexicon", "ListAllGroups", "Groups") / Mina grupper
+</h4>
+
 
 
 <td>
-    @Html.ActionLink("Lista samtliga grupper på Lexicon", "ListAllGroups")  <b>|</b>
+    @*@Html.ActionLink("Lista samtliga grupper på Lexicon", "ListAllGroups")  <b>|</b>*@
     @Html.ActionLink("Skapa ny grupp", "Create")
     <br /><br />
 </td>
