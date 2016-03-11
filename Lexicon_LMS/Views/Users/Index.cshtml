@@ -13,9 +13,13 @@
 
 <h4>/ @Html.ActionLink(GroupName, "Index", "Courses", new { id = GroupId }, null) / Elever</h4>
 
+@if (User.IsInRole("Teacher"))
+{
+
 <p>
     @Html.ActionLink("Lägg till användare", "Register", "Account")
 </p>
+}
 <table class="table">
     <tr>
                 <th>
