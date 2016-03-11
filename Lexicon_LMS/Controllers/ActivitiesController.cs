@@ -24,6 +24,7 @@ namespace Lexicon_LMS
 
             if (id != null)
             {
+                ViewBag.ActualCourseId = id;
                 if (User.IsInRole("Teacher"))
                 {
                     ViewBag.Message = "Du är inloggad " + ActiveUser.FullName + " du är lärare för: ";
@@ -76,9 +77,10 @@ namespace Lexicon_LMS
         }
 
         // GET: Activities/Create
-        public ActionResult Create()
+        public ActionResult Create(int? courseId = null)
         {
             ViewBag.CourseId = new SelectList(db.Courses, "CourseId", "Name");
+            ViewBag.ActualCourseId = courseId;
             return View();
         }
 

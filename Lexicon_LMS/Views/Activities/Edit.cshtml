@@ -82,7 +82,7 @@
 }
 
 <div>
-    @Html.ActionLink("Tillbaka till listan", "Index")
+    @Html.ActionLink("Tillbaka till listan", "Index", new { id = Model.ActivityId })
 </div>
 
 @section Scripts {
