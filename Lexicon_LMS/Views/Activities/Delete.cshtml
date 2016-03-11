@@ -4,11 +4,11 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Ta bort</h2>
+<h2>Ta bort aktiviteter</h2>
 
-<h3>Är du säker på att du vill ta bort det här?</h3>
+@*<h3>Är du säker på att du vill ta bort det här?</h3>*@
 <div>
-    <h4>Aktivitet</h4>
+    @*<h4>Aktivitet</h4>*@
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -74,7 +74,7 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Ta bort" class="btn btn-default" /> |
-            @Html.ActionLink("Tillbaka till lista", "Index", new { id = Model.ActivityId })
+            @Html.ActionLink("Tillbaka till aktiviteter", "Index", new { id = Model.ActivityId }, new { @class = "btn btn-default btn-m" })
         </div>
     }
 </div>
