@@ -38,7 +38,8 @@ namespace Lexicon_LMS
                 if (User.IsInRole("Teacher"))
                 {
                     var courses = db.Courses.Where(c => c.GroupId == id);
-                    ViewBag.TeachersGroupId = id;
+                    ViewBag.GroupName = db.Groups.Where(g => g.GroupId == id).FirstOrDefault().Name;
+                    ViewBag.Group_Id = id;
                     return View(courses.ToList());
                 }
                 else
@@ -53,7 +54,7 @@ namespace Lexicon_LMS
                     var ActiveGroup = db.Groups.Where(g => g.GroupId == ActiveUser.GroupId);
                     ViewBag.Message = "Du är inloggad " + ActiveUser.FullName + " du deltager i: " + ActiveGroup.First().Name;
                     ViewBag.GroupName = ActiveGroup.First().Name;
-                    ViewBag.GroupId = ActiveGroup.First().GroupId;
+                    ViewBag.Group_Id = ActiveGroup.First().GroupId;
                     var courses = db.Courses.Where(c => c.GroupId == ActiveUser.GroupId);
                     return View(courses.ToList());
                 }

@@ -5,13 +5,11 @@
     //ViewBag.UserID = User.Identity.Name;
 }
 
-<h2>Editera @ViewBag.TeacherName:s grupp</h2>
-
+<h2>Ändra @ViewBag.TeacherName:s grupp</h2>
 
 @using (Html.BeginForm())
 {
-    @Html.AntiForgeryToken()
-    
+    @Html.AntiForgeryToken()  
     
     <div class="form-horizontal">
         <hr />
@@ -98,7 +96,7 @@
 }
 
 <div>
-    @Html.ActionLink("Tillbaka till listan över grupper.", "Index")
+    @Html.ActionLink("Tillbaka till listan över grupper", "Index")
 </div>
 
 @section Scripts {

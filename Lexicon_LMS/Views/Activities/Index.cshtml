@@ -1,24 +1,45 @@
 ﻿@model IEnumerable<Lexicon_LMS.Models.Activity>
 
 @{
-    ViewBag.Title = "Index";
+   ViewBag.Title = "Index";
+
+    int GroupId = 0;
+    if (ViewBag.GroupId != null)
+    {
+        GroupId = (int)ViewBag.GroupId;
 }
 
-<h2>Aktiviteter</h2>
-<h4>@ViewBag.Message</h4>
+    string GroupName = ViewBag.GroupName;
 
+    string CourseName = "ERROR";
+    if (ViewBag.CourseName != null)
+    {
+        CourseName = ViewBag.CourseName;
+        //CourseId = ViewBag.CourseId;
+    }
+}
 @if (User.IsInRole("Teacher"))
 {
+    <h4>
+        / @Html.ActionLink("Lista samtliga grupper på Lexicon", "ListAllGroups", "Groups") / @Html.ActionLink("Mina grupper", "Index", "Groups") / @Html.ActionLink(GroupName, "Index", "Courses", new { id = GroupId }, null) / @CourseName / Aktiviteter
+    </h4>
+
     <p>
         @Html.ActionLink("Skapa ny", "Create", new { courseId = ViewBag.ActualCourseId }, new { @class = "btn btn-default btn-m" })
     </p>
+}
+else
+{
+    <h4>
+        / @Html.ActionLink(GroupName, "Index", "Courses", new { id = GroupId }, null) / @CourseName / Aktiviteter
+    </h4>
 }
 
 
 <table class="table">
     <tr>
         @*<th>
-                @Html.DisplayNameFor(model => model.Course.Name)
+            @Html.DisplayNameFor(model => model.Course.Name)
             </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Type)
@@ -43,52 +64,52 @@
 
     @foreach (var item in Model)
     {
-        <tr>
+    <tr>
             @*<td>
-                    @Html.DisplayFor(modelItem => item.Course.Name)
+            @Html.DisplayFor(modelItem => item.Course.Name)
                 </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Teacher)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndDate)
+        </td>
+        @if (User.IsInRole("Teacher"))
+        {
             <td>
-                @Html.DisplayFor(modelItem => item.Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Teacher)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EndDate)
-            </td>
-            @if (User.IsInRole("Teacher"))
-            {
-                <td>
 
                     @Html.ActionLink("Detaljer", "Details", new { id = item.CourseId }, new { @class = "btn btn-default btn-xs" })
                     @Html.ActionLink("Ändra", "Edit", new { id = item.CourseId }, new { @class = "btn btn-default btn-xs" })
                     @Html.ActionLink("Ta bort", "Delete", new { id = item.CourseId }, new { @class = "btn btn-default btn-xs" })
-                </td>
-            }
-            else
-            {
-                <td>
+            </td>
+        }
+        else
+        {
+            <td>
                     @Html.ActionLink("Detaljer", "Details", new { id = item.CourseId }, new { @class = "btn btn-default btn-xs" })
-                </td>
+            </td>
 
-            }
+        }
 
-
-            @*<td>
-                    @Html.ActionLink("Edit", "Edit", new { id=item.ActivityId }) |
-                    @Html.ActionLink("Details", "Details", new { id=item.ActivityId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id=item.ActivityId })
-                </td>*@
-        </tr>
-    }
+        
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ActivityId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ActivityId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ActivityId })
+        </td>*@
+    </tr>
+}
 
 </table>

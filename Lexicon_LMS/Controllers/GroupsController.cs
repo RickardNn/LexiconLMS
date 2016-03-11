@@ -143,7 +143,6 @@ namespace Lexicon_LMS
             {
                 return HttpNotFound();
             }
-            //ViewBag.TeacherId = group.TeacherId;
             ViewBag.TeacherId = new SelectList(db.Users.Where(u => u.GroupId == null), "Id", "FullName", group.TeacherId);
             return View(group);
         }
@@ -161,12 +160,9 @@ namespace Lexicon_LMS
             {
                 db.Entry(group).State = EntityState.Modified;
                 db.SaveChanges();
-                //return RedirectToAction("Index");
                 return RedirectToAction("../Groups/AdministrateGroups");
             }
-            //ViewBag.TeacherId = new SelectList(db.Users.Where(u => u.GroupId == null), "Id", "FullName");
             ViewBag.TeacherId = new SelectList(db.Users.Where(u => u.GroupId == null), "Id", "FullName", group.TeacherId);
-            //ViewBag.TeacherId = group.TeacherId;
             return View(group);
         }
 
@@ -197,7 +193,7 @@ namespace Lexicon_LMS
             //});
             //return View();
            // ViewBag.GroupId = new SelectList(db.Groups, "GroupId", "Name");
-           
+
             ViewBag.TeacherId = new SelectList(db.Users.Where(u => u.GroupId == null), "Id", "FullName");
             return View();
         }
@@ -273,6 +269,7 @@ namespace Lexicon_LMS
             {
                 return HttpNotFound();
             }
+            ViewBag.GroupName = group.Name;
             return View(group);
         }
 

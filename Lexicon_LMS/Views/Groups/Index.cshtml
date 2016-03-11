@@ -6,12 +6,13 @@
 
 <h2>@ViewBag.TeacherName:s grupper</h2>
 
-<p>
-    @Html.ActionLink("Lista samtliga grupper på Lexicon", "ListAllGroups")
-</p>
-<p>
+
+<td>
+    @Html.ActionLink("Lista samtliga grupper på Lexicon", "ListAllGroups")  <b>|</b>
     @Html.ActionLink("Skapa ny grupp", "Create")
-</p>
+    <br /><br />
+</td>
+
 <table class="table">
     <tr>
         <th>@*  *@
