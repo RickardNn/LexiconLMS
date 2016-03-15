@@ -4,7 +4,7 @@
     ViewBag.Title = "ListAllGroups";
 }
 
-<h2>Alla grupper på Lexicon</h2>
+<h2>Samtliga grupper på Lexicon</h2>
 
 <p>
     @Html.ActionLink("Åter till mina grupper", "Index")
@@ -60,9 +60,9 @@
             @if (ViewBag.TeacherId == item.Teacher) //om inloggad lärare är huvudlärare för gruppen skrivs länkar för Edit/Delete ut
             {
                 <td>
-                    @Html.ActionLink("Detaljer", "Details", new { id = item.GroupId }) |
-                    @Html.ActionLink("Ändra", "Edit", new { id = item.GroupId }) |
-                    @Html.ActionLink("Ta Bort", "Delete", new { id = item.GroupId })
+                    @Html.ActionLink("Detaljer", "Details", new { id = item.GroupId }, new { @class = "btn btn-default btn-xs" })
+                    @Html.ActionLink("Ändra", "Edit", new { id = item.GroupId }, new { @class = "btn btn-default btn-xs" })
+                    @Html.ActionLink("Ta Bort", "Delete", new { id = item.GroupId }, new { @class = "btn btn-default btn-xs" })
                 </td>
             }
             else

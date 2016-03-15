@@ -57,8 +57,9 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Ta bort" class="btn btn-default" /> |
-            @Html.ActionLink("Tillbaka till grupplistan", "Index")
+            <input type="submit" value="Ta bort" class="btn btn-default" />
+            @*@Html.ActionLink("Tillbaka till grupplistan", "Index")*@
+            @Html.ActionLink("Tillbaka till grupplistan", "Index", null, new { @class = "btn btn-default btn-m" })
         </div>
     }
 </div>
