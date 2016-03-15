@@ -44,11 +44,12 @@ namespace Lexicon_LMS
             //ViewBag.ApplicationUserId = new SelectList(db.Users, "Id", "FirstName");
             //ViewBag.CourseId = new SelectList(db.Courses, "CourseId", "Name");
             //ViewBag.GroupId = new SelectList(db.Groups, "GroupId", "Name");
-            ViewBag.AId = aId;
+            Document document = new Document();
+            document.ActivityId = aId;
             ViewBag.ApplicationUserId = new SelectList(db.Users, "Id", "FirstName");
-            ViewBag.CId = cId;
-            ViewBag.GId = gId;
-            return View();
+            document.CourseId = cId;
+            document.GroupId = gId;
+            return View(document);
         }
 
         // POST: Documents/Create
