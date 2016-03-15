@@ -4,8 +4,7 @@
     ViewBag.Title = "AdministrateGroups";
 }
 
-<h2>Administrera grupper/lärare</h2>
-<br />
+<h4>Administrera grupper/lärare / @Html.ActionLink("Mina grupper", "Index")</h4>
 
 @*<p>
     @Html.ActionLink("Åter till mina grupper", "Index")
@@ -21,11 +20,11 @@
 </p>*@
 
 <td>
-    @Html.ActionLink("Åter till mina grupper", "Index")  <b>|</b>
-    @Html.ActionLink("Skapa ny grupp", "Create")  <b>|</b>
-    @Html.ActionLink("Skapa ny lärare", "../Account/CreateTeacher")  <b>|</b>
-    @Html.ActionLink("Lista alla lärare", "Index", "Users")
-    <br /><br />
+    @*@Html.ActionLink("Åter till mina grupper", "Index") |*@
+    @Html.ActionLink("Skapa ny grupp", "Create", null, new { @class = "btn btn-default btn-m" })
+    @Html.ActionLink("Registrera ny lärare", "../Account/CreateTeacher", null, new { @class = "btn btn-default btn-m" })
+    @Html.ActionLink("Lista alla lärare", "Index", "Users", null, new { @class = "btn btn-default btn-m" })
+    <br />
 </td>
 
 <table class="table">
@@ -71,9 +70,9 @@
             </td>
 
                 <td>
-                    @Html.ActionLink("Detaljer", "Details", new { id = item.GroupId }) |
-                    @Html.ActionLink("Ändra", "AdministrateGroupsEdit", new { id = item.GroupId }) |
-                    @Html.ActionLink("Ta Bort", "Delete", new { id = item.GroupId })
+                    @Html.ActionLink("Detaljer", "Details", new { id = item.GroupId }, new { @class = "btn btn-default btn-xs" })
+                    @Html.ActionLink("Ändra", "AdministrateGroupsEdit", new { id = item.GroupId }, new { @class = "btn btn-default btn-xs" })
+                    @Html.ActionLink("Ta Bort", "Delete", new { id = item.GroupId }, new { @class = "btn btn-default btn-xs" })
                 </td>
 
         </tr>

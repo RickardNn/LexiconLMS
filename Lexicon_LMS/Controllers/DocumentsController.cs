@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Lexicon_LMS.Models;
+using System.IO;
 
 namespace Lexicon_LMS
 {
@@ -51,10 +52,24 @@ namespace Lexicon_LMS
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DocumentId,ApplicationUserId,GroupId,CourseId,ActivityId,Title,FileName,Description,TimeStamp")] Document document)
+        public ActionResult Create([Bind(Include = "DocumentId,ApplicationUserId,GroupId,CourseId,ActivityId,Title,FileName,Description,TimeStamp")] Document document, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
+ 
+                if (upload != null && upload.ContentLength > 0)
+                {
+                //    var _document = new Document
+                //    {
+                //        FileName = System.IO.Path.GetFileName(upload.FileName),
+                //        //upload.
+                //    };
+                    //string str = Path.Combine(Server.MapPath("~/LMS_Documents"),System.IO.Path.GetFileName(upload.FileName));
+                    string str = Path.Combine(Server.MapPath("~/LMS_Documents"), upload.FileName);
+                    upload.SaveAs(Path.Combine(Server.MapPath("~/LMS_Documents"), upload.FileName));
+                    //course.Documents = new List<Document>();
+                    //course.Documents.Add(document);
+                }
                 db.Documents.Add(document);
                 db.SaveChanges();
                 return RedirectToAction("Index");

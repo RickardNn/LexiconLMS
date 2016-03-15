@@ -4,18 +4,20 @@
     ViewBag.Title = "Index";
 }
 
-<h2>@ViewBag.TeacherName:s grupper</h2>
+<h4>
+    / @Html.ActionLink("Samtliga grupper på Lexicon", "ListAllGroups", "Groups") / Mina grupper
+</h4>
 
 
 <td>
-    @Html.ActionLink("Lista samtliga grupper på Lexicon", "ListAllGroups")  <b>|</b>
-    @Html.ActionLink("Skapa ny grupp", "Create")
-    <br /><br />
+    @*@Html.ActionLink("Lista samtliga grupper på Lexicon", "ListAllGroups")  *@
+    @*@Html.ActionLink("Skapa ny grupp", "Create")*@
+    @Html.ActionLink("Skapa ny grupp", "Create", null, new { @class = "btn btn-default btn-m" })
 </td>
 
 <table class="table">
     <tr>
-        <th>@*  *@
+        <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
         @*<th>
@@ -64,9 +66,9 @@
             @Html.DisplayFor(modelItem => item.EndDate)
         </td>
         <td>
-            @Html.ActionLink("Detaljer", "Details", new { id = item.GroupId }) |
-            @Html.ActionLink("Ändra", "Edit", new { id=item.GroupId }) |
-            @Html.ActionLink("Ta Bort", "Delete", new { id=item.GroupId })
+            @Html.ActionLink("Detaljer", "Details", new { id = item.GroupId }, new { @class = "btn btn-default btn-xs" })
+            @Html.ActionLink("Ändra", "Edit", new { id = item.GroupId }, new { @class = "btn btn-default btn-xs" })
+            @Html.ActionLink("Ta Bort", "Delete", new { id = item.GroupId }, new { @class = "btn btn-default btn-xs" })
         </td>
     </tr>
 }
