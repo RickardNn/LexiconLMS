@@ -16,7 +16,7 @@ namespace Lexicon_LMS
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Documents
-        public ActionResult Index()
+        public ActionResult Index(int? id, int? aid)
         {
             var documents = db.Documents.Include(d => d.Activity).Include(d => d.ApplicationUser).Include(d => d.Course).Include(d => d.Group);
             return View(documents.ToList());
@@ -38,13 +38,18 @@ namespace Lexicon_LMS
         }
 
         // GET: Documents/Create
-        public ActionResult Create()
+        public ActionResult Create(int? gId, int? cId, int? aId)
         {
-            ViewBag.ActivityId = new SelectList(db.Activities, "ActivityId", "Type");
+            //ViewBag.AId = new SelectList(db.Activities, "ActivityId", "Type");
+            //ViewBag.ApplicationUserId = new SelectList(db.Users, "Id", "FirstName");
+            //ViewBag.CourseId = new SelectList(db.Courses, "CourseId", "Name");
+            //ViewBag.GroupId = new SelectList(db.Groups, "GroupId", "Name");
+            Document document = new Document();
+            document.ActivityId = aId;
             ViewBag.ApplicationUserId = new SelectList(db.Users, "Id", "FirstName");
-            ViewBag.CourseId = new SelectList(db.Courses, "CourseId", "Name");
-            ViewBag.GroupId = new SelectList(db.Groups, "GroupId", "Name");
-            return View();
+            document.CourseId = cId;
+            document.GroupId = gId;
+            return View(document);
         }
 
         // POST: Documents/Create
@@ -61,11 +66,11 @@ namespace Lexicon_LMS
                 {
                 //    var _document = new Document
                 //    {
-                //        FileName = System.IO.Path.GetFileName(upload.FileName),
                 //        //upload.
                 //    };
                     //string str = Path.Combine(Server.MapPath("~/LMS_Documents"),System.IO.Path.GetFileName(upload.FileName));
-                    string str = Path.Combine(Server.MapPath("~/LMS_Documents"), upload.FileName);
+                    document.GroupId = null;
+                    document.FileName = System.IO.Path.GetFileName(upload.FileName);
                     upload.SaveAs(Path.Combine(Server.MapPath("~/LMS_Documents"), upload.FileName));
                     //course.Documents = new List<Document>();
                     //course.Documents.Add(document);

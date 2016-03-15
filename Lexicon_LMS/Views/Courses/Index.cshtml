@@ -3,6 +3,10 @@
 @{
     ViewBag.Title = "Index";
     string GroupName = "ERROR";
+    int? gId = null;
+    int? aId = null;
+    int? cId = null;
+
     if (ViewBag.GroupName != null)
     {
         GroupName = ViewBag.GroupName;
@@ -18,6 +22,10 @@
     <p>
         @Html.ActionLink("Skapa ny kurs", "Create")
     </p>
+
+    @*<p>
+        @Html.ActionLink("Skapa document", "Create", "Documents", new { gId, cId = 1, aId }, null)
+    </p>*@
 }
 else
 {
@@ -70,7 +78,8 @@ else
                 <td>
                     @Html.ActionLink("Detaljer", "Details", new { id = item.CourseId }) |
                     @Html.ActionLink("Ändra", "Edit", new { id = item.CourseId }) |
-                    @Html.ActionLink("Ta bort", "Delete", new { id = item.CourseId })
+                    @Html.ActionLink("Ta bort", "Delete", new { id = item.CourseId }) |
+                    @Html.ActionLink("Lägg till dokument", "Create", "Documents", new { gId, cId = item.CourseId, aId }, null)
                 </td>
             }
             else
