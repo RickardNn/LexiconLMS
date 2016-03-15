@@ -25,7 +25,7 @@
     </h4>
 
     <p>
-        @Html.ActionLink("Skapa ny", "Create", new { courseId = ViewBag.ActualCourseId }, new { @class = "btn btn-default btn-m" })
+        @Html.ActionLink("Skapa ny aktivitet", "Create", new { courseId = ViewBag.ActualCourseId }, new { @class = "btn btn-default btn-m" })
     </p>
 }
 else
@@ -77,9 +77,21 @@ else
         <td>
             @Html.DisplayFor(modelItem => item.Teacher)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Description)
+        </td>*@
+
+        <td>
+            @{
+        string str = (string)item.Description;
+        if (str.Count() > 40)
+        {
+            str = str.Substring(0, 40);
+        }
+            }
+            @str...
         </td>
+
         <td>
             @Html.DisplayFor(modelItem => item.StartDate)
         </td>
@@ -93,12 +105,15 @@ else
                     @Html.ActionLink("Detaljer", "Details", new { id = item.CourseId }, new { @class = "btn btn-default btn-xs" })
                     @Html.ActionLink("Ändra", "Edit", new { id = item.CourseId }, new { @class = "btn btn-default btn-xs" })
                     @Html.ActionLink("Ta bort", "Delete", new { id = item.CourseId }, new { @class = "btn btn-default btn-xs" })
+                    @Html.ActionLink("Dokument", "Documents", new { id = item.CourseId }, new { @class = "btn btn-default btn-xs" })
+
             </td>
         }
         else
         {
             <td>
                     @Html.ActionLink("Detaljer", "Details", new { id = item.CourseId }, new { @class = "btn btn-default btn-xs" })
+                    @Html.ActionLink("Dokument", "Documents", new { id = item.CourseId }, new { @class = "btn btn-default btn-xs" })
             </td>
 
         }
