@@ -3,6 +3,9 @@
 @{
     ViewBag.Title = "Index";
     string GroupName = "ERROR";
+    int? gId = null;
+    int? aId = null;
+
     if (ViewBag.GroupName != null)
     {
         GroupName = ViewBag.GroupName;
@@ -17,6 +20,10 @@
 
     <p>
         @Html.ActionLink("Skapa ny kurs", "Create")
+    </p>
+
+    <p>
+        @Html.ActionLink("Skapa document", "Create", "Documents", new { gId, cId = 1, aId }, null)
     </p>
 }
 else

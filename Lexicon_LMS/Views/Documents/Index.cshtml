@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Lägg till dokument", "Create")
 </p>
 <table class="table">
     <tr>
@@ -15,7 +15,7 @@
             @Html.DisplayNameFor(model => model.Activity.Type)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ApplicationUser.FirstName)
+            @Html.DisplayNameFor(model => model.ApplicationUser.FullName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Course.Name)
@@ -44,7 +44,7 @@
             @Html.DisplayFor(modelItem => item.Activity.Type)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ApplicationUser.FirstName)
+            @Html.DisplayFor(modelItem => item.ApplicationUser.FullName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Course.Name)
