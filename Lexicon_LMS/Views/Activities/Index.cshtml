@@ -102,18 +102,18 @@ else
         {
             <td>
 
-                    @Html.ActionLink("Detaljer", "Details", new { id = item.CourseId }, new { @class = "btn btn-default btn-xs" })
-                    @Html.ActionLink("Ändra", "Edit", new { id = item.CourseId }, new { @class = "btn btn-default btn-xs" })
-                    @Html.ActionLink("Ta bort", "Delete", new { id = item.CourseId }, new { @class = "btn btn-default btn-xs" })
-                    @Html.ActionLink("Dokument", "Documents", new { id = item.CourseId }, new { @class = "btn btn-default btn-xs" })
+                    @Html.ActionLink("Detaljer", "Details", new { id = item.ActivityId }, new { @class = "btn btn-default btn-xs" })
+                    @Html.ActionLink("Ändra", "Edit", new { id = item.ActivityId }, new { @class = "btn btn-default btn-xs" })
+                    @Html.ActionLink("Ta bort", "Delete", new { id = item.ActivityId }, new { @class = "btn btn-default btn-xs" })
+                    @Html.ActionLink("Dokument", "Documents", new { id = item.ActivityId }, new { @class = "btn btn-default btn-xs" })
 
             </td>
         }
         else
         {
             <td>
-                    @Html.ActionLink("Detaljer", "Details", new { id = item.CourseId }, new { @class = "btn btn-default btn-xs" })
-                    @Html.ActionLink("Dokument", "Documents", new { id = item.CourseId }, new { @class = "btn btn-default btn-xs" })
+                    @Html.ActionLink("Detaljer", "Details", new { id = item.ActivityId }, new { @class = "btn btn-default btn-xs" })
+                    @Html.ActionLink("Dokument", "Documents", new { id = item.ActivityId }, new { @class = "btn btn-default btn-xs" })
             </td>
 
         }
