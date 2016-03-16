@@ -163,7 +163,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\TestGroupsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -287,6 +286,11 @@
     <Content Include="Views\Groups\AdministrateGroups.cshtml" />
     <Content Include="Views\Groups\AdministrateGroupsEdit.cshtml" />
     <Content Include="Views\Account\CreateTeacher.cshtml" />
+    <Content Include="Views\TestDocuments\Create.cshtml" />
+    <Content Include="Views\TestDocuments\Delete.cshtml" />
+    <Content Include="Views\TestDocuments\Details.cshtml" />
+    <Content Include="Views\TestDocuments\Edit.cshtml" />
+    <Content Include="Views\TestDocuments\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
