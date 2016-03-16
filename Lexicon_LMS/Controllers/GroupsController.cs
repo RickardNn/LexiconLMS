@@ -184,7 +184,10 @@ namespace Lexicon_LMS
             return View(group);
         }
 
-        // GET: Groups/Create
+
+
+
+         //GET: Groups/Create
         public ActionResult Create()
         {
             //ViewBag.All = db.Groups.Select(h => new SelectListItem
@@ -197,6 +200,8 @@ namespace Lexicon_LMS
             ViewBag.TeacherId = new SelectList(db.Users.Where(u => u.GroupId == null), "Id", "FullName");
             return View();
         }
+
+
 
         // POST: Groups/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
