@@ -2,6 +2,9 @@
 
 @{
     ViewBag.Title = "Index";
+    int? gId = null;
+    int? cId = null;
+    int? aId = null;
 }
 
 <h4>
@@ -12,6 +15,7 @@
 <td>
     @*@Html.ActionLink("Lista samtliga grupper på Lexicon", "ListAllGroups")  *@
     @*@Html.ActionLink("Skapa ny grupp", "Create")*@
+    @*@Html.ActionLink("Skapa ny grupp", "Create", null, new { @class = "btn btn-default btn-m" }, new { id = User.Identity })*@
     @Html.ActionLink("Skapa ny grupp", "Create", null, new { @class = "btn btn-default btn-m" })
 </td>
 
@@ -57,7 +61,6 @@
             @str...
             @*@Html.DisplayFor(modelItem => item.Description)*@
 
-
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.StartDate)
@@ -68,7 +71,9 @@
         <td>
             @Html.ActionLink("Detaljer", "Details", new { id = item.GroupId }, new { @class = "btn btn-default btn-xs" })
             @Html.ActionLink("Ändra", "Edit", new { id = item.GroupId }, new { @class = "btn btn-default btn-xs" })
-            @Html.ActionLink("Ta Bort", "Delete", new { id = item.GroupId }, new { @class = "btn btn-default btn-xs" })
+            @Html.ActionLink("Ta bort", "Delete", new { id = item.GroupId }, new { @class = "btn btn-default btn-xs" })
+            @Html.ActionLink("Lägg till dokument", "Create", "Documents", new { gId = item.GroupId, cId, aId}, new { @class = "btn btn-default btn-xs" })
+            @Html.ActionLink("Visa dokument", "Index", "Documents", new { gId = item.GroupId, cId, aId }, new { @class = "btn btn-default btn-xs" })
         </td>
     </tr>
 }

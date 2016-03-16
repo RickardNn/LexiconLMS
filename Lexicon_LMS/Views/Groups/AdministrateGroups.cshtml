@@ -7,17 +7,17 @@
 <h4>Administrera grupper/lärare / @Html.ActionLink("Mina grupper", "Index")</h4>
 
 @*<p>
-    @Html.ActionLink("Åter till mina grupper", "Index")
-</p>
-<p>
-    @Html.ActionLink("Skapa ny grupp", "Create")
-</p>
-<p>
-    @Html.ActionLink("Skapa ny lärare", "../Account/CreateTeacher")
-</p>
-<p>
-    @Html.ActionLink("Lista alla lärare", "Index", "Users")
-</p>*@
+        @Html.ActionLink("Åter till mina grupper", "Index")
+    </p>
+    <p>
+        @Html.ActionLink("Skapa ny grupp", "Create")
+    </p>
+    <p>
+        @Html.ActionLink("Skapa ny lärare", "../Account/CreateTeacher")
+    </p>
+    <p>
+        @Html.ActionLink("Lista alla lärare", "Index", "Users")
+    </p>*@
 
 <td>
     @*@Html.ActionLink("Åter till mina grupper", "Index") |*@
@@ -60,7 +60,16 @@
                 @*@Html.DisplayFor(modelItem => item.Teacher.LastName)*@
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
+                @{
+                    string str = (string)item.Description;
+                    if (str.Count() > 7)
+                    {
+                        str = str.Substring(0, 7);
+                    }
+                    //str = str.Substring(0, 7); << vad händer om det bara finns 7 stycken tecken??
+                }
+                @str...
+                @*@Html.DisplayFor(modelItem => item.Description)*@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.StartDate)
@@ -69,11 +78,11 @@
                 @Html.DisplayFor(modelItem => item.EndDate)
             </td>
 
-                <td>
-                    @Html.ActionLink("Detaljer", "Details", new { id = item.GroupId }, new { @class = "btn btn-default btn-xs" })
-                    @Html.ActionLink("Ändra", "AdministrateGroupsEdit", new { id = item.GroupId }, new { @class = "btn btn-default btn-xs" })
-                    @Html.ActionLink("Ta Bort", "Delete", new { id = item.GroupId }, new { @class = "btn btn-default btn-xs" })
-                </td>
+            <td>
+                @Html.ActionLink("Detaljer", "Details", new { id = item.GroupId }, new { @class = "btn btn-default btn-xs" })
+                @Html.ActionLink("Ändra", "AdministrateGroupsEdit", new { id = item.GroupId }, new { @class = "btn btn-default btn-xs" })
+                @Html.ActionLink("Ta Bort", "Delete", new { id = item.GroupId }, new { @class = "btn btn-default btn-xs" })
+            </td>
 
         </tr>
     }

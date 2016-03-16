@@ -7,7 +7,8 @@
 <h2>Samtliga grupper på Lexicon</h2>
 
 <p>
-    @Html.ActionLink("Åter till mina grupper", "Index")
+    @*@Html.ActionLink("Åter till mina grupper", "Index")*@
+    @Html.ActionLink("Åter till mina grupper", "Index", null, new { @class = "btn btn-default btn-m" })
 </p>
 <table class="table">
     <tr>
@@ -42,7 +43,15 @@
                 @*@Html.DisplayFor(modelItem => item.Teacher.LastName)*@
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
+                @{
+                    string str = (string)item.Description;
+                    if (str.Count() > 7)
+                    {
+                        str = str.Substring(0, 7);
+                    }
+                }
+                @str...
+                @*@Html.DisplayFor(modelItem => item.Description)*@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.StartDate)
