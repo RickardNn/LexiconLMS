@@ -193,8 +193,8 @@ namespace Lexicon_LMS.Migrations
                    CourseId = 2,
                    Teacher = "Oscar Jakobsson",
                    Description = "Interface.",
-                   StartDate = DateTime.ParseExact("2015-01-24", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                   EndDate = DateTime.ParseExact("2015-02-12", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                   StartDate = DateTime.ParseExact("2015-12-24", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                   EndDate = DateTime.ParseExact("2016-01-12", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                },
 
                new Course
@@ -204,8 +204,8 @@ namespace Lexicon_LMS.Migrations
                    CourseId = 3,
                    Teacher = "Mattias Östholm",
                    Description = "Vattenfallsmetoden.",
-                   StartDate = DateTime.ParseExact("2015-02-13", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                   EndDate = DateTime.ParseExact("2015-02-17", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                   StartDate = DateTime.ParseExact("2016-01-13", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                   EndDate = DateTime.ParseExact("2016-01-17", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                },
 
                new Course
@@ -215,8 +215,8 @@ namespace Lexicon_LMS.Migrations
                    CourseId = 4,
                    Teacher = "Mattias Östholm",
                    Description = "SCRUM del 1",
-                   StartDate = DateTime.ParseExact("2015-03-18", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                   EndDate = DateTime.ParseExact("2015-03-21", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                   StartDate = DateTime.ParseExact("2016-01-18", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                   EndDate = DateTime.ParseExact("2016-01-21", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                },
 
                new Course
@@ -226,8 +226,8 @@ namespace Lexicon_LMS.Migrations
                    CourseId = 5,
                    Teacher = "Oscar Jakobsson",
                    Description = "AngularJS del 1.",
-                   StartDate = DateTime.ParseExact("2015-04-22", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                   EndDate = DateTime.ParseExact("2015-04-24", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                   StartDate = DateTime.ParseExact("2016-01-22", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                   EndDate = DateTime.ParseExact("2016-01-24", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                },
 
                new Course
@@ -237,8 +237,8 @@ namespace Lexicon_LMS.Migrations
                    CourseId = 6,
                    Teacher = "Adrian Lozano",
                    Description = "Modeller.",
-                   StartDate = DateTime.ParseExact("2015-05-25", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                   EndDate = DateTime.ParseExact("2015-06-01", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                   StartDate = DateTime.ParseExact("2016-01-25", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                   EndDate = DateTime.ParseExact("2016-02-12", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                },
 
                new Course
@@ -248,8 +248,8 @@ namespace Lexicon_LMS.Migrations
                    CourseId = 7,
                    Teacher = "Oscar Jakobsson",
                    Description = "Fastställa kravpec.",
-                   StartDate = DateTime.ParseExact("2015-07-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                   EndDate = DateTime.ParseExact("2015-07-18", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                   StartDate = DateTime.ParseExact("2016-02-13", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                   EndDate = DateTime.ParseExact("2016-03-18", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                },
 
                new Course
@@ -259,8 +259,8 @@ namespace Lexicon_LMS.Migrations
                    CourseId = 8,
                    Teacher = "Pontus Wittberg",
                    Description = "Klasser och objekt.",
-                   StartDate = DateTime.ParseExact("2016-01-07", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                   EndDate = DateTime.ParseExact("2016-01-29", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                   StartDate = DateTime.ParseExact("2016-03-21", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                   EndDate = DateTime.ParseExact("2016-04-20", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                },
 
                new Course
@@ -270,8 +270,8 @@ namespace Lexicon_LMS.Migrations
                    CourseId = 9,
                    Teacher = "Adrian Lozano",
                    Description = "Arv.",
-                   StartDate = DateTime.ParseExact("2016-01-30", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                   EndDate = DateTime.ParseExact("2016-02-12", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                   StartDate = DateTime.ParseExact("2016-04-21", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                   EndDate = DateTime.ParseExact("2016-04-30", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                },
 
                new Course
@@ -281,8 +281,8 @@ namespace Lexicon_LMS.Migrations
                    CourseId = 10,
                    Teacher = "Pontus Wittberg",
                    Description = "Skapa en app.",
-                   StartDate = DateTime.ParseExact("2016-03-13", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                   EndDate = DateTime.ParseExact("2016-03-26", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                   StartDate = DateTime.ParseExact("2016-05-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                   EndDate = DateTime.ParseExact("2016-05-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                },
 
                new Course
@@ -292,8 +292,8 @@ namespace Lexicon_LMS.Migrations
                    CourseId = 11,
                    Teacher = "Mattias Östholm",
                    Description = "Dokumentation.",
-                   StartDate = DateTime.ParseExact("2016-04-27", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                   EndDate = DateTime.ParseExact("2016-04-29", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                   StartDate = DateTime.ParseExact("2016-05-16", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                   EndDate = DateTime.ParseExact("2016-05-19", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                },
 
                new Course
@@ -303,8 +303,8 @@ namespace Lexicon_LMS.Migrations
                    CourseId = 12,
                    Teacher = "Adrian Lozano",
                    Description = "SCRUM Grunder.",
-                   StartDate = DateTime.ParseExact("2016-05-30", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                   EndDate = DateTime.ParseExact("2016-06-04", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                   StartDate = DateTime.ParseExact("2016-05-20", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                   EndDate = DateTime.ParseExact("2016-05-23", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                },
 
                new Course
@@ -314,8 +314,8 @@ namespace Lexicon_LMS.Migrations
                    CourseId = 13,
                    Teacher = "Oscar Jakobsson",
                    Description = "AngularJS Grunder.",
-                   StartDate = DateTime.ParseExact("2016-06-05", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                   EndDate = DateTime.ParseExact("2016-07-12", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                   StartDate = DateTime.ParseExact("2016-05-24", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                   EndDate = DateTime.ParseExact("2016-06-02", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                },
 
                new Course
@@ -325,8 +325,8 @@ namespace Lexicon_LMS.Migrations
                    CourseId = 14,
                    Teacher = "Adrian Lozano",
                    Description = "MVC5 Controller.",
-                   StartDate = DateTime.ParseExact("2016-07-13", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                   EndDate = DateTime.ParseExact("2016-07-14", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                   StartDate = DateTime.ParseExact("2016-06-03", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                   EndDate = DateTime.ParseExact("2016-06-10", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                },
 
             new Course
@@ -336,8 +336,8 @@ namespace Lexicon_LMS.Migrations
                    CourseId = 15,
                    Teacher = "Oscar JAkobsson",
                    Description = "Kravspec.",
-                   StartDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                   EndDate = DateTime.ParseExact("2016-09-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                   StartDate = DateTime.ParseExact("2016-06-11", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                   EndDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                }
              );
 

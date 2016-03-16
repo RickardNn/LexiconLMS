@@ -42,15 +42,24 @@
         </div>*@
 
         <div class="form-group">
+            @Html.LabelFor(model => model.GroupId, "GroupId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.GroupId, new { @Value = @Model.GroupId, @readonly = "true" })
+                @Html.ValidationMessageFor(model => model.GroupId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
             @Html.LabelFor(model => model.CourseId, "CourseId", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @*@Html.TextBoxFor((model => model.CourseId))*@
-                @*@Html.ValidationMessageFor(model => model.CourseId, "", new { @class = "text-danger" })*@
                 @Html.TextBoxFor(model => model.CourseId, new { @Value = @Model.CourseId, @readonly = "true" })
-                @*@Html.DisplayFor(model => model.CourseId, new { @Value = @ViewBag.CId, @readonly = "true" })*@
-                @*@Html.DisplayFor(model => model.CourseId)*@
-                @*@Model.CourseId = ViewBag.CId;*@
                 @Html.ValidationMessageFor(model => model.CourseId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ActivityId, "ActivityId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.ActivityId, new { @Value = @Model.ActivityId, @readonly = "true" })
+                @Html.ValidationMessageFor(model => model.ActivityId, "", new { @class = "text-danger" })
             </div>
         </div>
 

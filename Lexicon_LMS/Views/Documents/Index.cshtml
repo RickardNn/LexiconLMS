@@ -57,6 +57,7 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.FileName)
+            @*@Html.ActionLink(Html.DisplayFor(modelItem => item.FileName), "Details", new { id = item.DocumentId })*@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Description)
