@@ -58,44 +58,68 @@ namespace Lexicon_LMS.Migrations
                 new Group 
                 {
                     GroupId = 1,
-                    Name = ".NET utvecklare 2015",
+                    Name = ".NET utvecklare november 2015",
                     TeacherId = NewUserList[0].Id,
                     //Teacher = "Oscar Jakobsson",
-                    Description = "Grunderna i C#.",
-                    StartDate = DateTime.ParseExact("2015-12-03", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2016-02-03", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                },
-                new Group
-                { 
-                    GroupId = 2,
-                    Name = ".NET utvecklare 2016",
-                    TeacherId = NewUserList[0].Id,
-                    //Teacher = "Oscar Jakobsson",
-                    Description = "Grundkurs i C#.",
-                    StartDate = DateTime.ParseExact("2016-01-03", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2016-04-13", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                    Description = "Grunderna i C#. Det är ett välkänt faktum att läsare distraheras av läsbar "+
+                    "text på en sida när man skall studera layouten. Poängen med Lorem Ipsum är att det ger ett "+
+                    "normalt ordflöde, till skillnad från \"Text här, Text här\", och ger intryck av att vara läsbar "+
+                    "text. Många publiseringprogram och webbutvecklare använder Lorem Ipsum som test-text, och en "+
+                    "sökning efter \"Lorem Ipsum\" avslöjar många webbsidor under uteckling. Olika versioner har dykt "+
+                    "upp under åren, ibland av olyckshändelse, ibland med flit (mer eller mindre humoristiska).",
+                    StartDate = DateTime.ParseExact("2015-11-19", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2016-03-02", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                 },
 
                 new Group
                 { 
+                    GroupId = 2,
+                    Name = ".NET utvecklare mars 2016",
+                    TeacherId = NewUserList[0].Id,
+                    //Teacher = "Oscar Jakobsson",
+                    Description = "Grundkurs i C#. Lorem Ipsum är en utfyllnadstext från tryck- och förlagsindustrin. "+
+                    "Lorem ipsum har varit standard ända sedan 1500-talet, när en okänd boksättare tog att antal "+
+                    "bokstäver och blandade dem för att göra ett provexemplar av en bok. Lorem ipsum har inte bara överlevt "+
+                    "fem århundraden, utan även övergången till elektronisk typografi utan större förändringar. Det blev "+
+                    "allmänt känt på 1960-talet i samband med lanseringen av Letraset-ark med avsnitt av Lorem Ipsum, "+
+                    "och senare med mjukvaror som Aldus PageMaker.",
+                    StartDate = DateTime.ParseExact("2016-03-21", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                },
+
+                  new Group
+                { 
                     GroupId = 3,
-                    Name = "Java Del 1",
-                    //Teacher = "Adrian Lozano",
-                    TeacherId = NewUserList[1].Id,
-                    Description = "Grundkurs.",
-                    StartDate = DateTime.ParseExact("2015-11-04", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2016-04-17", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                    Name = ".NET utvecklare juni 2016",
+                    //Teacher = "Oscar Jakobsson",
+                    TeacherId = NewUserList[0].Id,
+                    Description = "Hello world. Det finns många olika varianter av Lorem Ipsum, men majoriteten "+
+                    "av dessa har ändrats på någotvis. Antingen med inslag av humor, eller med inlägg av ord "+
+                    "som knappast ser trovärdiga ut. Skall man använda långa stycken av Lorem Ipsum bör man "+
+                    "försäkra sig om att det inte gömmer sig något pinsamt mitt i texten. Lorem Ipsum-generatorer "+
+                    "på internet tenderar att repetera Lorem Ipsum-texten styckvis efter behov, något som gör "+
+                    "denna sidan till den första riktiga Lorem Ipsum-generatorn på internet. Den använder ett "+
+                    "ordförråd på över 200 ord, kombinerat med ett antal meningsbyggnadsstrukturer som tillsamman "+
+                    "genererar Lorem Ipsum som ser ut som en normal mening. Lorem Ipsum genererad på denna sidan "+
+                    "är därför alltid fri från repetitioner, humorinslag, märkliga ordformationer osv.",
+                StartDate = DateTime.ParseExact("2016-07-17", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2016-09-23", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                 },
 
                 new Group
                 { 
                     GroupId = 4,
-                    Name = "C++",
+                    Name = "Java Del 1",
                     //Teacher = "Adrian Lozano",
                     TeacherId = NewUserList[1].Id,
-                    Description = "Objektorienterad programmering.",
-                    StartDate = DateTime.ParseExact("2015-10-14", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2015-12-28", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                    Description = "Grundkurs. Lorem Ipsum är en utfyllnadstext från tryck- och förlagsindustrin. "+
+                    "Lorem ipsum har varit standard ända sedan 1500-talet, när en okänd boksättare tog att antal "+
+                    "bokstäver och blandade dem för att göra ett provexemplar av en bok. Lorem ipsum har inte bara "+
+                    "överlevt fem århundraden, utan även övergången till elektronisk typografi utan större förändringar. "+
+                    "Det blev allmänt känt på 1960-talet i samband med lanseringen av Letraset-ark med avsnitt av Lorem Ipsum, "+
+                    "och senare med mjukvaror som Aldus PageMaker.",
+                    StartDate = DateTime.ParseExact("2015-11-04", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2016-02-17", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                 },
 
                 new Group
@@ -104,65 +128,79 @@ namespace Lexicon_LMS.Migrations
                     Name = "Java Del 2",
                     //Teacher = "Adrian Lozano",
                     TeacherId = NewUserList[1].Id,
-                    Description = "Fortsättningskurs.",
-                    StartDate = DateTime.ParseExact("2016-02-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2016-05-09", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                },
-
-                new Group
-                { 
-                    GroupId = 6,
-                    Name = "Grundläggande C",
-                    //Teacher = "Oscar Jakobsson",
-                    TeacherId = NewUserList[0].Id,
-                    Description = "Hello world.",
-                    StartDate = DateTime.ParseExact("2015-12-03", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2016-03-23", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                },
-
-                new Group
-                { 
-                    GroupId = 7,
-                    Name = "Avancerad C Del 1",
-                    //Teacher = "Oscar Jakobsson",
-                    TeacherId = NewUserList[0].Id,
-                    Description = "Moment 1.",
-                    StartDate = DateTime.ParseExact("2015-11-18", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2016-04-07", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                },
-
-                new Group
-                { 
-                    GroupId = 8,
-                    Name = "Assembler",
-                    //Teacher = "Adrian Lozano",
-                    TeacherId = NewUserList[1].Id,
-                    Description = "Grundkurs.",
-                    StartDate = DateTime.ParseExact("2015-12-13", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2016-03-08", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                },
-
-                new Group
-                { 
-                    GroupId = 9,
-                    Name = "HTML Grunderna",
-                    //Teacher = "Adrian Lozano",
-                    TeacherId = NewUserList[1].Id,
-                    Description = "Skapa en hemsida.",
-                    StartDate = DateTime.ParseExact("2016-03-13", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    Description = "Objektorienterad programmering. Det finns många olika varianter av Lorem Ipsum, "+
+                    "men majoriteten av dessa har ändrats på någotvis. Antingen med inslag av humor, eller med "+
+                    "inlägg av ord som knappast ser trovärdiga ut. Skall man använda långa stycken av Lorem Ipsum "+
+                    "bör man försäkra sig om att det inte gömmer sig något pinsamt mitt i texten. Lorem Ipsum-generatorer "+
+                    "på internet tenderar att repetera Lorem Ipsum-texten styckvis efter behov, något som gör denna "+
+                    "sidan till den första riktiga Lorem Ipsum-generatorn på internet. Den använder ett ordförråd på över "+
+                    "200 ord, kombinerat med ett antal meningsbyggnadsstrukturer som tillsamman genererar Lorem Ipsum som "+
+                    "ser ut som en normal mening. Lorem Ipsum genererad på denna sidan är därför alltid fri från repetitioner, "+
+                    "humorinslag, märkliga ordformationer osv.",
+                    StartDate = DateTime.ParseExact("2016-03-14", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                     EndDate = DateTime.ParseExact("2016-05-28", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                 },
 
                 new Group
                 { 
-                    GroupId = 10,
-                    Name = "Avancerad C Del 2",
-                    //Teacher = "Oscar Jakobsson",
-                    TeacherId = NewUserList[0].Id,
-                    Description = "Moment 2.",
-                    StartDate = DateTime.ParseExact("2016-04-08", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2016-07-07", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                    GroupId = 6,
+                    Name = "Java Del 3",
+                    //Teacher = "Adrian Lozano",
+                    TeacherId = NewUserList[1].Id,
+                    Description = "Fortsättningskurs. Lorem Ipsum är en utfyllnadstext från tryck- och förlagsindustrin. "+
+                    "Lorem ipsum har varit standard ända sedan 1500-talet, när en okänd boksättare tog att antal bokstäver "+
+                    "och blandade dem för att göra ett provexemplar av en bok. Lorem ipsum har inte bara överlevt fem århundraden, "+
+                    "utan även övergången till elektronisk typografi utan större förändringar. Det blev allmänt känt på 1960-talet "+
+                    "i samband med lanseringen av Letraset-ark med avsnitt av Lorem Ipsum, och senare med mjukvaror som Aldus PageMaker. ",
+                    StartDate = DateTime.ParseExact("2016-06-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2016-09-09", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                 }
+
+              
+
+                //new Group
+                //{ 
+                //    GroupId = 7,
+                //    Name = "Avancerad C Del 1",
+                //    //Teacher = "Oscar Jakobsson",
+                //    TeacherId = NewUserList[0].Id,
+                //    Description = "Moment 1.",
+                //    StartDate = DateTime.ParseExact("2015-11-18", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                //    EndDate = DateTime.ParseExact("2016-04-07", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                //},
+
+                //new Group
+                //{ 
+                //    GroupId = 8,
+                //    Name = "Assembler",
+                //    //Teacher = "Adrian Lozano",
+                //    TeacherId = NewUserList[1].Id,
+                //    Description = "Grundkurs.",
+                //    StartDate = DateTime.ParseExact("2015-12-13", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                //    EndDate = DateTime.ParseExact("2016-03-08", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                //},
+
+                //new Group
+                //{ 
+                //    GroupId = 9,
+                //    Name = "HTML Grunderna",
+                //    //Teacher = "Adrian Lozano",
+                //    TeacherId = NewUserList[1].Id,
+                //    Description = "Skapa en hemsida.",
+                //    StartDate = DateTime.ParseExact("2016-03-13", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                //    EndDate = DateTime.ParseExact("2016-05-28", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                //},
+
+                //new Group
+                //{ 
+                //    GroupId = 10,
+                //    Name = "Avancerad C Del 2",
+                //    //Teacher = "Oscar Jakobsson",
+                //    TeacherId = NewUserList[0].Id,
+                //    Description = "Moment 2.",
+                //    StartDate = DateTime.ParseExact("2016-04-08", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                //    EndDate = DateTime.ParseExact("2016-07-07", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                //}
 
             };
 
