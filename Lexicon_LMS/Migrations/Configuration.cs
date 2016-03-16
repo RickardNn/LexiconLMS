@@ -58,68 +58,44 @@ namespace Lexicon_LMS.Migrations
                 new Group 
                 {
                     GroupId = 1,
-                    Name = ".NET utvecklare november 2015",
+                    Name = ".NET utvecklare 2015",
                     TeacherId = NewUserList[0].Id,
                     //Teacher = "Oscar Jakobsson",
-                    Description = "Grunderna i C#. Det är ett välkänt faktum att läsare distraheras av läsbar "+
-                    "text på en sida när man skall studera layouten. Poängen med Lorem Ipsum är att det ger ett "+
-                    "normalt ordflöde, till skillnad från \"Text här, Text här\", och ger intryck av att vara läsbar "+
-                    "text. Många publiseringprogram och webbutvecklare använder Lorem Ipsum som test-text, och en "+
-                    "sökning efter \"Lorem Ipsum\" avslöjar många webbsidor under uteckling. Olika versioner har dykt "+
-                    "upp under åren, ibland av olyckshändelse, ibland med flit (mer eller mindre humoristiska).",
-                    StartDate = DateTime.ParseExact("2015-11-19", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2016-03-02", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                    Description = "Grunderna i C#.",
+                    StartDate = DateTime.ParseExact("2015-12-03", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2016-02-03", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                 },
-
                 new Group
                 { 
                     GroupId = 2,
-                    Name = ".NET utvecklare mars 2016",
+                    Name = ".NET utvecklare 2016",
                     TeacherId = NewUserList[0].Id,
                     //Teacher = "Oscar Jakobsson",
-                    Description = "Grundkurs i C#. Lorem Ipsum är en utfyllnadstext från tryck- och förlagsindustrin. "+
-                    "Lorem ipsum har varit standard ända sedan 1500-talet, när en okänd boksättare tog att antal "+
-                    "bokstäver och blandade dem för att göra ett provexemplar av en bok. Lorem ipsum har inte bara överlevt "+
-                    "fem århundraden, utan även övergången till elektronisk typografi utan större förändringar. Det blev "+
-                    "allmänt känt på 1960-talet i samband med lanseringen av Letraset-ark med avsnitt av Lorem Ipsum, "+
-                    "och senare med mjukvaror som Aldus PageMaker.",
-                    StartDate = DateTime.ParseExact("2016-03-21", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                    Description = "Grundkurs i C#.",
+                    StartDate = DateTime.ParseExact("2016-01-03", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2016-04-13", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                 },
 
                 new Group
                 { 
                     GroupId = 3,
-                    Name = ".NET utvecklare juni 2016",
-                    //Teacher = "Oscar Jakobsson",
-                    TeacherId = NewUserList[0].Id,
-                    Description = "Hello world. Det finns många olika varianter av Lorem Ipsum, men majoriteten "+
-                    "av dessa har ändrats på någotvis. Antingen med inslag av humor, eller med inlägg av ord "+
-                    "som knappast ser trovärdiga ut. Skall man använda långa stycken av Lorem Ipsum bör man "+
-                    "försäkra sig om att det inte gömmer sig något pinsamt mitt i texten. Lorem Ipsum-generatorer "+
-                    "på internet tenderar att repetera Lorem Ipsum-texten styckvis efter behov, något som gör "+
-                    "denna sidan till den första riktiga Lorem Ipsum-generatorn på internet. Den använder ett "+
-                    "ordförråd på över 200 ord, kombinerat med ett antal meningsbyggnadsstrukturer som tillsamman "+
-                    "genererar Lorem Ipsum som ser ut som en normal mening. Lorem Ipsum genererad på denna sidan "+
-                    "är därför alltid fri från repetitioner, humorinslag, märkliga ordformationer osv.",
-                StartDate = DateTime.ParseExact("2016-07-17", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2016-09-23", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                    Name = "Java Del 1",
+                    //Teacher = "Adrian Lozano",
+                    TeacherId = NewUserList[1].Id,
+                    Description = "Grundkurs.",
+                    StartDate = DateTime.ParseExact("2015-11-04", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2016-04-17", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                 },
 
                 new Group
                 { 
                     GroupId = 4,
-                    Name = "Java Del 1",
+                    Name = "C++",
                     //Teacher = "Adrian Lozano",
                     TeacherId = NewUserList[1].Id,
-                    Description = "Grundkurs. Lorem Ipsum är en utfyllnadstext från tryck- och förlagsindustrin. "+
-                    "Lorem ipsum har varit standard ända sedan 1500-talet, när en okänd boksättare tog att antal "+
-                    "bokstäver och blandade dem för att göra ett provexemplar av en bok. Lorem ipsum har inte bara "+
-                    "överlevt fem århundraden, utan även övergången till elektronisk typografi utan större förändringar. "+
-                    "Det blev allmänt känt på 1960-talet i samband med lanseringen av Letraset-ark med avsnitt av Lorem Ipsum, "+
-                    "och senare med mjukvaror som Aldus PageMaker.",
-                    StartDate = DateTime.ParseExact("2015-11-04", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2016-02-17", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                    Description = "Objektorienterad programmering.",
+                    StartDate = DateTime.ParseExact("2015-10-14", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2015-12-28", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                 },
 
                 new Group
@@ -128,79 +104,65 @@ namespace Lexicon_LMS.Migrations
                     Name = "Java Del 2",
                     //Teacher = "Adrian Lozano",
                     TeacherId = NewUserList[1].Id,
-                    Description = "Objektorienterad programmering. Det finns många olika varianter av Lorem Ipsum, "+
-                    "men majoriteten av dessa har ändrats på någotvis. Antingen med inslag av humor, eller med "+
-                    "inlägg av ord som knappast ser trovärdiga ut. Skall man använda långa stycken av Lorem Ipsum "+
-                    "bör man försäkra sig om att det inte gömmer sig något pinsamt mitt i texten. Lorem Ipsum-generatorer "+
-                    "på internet tenderar att repetera Lorem Ipsum-texten styckvis efter behov, något som gör denna "+
-                    "sidan till den första riktiga Lorem Ipsum-generatorn på internet. Den använder ett ordförråd på över "+
-                    "200 ord, kombinerat med ett antal meningsbyggnadsstrukturer som tillsamman genererar Lorem Ipsum som "+
-                    "ser ut som en normal mening. Lorem Ipsum genererad på denna sidan är därför alltid fri från repetitioner, "+
-                    "humorinslag, märkliga ordformationer osv.",
-                    StartDate = DateTime.ParseExact("2016-03-14", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2016-05-28", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                    Description = "Fortsättningskurs.",
+                    StartDate = DateTime.ParseExact("2016-02-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2016-05-09", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                 },
 
                 new Group
                 { 
                     GroupId = 6,
-                    Name = "Java Del 3",
+                    Name = "Grundläggande C",
+                    //Teacher = "Oscar Jakobsson",
+                    TeacherId = NewUserList[0].Id,
+                    Description = "Hello world.",
+                    StartDate = DateTime.ParseExact("2015-12-03", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2016-03-23", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                },
+
+                new Group
+                { 
+                    GroupId = 7,
+                    Name = "Avancerad C Del 1",
+                    //Teacher = "Oscar Jakobsson",
+                    TeacherId = NewUserList[0].Id,
+                    Description = "Moment 1.",
+                    StartDate = DateTime.ParseExact("2015-11-18", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2016-04-07", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                },
+
+                new Group
+                { 
+                    GroupId = 8,
+                    Name = "Assembler",
                     //Teacher = "Adrian Lozano",
                     TeacherId = NewUserList[1].Id,
-                    Description = "Fortsättningskurs. Lorem Ipsum är en utfyllnadstext från tryck- och förlagsindustrin. "+
-                    "Lorem ipsum har varit standard ända sedan 1500-talet, när en okänd boksättare tog att antal bokstäver "+
-                    "och blandade dem för att göra ett provexemplar av en bok. Lorem ipsum har inte bara överlevt fem århundraden, "+
-                    "utan även övergången till elektronisk typografi utan större förändringar. Det blev allmänt känt på 1960-talet "+
-                    "i samband med lanseringen av Letraset-ark med avsnitt av Lorem Ipsum, och senare med mjukvaror som Aldus PageMaker. ",
-                    StartDate = DateTime.ParseExact("2016-06-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2016-09-09", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                    Description = "Grundkurs.",
+                    StartDate = DateTime.ParseExact("2015-12-13", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2016-03-08", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                },
+
+                new Group
+                { 
+                    GroupId = 9,
+                    Name = "HTML Grunderna",
+                    //Teacher = "Adrian Lozano",
+                    TeacherId = NewUserList[1].Id,
+                    Description = "Skapa en hemsida.",
+                    StartDate = DateTime.ParseExact("2016-03-13", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2016-05-28", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                },
+
+                new Group
+                { 
+                    GroupId = 10,
+                    Name = "Avancerad C Del 2",
+                    //Teacher = "Oscar Jakobsson",
+                    TeacherId = NewUserList[0].Id,
+                    Description = "Moment 2.",
+                    StartDate = DateTime.ParseExact("2016-04-08", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2016-07-07", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                 }
-
-              
-
-                //new Group
-                //{ 
-                //    GroupId = 7,
-                //    Name = "Avancerad C Del 1",
-                //    //Teacher = "Oscar Jakobsson",
-                //    TeacherId = NewUserList[0].Id,
-                //    Description = "Moment 1.",
-                //    StartDate = DateTime.ParseExact("2015-11-18", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                //    EndDate = DateTime.ParseExact("2016-04-07", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                //},
-
-                //new Group
-                //{ 
-                //    GroupId = 8,
-                //    Name = "Assembler",
-                //    //Teacher = "Adrian Lozano",
-                //    TeacherId = NewUserList[1].Id,
-                //    Description = "Grundkurs.",
-                //    StartDate = DateTime.ParseExact("2015-12-13", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                //    EndDate = DateTime.ParseExact("2016-03-08", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                //},
-
-                //new Group
-                //{ 
-                //    GroupId = 9,
-                //    Name = "HTML Grunderna",
-                //    //Teacher = "Adrian Lozano",
-                //    TeacherId = NewUserList[1].Id,
-                //    Description = "Skapa en hemsida.",
-                //    StartDate = DateTime.ParseExact("2016-03-13", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                //    EndDate = DateTime.ParseExact("2016-05-28", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                //},
-
-                //new Group
-                //{ 
-                //    GroupId = 10,
-                //    Name = "Avancerad C Del 2",
-                //    //Teacher = "Oscar Jakobsson",
-                //    TeacherId = NewUserList[0].Id,
-                //    Description = "Moment 2.",
-                //    StartDate = DateTime.ParseExact("2016-04-08", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                //    EndDate = DateTime.ParseExact("2016-07-07", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                //}
 
             };
 
@@ -368,15 +330,15 @@ namespace Lexicon_LMS.Migrations
                },
 
             new Course
-               {
-                   Name = "LMS Projekt 2016",
-                   GroupId = 2,
-                   CourseId = 15,
-                   Teacher = "Oscar JAkobsson",
-                   Description = "Kravspec.",
-                   StartDate = DateTime.ParseExact("2016-06-11", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                   EndDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-               }
+            {
+                Name = "LMS Projekt 2016",
+                GroupId = 2,
+                CourseId = 15,
+                Teacher = "Oscar JAkobsson",
+                Description = "Kravspec.",
+                StartDate = DateTime.ParseExact("2016-06-11", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                EndDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+            }
              );
 
             //"plåster" för att få databaskoppling innan vi la till CourseId i Courese seeden.
@@ -459,38 +421,6 @@ namespace Lexicon_LMS.Migrations
                     EndDate = DateTime.ParseExact("2015-02-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                 },
 
-                new Activity
-                {
-                    CourseId = 8,
-                    Type = "Självstudier",
-                    Name = "E-learning",
-                    Teacher = "Oscar Jakobsson",
-                    Description = "Plural sight kurs",
-                    StartDate = DateTime.ParseExact("2016-04-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2016-04-16", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                },
-
-                new Activity
-                {
-                    CourseId = 2,
-                    Type = "Lärarledd kurs",
-                    Name = "C# fortsättningskurs",
-                    Teacher = "Oscar Jakobsson",
-                    Description = "I denna kurs kommer vi att lära oss mer om C#",
-                    StartDate = DateTime.ParseExact("2015-08-02", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2015-08-14", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                },
-
-                new Activity
-                {
-                    CourseId = 6,
-                    Type = "Lärarledd kurs",
-                    Name = "Mvc grunder",
-                    Teacher = "Adrian Lozano",
-                    Description = "Kursen kommer att gå igenom grunderna i mvc",
-                    StartDate = DateTime.ParseExact("2015-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2015-07-19", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                },
 
                 new Activity
                 {
@@ -499,57 +429,75 @@ namespace Lexicon_LMS.Migrations
                     Name = "E-learning C#",
                     Teacher = "Oscar Jakobsson",
                     Description = "E-learning C# är bra för att bla bla bla",
-                    StartDate = DateTime.ParseExact("2015-02-18", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2015-02-22", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                    StartDate = DateTime.ParseExact("2015-01-18", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2015-01-22", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                 },
 
                 new Activity
                 {
-                    CourseId = 8,
-                    Type = "Lärarledd kurs",
-                    Name = "C#",
-                    Teacher = "Oscar Jakobsson",
-                    Description = "I denna kur skommer vi gå igenom bla bla bla bla.",
-                    StartDate = DateTime.ParseExact("2016-05-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2016-05-29", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                    CourseId = 1,
+                    Type = "Lab",
+                    Name = "Code along 1",
+                    Teacher = "Pontus Wittberg",
+                    Description = "Dungeons of lexicon code along",
+                    StartDate = DateTime.ParseExact("2015-02-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2015-02-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                 },
 
-                 new Activity
+
+                new Activity
+                {
+                    CourseId = 2,
+                    Type = "Lärarledd kurs",
+                    Name = "C# fortsättningskurs",
+                    Teacher = "Oscar Jakobsson",
+                    Description = "I denna kurs kommer vi att lära oss mer om C#",
+                    StartDate = DateTime.ParseExact("2015-02-18", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2015-02-26", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                },
+
+                new Activity
                 {
                     CourseId = 2,
                     Type = "Lärarledd kurs",
                     Name = "C# fortsättningskurs 2015",
                     Teacher = "Oscar Jakobsson",
                     Description = "I denna kurs kommer vi att lära oss mer om  C# och bla bla bla bla",
-                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                    StartDate = DateTime.ParseExact("2015-03-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2015-03-05", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                 },
 
                 new Activity
                 {
-                    CourseId = 6,
-                    Type = "Självstudier",
-                    Name = "E-learning2",
-                    Teacher = "Adrian Lozano",
-                    Description = "Kursen kommer att bestå av e-learning på pluralsight",
-                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                    CourseId = 2,
+                    Type = "Lab",
+                    Name = "Code along 2",
+                    Teacher = "Pontus Wittberg",
+                    Description = "Code along med Pontus",
+                    StartDate = DateTime.ParseExact("2015-03-08", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2015-03-12", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                 },
 
-
-
-
-                 //mera data
+                new Activity
+                {
+                    CourseId = 2,
+                    Type = "Självstudier",
+                    Name = "Bootstrap",
+                    Teacher = "Oscar Jakobsson",
+                    Description = "I denna kurs kommer vi att lära oss mer om Bootstrap",
+                    StartDate = DateTime.ParseExact("2015-03-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2015-03-18", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                },
 
                 new Activity
                 {
                     CourseId = 3,
                     Type = "Lärarledd kurs",
                     Name = "Test grunder 2015",
-                    Teacher = "Adrian Lozano",
+                    Teacher = "Mattias Östholm",
                     Description = "I denna kurs går vi igenom grunderna till test",
-                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                    StartDate = DateTime.ParseExact("2015-03-20", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2015-03-25", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                 },
 
                 new Activity
@@ -559,31 +507,90 @@ namespace Lexicon_LMS.Migrations
                     Name = "Test E-learning",
                     Teacher = "Oscar Jakobsson",
                     Description = "Kursen består av ett antal e-learning kurser från Plural sight",
-                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                    StartDate = DateTime.ParseExact("2015-03-28", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2015-04-01", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                },
+
+                new Activity
+                {
+                    CourseId = 3,
+                    Type = "Lärarledd kurs",
+                    Name = "Test med liten dator",
+                    Teacher = "Mattias Östholm",
+                    Description = "En liten kurs med test",
+                    StartDate = DateTime.ParseExact("2015-04-03", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2015-04-05", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                 },
 
                 new Activity
                 {
                     CourseId = 4,
                     Type = "Lärarledd kurs",
-                    Name = "Scrum del1",
+                    Name = "Scrum del 1",
                     Teacher = "Oscar Jakobsson",
                     Description = "I denna kurs kommer vi att lära oss grunderna i scrum",
-                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                    StartDate = DateTime.ParseExact("2015-04-07", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2015-04-17", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                 },
 
                 new Activity
                 {
-                    CourseId = 5,
+                    CourseId = 4,
                     Type = "Lärarledd kurs",
-                    Name = "Angular fördjupningskurs",
-                    Teacher = "Adrian Lozano",
-                    Description = "Kursen kommer att gå igenom allt möjligt om Angular",
-                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                    Name = "Scrum del 2",
+                    Teacher = "Oscar Jakobsson",
+                    Description = "I denna kurs kommer vi att lära oss grunderna i scrum",
+                    StartDate = DateTime.ParseExact("2015-04-19", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2015-04-29", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                 },
+
+
+                 new Activity
+                 {
+                     CourseId = 5,
+                     Type = "Lärarledd kurs",
+                     Name = "Angular grunder",
+                     Teacher = "Adrian Lozano",
+                     Description = "Kursen kommer att gå igenom allt möjligt om Angular",
+                     StartDate = DateTime.ParseExact("2015-05-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                     EndDate = DateTime.ParseExact("2015-05-07", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                 },
+
+                 new Activity
+                 {
+                     CourseId = 5,
+                     Type = "Lärarledd kurs",
+                     Name = "Angular fördjupningskurs",
+                     Teacher = "Adrian Lozano",
+                     Description = "Kursen kommer att gå igenom allt möjligt om Angular",
+                     StartDate = DateTime.ParseExact("2015-05-09", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                     EndDate = DateTime.ParseExact("2016-05-13", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                 },
+
+
+                new Activity
+                {
+                    CourseId = 6,
+                    Type = "Lärarledd kurs",
+                    Name = "Mvc grunder",
+                    Teacher = "Adrian Lozano",
+                    Description = "Kursen kommer att gå igenom grunderna i mvc",
+                    StartDate = DateTime.ParseExact("2015-05-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2015-05-23", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                },
+
+
+                new Activity
+                {
+                    CourseId = 6,
+                    Type = "Självstudier",
+                    Name = "E-learning2",
+                    Teacher = "Adrian Lozano",
+                    Description = "Kursen kommer att bestå av e-learning på pluralsight",
+                    StartDate = DateTime.ParseExact("2015-05-25", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2015-05-27", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                },
+
 
                 new Activity
                 {
@@ -592,31 +599,79 @@ namespace Lexicon_LMS.Migrations
                     Name = "E-learning C# del2",
                     Teacher = "Oscar Jakobsson",
                     Description = "I denna kurs kommer ni att lyssna på det e-learning material som finns angånde C#",
-                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                    StartDate = DateTime.ParseExact("2015-05-28", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2015-05-30", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                 },
+
 
                 new Activity
                 {
                     CourseId = 7,
                     Type = "Lärarledd kurs",
-                    Name = "LMS grundkurs 1",
+                    Name = "LMS",
                     Teacher = "Oscar Jakobsson",
-                    Description = "I denna kurs kommer vi gå igenom LMS",
-                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                    Description = "Gupparbete start",
+                    StartDate = DateTime.ParseExact("2015-06-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2015-06-05", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                 },
 
-                 new Activity
+
+                  new Activity
+                  {
+                      CourseId = 7,
+                      Type = "Lärarledd kurs",
+                      Name = "LMS fortsättning",
+                      Teacher = "Oscar Jakobsson",
+                      Description = "LMS grupparbete fortsättning",
+                      StartDate = DateTime.ParseExact("2015-06-07", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                      EndDate = DateTime.ParseExact("2015-06-10", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                  },
+
+                new Activity
                 {
-                    CourseId = 9,
-                    Type = "Lärarledd kurs",
-                    Name = "C# fördjupningskurs 2016",
+                    CourseId = 8,
+                    Type = "Självstudier",
+                    Name = "E-learning",
                     Teacher = "Oscar Jakobsson",
-                    Description = "I denna kurs kommer vi att fördjupa oss i C# ",
-                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                    Description = "Plural sight kurs",
+                    StartDate = DateTime.ParseExact("2015-06-11", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2015-06-13", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                 },
+
+
+                new Activity
+                {
+                    CourseId = 8,
+                    Type = "Lärarledd kurs",
+                    Name = "C#",
+                    Teacher = "Oscar Jakobsson",
+                    Description = "I denna kur skommer vi gå igenom bla bla bla bla.",
+                    StartDate = DateTime.ParseExact("2015-06-14", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2015-06-20", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                },
+
+
+                 new Activity
+                 {
+                     CourseId = 9,
+                     Type = "Lärarledd kurs",
+                     Name = "C# fördjupningskurs 2016",
+                     Teacher = "Oscar Jakobsson",
+                     Description = "I denna kurs kommer vi att fördjupa oss i C# ",
+                     StartDate = DateTime.ParseExact("2016-01-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                     EndDate = DateTime.ParseExact("2016-01-25", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                 },
+
+                 new Activity
+                 {
+                     CourseId = 9,
+                     Type = "Lärarledd kurs",
+                     Name = "C# 2016",
+                     Teacher = "Adrian Lozano",
+                     Description = "I denna kurs kommer vi att lära oss mer om C# ",
+                     StartDate = DateTime.ParseExact("2016-02-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                     EndDate = DateTime.ParseExact("2016-02-25", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                 },
 
                 new Activity
                 {
@@ -625,20 +680,10 @@ namespace Lexicon_LMS.Migrations
                     Name = "E-learning3 2016",
                     Teacher = "Adrian Lozano",
                     Description = "Kursen kommer att bestå av e-learning på pluralsight",
-                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                    StartDate = DateTime.ParseExact("2016-03-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2016-03-25", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                 },
 
-                 new Activity
-                {
-                    CourseId = 9,
-                    Type = "Lärarledd kurs",
-                    Name = "C# 2016",
-                    Teacher = "Adrian Lozano",
-                    Description = "I denna kurs kommer vi att lära oss mer om C# ",
-                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                },
 
                 new Activity
                 {
@@ -647,8 +692,8 @@ namespace Lexicon_LMS.Migrations
                     Name = "C# kurs",
                     Teacher = "Oscar Jakobsson",
                     Description = "I denna kurs kommer vi att lära oss mer om C# ",
-                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                    StartDate = DateTime.ParseExact("2016-04-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2016-04-25", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                 },
 
                 new Activity
@@ -658,8 +703,8 @@ namespace Lexicon_LMS.Migrations
                     Name = "Test kurs del1",
                     Teacher = "Mattias Östholm",
                     Description = "I denna kurs kommer vi att lära oss mer om test",
-                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                    StartDate = DateTime.ParseExact("2016-05-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2016-05-25", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                 },
 
                 new Activity
@@ -669,20 +714,20 @@ namespace Lexicon_LMS.Migrations
                     Name = "Scrum grundkurs",
                     Teacher = "Oscar Jakobsson",
                     Description = "I denna del av kursen skommer vi gå igenom scrum",
-                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                    StartDate = DateTime.ParseExact("2016-06-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2016-06-25", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                 },
 
                  new Activity
-                {
-                    CourseId = 13,
-                    Type = "Lärarledd kurs",
-                    Name = "Angular JS kurs",
-                    Teacher = "Pontus Wittberg",
-                    Description = "I denna kurs kommer vi att fördjupa oss i Angular JS ",
-                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                },
+                 {
+                     CourseId = 13,
+                     Type = "Lärarledd kurs",
+                     Name = "Angular JS kurs",
+                     Teacher = "Pontus Wittberg",
+                     Description = "I denna kurs kommer vi att fördjupa oss i Angular JS ",
+                     StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                     EndDate = DateTime.ParseExact("2016-07-25", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                 },
 
                 new Activity
                 {
@@ -691,283 +736,20 @@ namespace Lexicon_LMS.Migrations
                     Name = "E-learning MVC",
                     Teacher = "Adrian Lozano",
                     Description = "Kursen kommer att bestå av e-learning på pluralsight",
-                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                    StartDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("2016-09-25", "yyyy-MM-dd", CultureInfo.InvariantCulture)
                 },
 
                  new Activity
-                {
-                    CourseId = 15,
-                    Type = "Lärarledd kurs",
-                    Name = "LMS kurs",
-                    Teacher = "Pontus Wittberg",
-                    Description = "I denna kurs kommer vi att lära oss mer om LMS",
-                    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                }
-
-
-
-                ////*********************************
-
-                //new Activity
-                //{
-                //    CourseId = 1,
-                //    Type = "Lab",
-                //    Name = "Code along",
-                //    Teacher = "Pontus Wittberg",
-                //    Description = "Dungeons of lexicon code along",
-                //    StartDate = DateTime.ParseExact("2015-01-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                //    EndDate = DateTime.ParseExact("2015-02-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                //},
-
-                //new Activity
-                //{
-                //    CourseId = 8,
-                //    Type = "Självstudier",
-                //    Name = "E-learning",
-                //    Teacher = "Oscar Jakobsson",
-                //    Description = "Plural sight kurs",
-                //    StartDate = DateTime.ParseExact("2016-04-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                //    EndDate = DateTime.ParseExact("2016-04-16", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                //},
-
-                //new Activity
-                //{
-                //    CourseId = 2,
-                //    Type = "Lärarledd kurs",
-                //    Name = "C# fortsättningskurs",
-                //    Teacher = "Oscar Jakobsson",
-                //    Description = "I denna kurs kommer vi att lära oss mer om C#",
-                //    StartDate = DateTime.ParseExact("2015-08-02", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                //    EndDate = DateTime.ParseExact("2015-08-14", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                //},
-
-                //new Activity
-                //{
-                //    CourseId = 6,
-                //    Type = "Lärarledd kurs",
-                //    Name = "Mvc grunder",
-                //    Teacher = "Adrian Lozano",
-                //    Description = "Kursen kommer att gå igenom grunderna i mvc",
-                //    StartDate = DateTime.ParseExact("2015-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                //    EndDate = DateTime.ParseExact("2015-07-19", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                //},
-
-                //new Activity
-                //{
-                //    CourseId = 1,
-                //    Type = "Självstudier",
-                //    Name = "E-learning C#",
-                //    Teacher = "Oscar Jakobsson",
-                //    Description = "E-learning C# är bra för att bla bla bla",
-                //    StartDate = DateTime.ParseExact("2015-03-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                //    EndDate = DateTime.ParseExact("2015-03-05", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                //},
-
-                //new Activity
-                //{
-                //    CourseId = 8,
-                //    Type = "Lärarledd kurs",
-                //    Name = "C#",
-                //    Teacher = "Oscar Jakobsson",
-                //    Description = "Vi kommer gå igenom .",
-                //    StartDate = DateTime.ParseExact("2016-05-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                //    EndDate = DateTime.ParseExact("2016-05-29", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                //},
-
-                // new Activity
-                //{
-                //    CourseId = 2,
-                //    Type = "Lärarledd kurs",
-                //    Name = "C# fortsättningskurs 2015",
-                //    Teacher = "Oscar Jakobsson",
-                //    Description = "I denna kurs kommer vi att lära oss mer om  C# och bla bla bla bla",
-                //    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                //    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                //},
-
-                //new Activity
-                //{
-                //    CourseId = 6,
-                //    Type = "Självstudier",
-                //    Name = "E-learning2",
-                //    Teacher = "Adrian Lozano",
-                //    Description = "Kursen kommer att bestå av e-learning på pluralsight",
-                //    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                //    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                //},
-
-
-
-
-                // //mera data
-
-                //new Activity
-                //{
-                //    CourseId = 3,
-                //    Type = "Lärarledd kurs",
-                //    Name = "Test grunder 2015",
-                //    Teacher = "Adrian Lozano",
-                //    Description = "I denna kurs går vi igenom grunderna till test",
-                //    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                //    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                //},
-
-                //new Activity
-                //{
-                //    CourseId = 3,
-                //    Type = "Självstudier",
-                //    Name = "Test E-learning",
-                //    Teacher = "Oscar Jakobsson",
-                //    Description = "Kursen består av ett antal e-learning kurser från Plural sight",
-                //    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                //    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                //},
-
-                //new Activity
-                //{
-                //    CourseId = 4,
-                //    Type = "Lärarledd kurs",
-                //    Name = "Scrum del1",
-                //    Teacher = "Oscar Jakobsson",
-                //    Description = "I denna kurs kommer vi att lära oss grunderna i scrum",
-                //    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                //    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                //},
-
-                //new Activity
-                //{
-                //    CourseId = 5,
-                //    Type = "Lärarledd kurs",
-                //    Name = "Angular fördjupningskurs",
-                //    Teacher = "Adrian Lozano",
-                //    Description = "Kursen kommer att gå igenom allt möjligt om Angular",
-                //    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                //    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                //},
-
-                //new Activity
-                //{
-                //    CourseId = 6,
-                //    Type = "Självstudier",
-                //    Name = "E-learning C# del2",
-                //    Teacher = "Oscar Jakobsson",
-                //    Description = "I denna kurs kommer ni att lyssna på det e-learning material som finns angånde C#",
-                //    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                //    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                //},
-
-                //new Activity
-                //{
-                //    CourseId = 7,
-                //    Type = "Lärarledd kurs",
-                //    Name = "LMS grundkurs 1",
-                //    Teacher = "Oscar Jakobsson",
-                //    Description = "I denna kurs kommer vi gå igenom LMS",
-                //    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                //    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                //},
-
-                // new Activity
-                //{
-                //    CourseId = 9,
-                //    Type = "Lärarledd kurs",
-                //    Name = "C# fördjupningskurs 2016",
-                //    Teacher = "Oscar Jakobsson",
-                //    Description = "I denna kurs kommer vi att fördjupa oss i C# ",
-                //    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                //    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                //},
-
-                //new Activity
-                //{
-                //    CourseId = 10,
-                //    Type = "Självstudier",
-                //    Name = "E-learning3 2016",
-                //    Teacher = "Adrian Lozano",
-                //    Description = "Kursen kommer att bestå av e-learning på pluralsight",
-                //    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                //    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                //},
-
-                // new Activity
-                //{
-                //    CourseId = 9,
-                //    Type = "Lärarledd kurs",
-                //    Name = "C# 2016",
-                //    Teacher = "Adrian Lozano",
-                //    Description = "I denna kurs kommer vi att lära oss mer om C# ",
-                //    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                //    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                //},
-
-                //new Activity
-                //{
-                //    CourseId = 10,
-                //    Type = "Lärarledd kurs",
-                //    Name = "C# kurs",
-                //    Teacher = "Oscar Jakobsson",
-                //    Description = "I denna kurs kommer vi att lära oss mer om C# ",
-                //    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                //    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                //},
-
-                //new Activity
-                //{
-                //    CourseId = 11,
-                //    Type = "Lärarledd kurs",
-                //    Name = "Test kurs del1",
-                //    Teacher = "Mattias Östholm",
-                //    Description = "I denna kurs kommer vi att lära oss mer om test",
-                //    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                //    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                //},
-
-                //new Activity
-                //{
-                //    CourseId = 12,
-                //    Type = "Lärarledd kurs",
-                //    Name = "Scrum grundkurs",
-                //    Teacher = "Oscar Jakobsson",
-                //    Description = "I denna del av kursen skommer vi gå igenom scrum",
-                //    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                //    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                //},
-
-                // new Activity
-                //{
-                //    CourseId = 13,
-                //    Type = "Lärarledd kurs",
-                //    Name = "Angular JS kurs",
-                //    Teacher = "Pontus Wittberg",
-                //    Description = "I denna kurs kommer vi att fördjupa oss i Angular JS ",
-                //    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                //    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                //},
-
-                //new Activity
-                //{
-                //    CourseId = 14,
-                //    Type = "Självstudier",
-                //    Name = "E-learning MVC",
-                //    Teacher = "Adrian Lozano",
-                //    Description = "Kursen kommer att bestå av e-learning på pluralsight",
-                //    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                //    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                //},
-
-                // new Activity
-                //{
-                //    CourseId = 15,
-                //    Type = "Lärarledd kurs",
-                //    Name = "LMS kurs",
-                //    Teacher = "Pontus Wittberg",
-                //    Description = "I denna kurs kommer vi att lära oss mer om LMS",
-                //    StartDate = DateTime.ParseExact("2016-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                //    EndDate = DateTime.ParseExact("2016-08-15", "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                //}
-
+                 {
+                     CourseId = 15,
+                     Type = "Lärarledd kurs",
+                     Name = "LMS kurs",
+                     Teacher = "Pontus Wittberg",
+                     Description = "I denna kurs kommer vi att lära oss mer om LMS",
+                     StartDate = DateTime.ParseExact("2016-10-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                     EndDate = DateTime.ParseExact("2016-11-25", "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                 }
 
             );
 
@@ -996,7 +778,7 @@ namespace Lexicon_LMS.Migrations
 
             //groups[0].UserId = users[2].Id;
             //users[1].GroupId = groups[1].GroupId;
-            
+
 
         }
     }
