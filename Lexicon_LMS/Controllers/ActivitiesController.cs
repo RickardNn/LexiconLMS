@@ -25,11 +25,12 @@ namespace Lexicon_LMS
                 ViewBag.ActualCourseId = id;
                 if (User.IsInRole("Teacher"))
                 {
-                    var activities = db.Activities.Where(a => a.CourseId == id);
+                    var activities = db.Activities.Where(a => a.CourseId == id).OrderBy(a => a.StartDate);
                     ViewBag.GroupId = activities.FirstOrDefault().Course.GroupId;
                     ViewBag.GroupName = activities.FirstOrDefault().Course.Group.Name;
                     ViewBag.CourseName = db.Courses.Where(c => c.CourseId == id).FirstOrDefault().Name;
                     return View(activities.ToList());
+                    
 
                 }
                 else

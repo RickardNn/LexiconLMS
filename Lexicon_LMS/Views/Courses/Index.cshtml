@@ -79,9 +79,9 @@ else
             @if (User.IsInRole("Teacher"))
             {
                 <td>
-                    @Html.ActionLink("Detaljer", "Details", new { id = item.CourseId }, new { @class = "btn btn-default btn-xs" }) |
-                    @Html.ActionLink("Ändra", "Edit", new { id = item.CourseId }, new { @class = "btn btn-default btn-xs" }) |
-                    @Html.ActionLink("Ta bort", "Delete", new { id = item.CourseId }, new { @class = "btn btn-default btn-xs" }) |
+                    @Html.ActionLink("Detaljer", "Details", new { id = item.CourseId }, new { @class = "btn btn-default btn-xs" })
+                    @Html.ActionLink("Ändra", "Edit", new { id = item.CourseId }, new { @class = "btn btn-default btn-xs" })
+                    @Html.ActionLink("Ta bort", "Delete", new { id = item.CourseId }, new { @class = "btn btn-default btn-xs" })
                     @Html.ActionLink("Lägg till dokument", "Create", "Documents", new { gId, cId = item.CourseId, aId }, new { @class = "btn btn-default btn-xs" })
                     @Html.ActionLink("Visa dokument", "Index", "Documents", new { gId, cId = item.CourseId, aId }, new { @class = "btn btn-default btn-xs" })
                 </td>
