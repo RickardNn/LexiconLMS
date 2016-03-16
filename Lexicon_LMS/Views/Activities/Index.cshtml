@@ -1,5 +1,8 @@
 ﻿@model IEnumerable<Lexicon_LMS.Models.Activity>
 
+
+
+
 @{
    ViewBag.Title = "Index";
 
@@ -12,6 +15,9 @@
     string GroupName = ViewBag.GroupName;
 
     string CourseName = "ERROR";
+    int? gId = null;
+    int? aId = null;
+    int? cId = null;
     if (ViewBag.CourseName != null)
     {
         CourseName = ViewBag.CourseName;
@@ -85,9 +91,9 @@ else
         <td>
             @{
         string str = (string)item.Description;
-        if (str.Count() > 40)
+        if (str.Count() > 10)
         {
-            str = str.Substring(0, 40);
+            str = str.Substring(0, 10);
         }
             }
             @str...
@@ -106,7 +112,13 @@ else
                     @Html.ActionLink("Detaljer", "Details", new { id = item.ActivityId }, new { @class = "btn btn-default btn-xs" })
                     @Html.ActionLink("Ändra", "Edit", new { id = item.ActivityId }, new { @class = "btn btn-default btn-xs" })
                     @Html.ActionLink("Ta bort", "Delete", new { id = item.ActivityId }, new { @class = "btn btn-default btn-xs" })
-                    @Html.ActionLink("Dokument", "Documents", new { id = item.ActivityId }, new { @class = "btn btn-default btn-xs" })
+                    @Html.ActionLink("Lägg till dokument", "Create", "Documents", new { gId, cId, aId = item.ActivityId }, new { @class = "btn btn-default btn-xs" })
+                    @Html.ActionLink("Visa dokument", "Index", "Documents", new { gId, cId, aId = item.ActivityId }, new { @class = "btn btn-default btn-xs" })
+
+                    @*@Html.ActionLink("Dokument", "Documents", new { id = item.ActivityId }, new { @class = "btn btn-default btn-xs" })*@
+
+
+             
 
             </td>
         }
@@ -114,7 +126,8 @@ else
         {
             <td>
                     @Html.ActionLink("Detaljer", "Details", new { id = item.ActivityId }, new { @class = "btn btn-default btn-xs" })
-                    @Html.ActionLink("Dokument", "Documents", new { id = item.ActivityId }, new { @class = "btn btn-default btn-xs" })
+                    @Html.ActionLink("Visa dokument", "Create", "Documents", new { gId, cId, aId = item.ActivityId }, new { @class = "btn btn-default btn-xs" })
+                    @Html.ActionLink("Visa dokument", "Index", "Documents", new { gId, cId, aId = item.ActivityId }, new { @class = "btn btn-default btn-xs" })
             </td>
 
         }
