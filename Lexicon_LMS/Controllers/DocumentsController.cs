@@ -77,7 +77,7 @@ namespace Lexicon_LMS
                 }
                 db.Documents.Add(document);
                 db.SaveChanges();
-                return RedirectToAction("Index", new { document.GroupId, document.CourseId, document.ActivityId });
+                return RedirectToAction("Index", new { gId = document.GroupId, cId = document.CourseId, aId = document.ActivityId });
             }
 
             ViewBag.ActivityId = new SelectList(db.Activities, "ActivityId", "Type", document.ActivityId);
