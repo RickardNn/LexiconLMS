@@ -3,7 +3,7 @@
     ViewBag.Title = "Hantera ditt användarkonto";
 }
 
-<h2>@ViewBag.Title.</h2>
+<h2>@ViewBag.Title</h2>
 
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div>
@@ -23,11 +23,11 @@
             }
             ]
         </dd>
-        <dt>Extern login:</dt>
+        @*<dt>Extern login:</dt>
         <dd>
             @Model.Logins.Count [
             @Html.ActionLink("Hantera", "ManageLogins") ]
-        </dd>
+        </dd>*@
         @*
             Phone Numbers can used as a second factor of verification in a two-factor authentication system.
              
@@ -53,11 +53,11 @@
                 ]
             </dd>
         *@
-        <dt>Tvåfaktors autentisering:</dt>
+        @*<dt>Tvåfaktors autentisering:</dt>
         <dd>
             <p>
                 Det finns inga tvåfaktorsautentiserings leverantörer konfigurerade. Se <a href="http://go.microsoft.com/fwlink/?LinkId=403804"> den här artikeln </a>
-                för mer information om att inrätta denna ASP.NET-program för att stödja tvåfaktorsautentisering.
+                för mer information om att inrätta denna ASP.NET-program för att stödja tvåfaktorsautentisering.*@
 
                 @*There are no two-factor authentication providers configured. See <a href="http://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
                 for details on setting up this ASP.NET application to support two-factor authentication.*@
