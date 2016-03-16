@@ -117,7 +117,7 @@ namespace Lexicon_LMS
             {
                 db.Entry(document).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { gId = document.GroupId, cId = document.CourseId, aId = document.ActivityId });
             }
             ViewBag.ActivityId = new SelectList(db.Activities, "ActivityId", "Type", document.ActivityId);
             ViewBag.ApplicationUserId = new SelectList(db.Users, "Id", "FirstName", document.ApplicationUserId);

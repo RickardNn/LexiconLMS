@@ -37,14 +37,14 @@ namespace Lexicon_LMS
             {
                 if (User.IsInRole("Teacher"))
                 {
-                    var courses = db.Courses.Where(c => c.GroupId == id);
+                    var courses = db.Courses.Where(c => c.GroupId == id).OrderBy(a => a.StartDate);
                     ViewBag.GroupName = db.Groups.Where(g => g.GroupId == id).FirstOrDefault().Name;
                     ViewBag.Group_Id = id;
                     return View(courses.ToList());
                 }
                 else
                 {
-                    var courses = db.Courses.Where(c => c.GroupId == id);
+                    var courses = db.Courses.Where(c => c.GroupId == id).OrderBy(a => a.StartDate);
                     ViewBag.GroupName = db.Groups.Where(g => g.GroupId == id).FirstOrDefault().Name;
                     ViewBag.Group_Id = id;
                     return View(courses.ToList());
@@ -58,7 +58,7 @@ namespace Lexicon_LMS
                     ViewBag.Message = "Du är inloggad " + ActiveUser.FullName + " du deltager i: " + ActiveGroup.First().Name;
                     ViewBag.GroupName = ActiveGroup.First().Name;
                     ViewBag.Group_Id = ActiveGroup.First().GroupId;
-                    var courses = db.Courses.Where(c => c.GroupId == ActiveUser.GroupId);
+                    var courses = db.Courses.Where(c => c.GroupId == ActiveUser.GroupId).OrderBy(a => a.StartDate);
                     return View(courses.ToList());
                 }
                 else

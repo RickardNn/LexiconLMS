@@ -89,7 +89,7 @@ else
             else
             {
                 <td>
-                    @Html.ActionLink("Detaljer", "Details", new { id = item.CourseId })
+                    @Html.ActionLink("Detaljer", "Details", new { id = item.CourseId }, new { @class = "btn btn-default btn-xs" })
                     @Html.ActionLink("Lägg till dokument", "Create", "Documents", new { gId, cId = item.CourseId, aId }, new { @class = "btn btn-default btn-xs" })
                     @Html.ActionLink("Visa dokument", "Index", "Documents", new { gId, cId = item.CourseId, aId }, new { @class = "btn btn-default btn-xs" })
                 </td>
@@ -101,9 +101,9 @@ else
 </table>
 @if (User.IsInRole("Teacher"))
 {
-    <p>@Html.ActionLink("Se samtliga elever", "Index", "Users", new { groupId = @ViewBag.Group_Id }, null)</p>
+    <p>@Html.ActionLink("Se samtliga elever", "Index", "Users", new { groupId = @ViewBag.Group_Id }, new { @class = "btn btn-default btn-m" })</p>
 }
 else
 {
-    <p>@Html.ActionLink("Se samtliga elever", "Index", "Users", new { groupId = @ViewBag.Group_Id }, null)</p>
+    <p>@Html.ActionLink("Se samtliga elever", "Index", "Users", new { groupId = @ViewBag.Group_Id }, new { @class = "btn btn-default btn-m" })</p>
 }
