@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Lägg till dokument", "Create")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
@@ -15,13 +15,13 @@
             @Html.DisplayNameFor(model => model.Activity.Type)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ApplicationUser.FullName)
+            @Html.DisplayNameFor(model => model.ApplicationUser.FirstName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Course.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Group.Name)
+            @Html.DisplayNameFor(model => model.Group.TeacherId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Title)
@@ -44,20 +44,19 @@
             @Html.DisplayFor(modelItem => item.Activity.Type)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ApplicationUser.FullName)
+            @Html.DisplayFor(modelItem => item.ApplicationUser.FirstName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Course.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Group.Name)
+            @Html.DisplayFor(modelItem => item.Group.TeacherId)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Title)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.FileName)
-            @*@Html.ActionLink(Html.DisplayFor(modelItem => item.FileName), "Details", new { id = item.DocumentId })*@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Description)

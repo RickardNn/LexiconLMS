@@ -1,5 +1,8 @@
 ﻿@model IEnumerable<Lexicon_LMS.Models.Activity>
 
+
+
+
 @{
    ViewBag.Title = "Index";
 
@@ -12,6 +15,9 @@
     string GroupName = ViewBag.GroupName;
 
     string CourseName = "ERROR";
+    int? gId = null;
+    int? aId = null;
+    int? cId = null;
     if (ViewBag.CourseName != null)
     {
         CourseName = ViewBag.CourseName;
@@ -22,10 +28,11 @@
 {
     <h4>
         / @Html.ActionLink("Lista samtliga grupper på Lexicon", "ListAllGroups", "Groups") / @Html.ActionLink("Mina grupper", "Index", "Groups") / @Html.ActionLink(GroupName, "Index", "Courses", new { id = GroupId }, null) / @CourseName / Aktiviteter
+@*        / @Html.ActionLink(GroupName, "Index", "Documents", new { id = GroupId, aid = null }, null) / @CourseName / Aktiviteter*@
     </h4>
 
     <p>
-        @Html.ActionLink("Skapa ny", "Create", new { courseId = ViewBag.ActualCourseId }, new { @class = "btn btn-default btn-m" })
+        @Html.ActionLink("Skapa ny aktivitet", "Create", new { courseId = ViewBag.ActualCourseId }, new { @class = "btn btn-default btn-m" })
     </p>
 }
 else
@@ -77,9 +84,21 @@ else
         <td>
             @Html.DisplayFor(modelItem => item.Teacher)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Description)
+        </td>*@
+
+        <td>
+            @{
+        string str = (string)item.Description;
+        if (str.Count() > 10)
+        {
+            str = str.Substring(0, 10);
+        }
+            }
+            @str...
         </td>
+
         <td>
             @Html.DisplayFor(modelItem => item.StartDate)
         </td>
@@ -90,15 +109,25 @@ else
         {
             <td>
 
-                    @Html.ActionLink("Detaljer", "Details", new { id = item.CourseId }, new { @class = "btn btn-default btn-xs" })
-                    @Html.ActionLink("Ändra", "Edit", new { id = item.CourseId }, new { @class = "btn btn-default btn-xs" })
-                    @Html.ActionLink("Ta bort", "Delete", new { id = item.CourseId }, new { @class = "btn btn-default btn-xs" })
+                    @Html.ActionLink("Detaljer", "Details", new { id = item.ActivityId }, new { @class = "btn btn-default btn-xs" })
+                    @Html.ActionLink("Ändra", "Edit", new { id = item.ActivityId }, new { @class = "btn btn-default btn-xs" })
+                    @Html.ActionLink("Ta bort", "Delete", new { id = item.ActivityId }, new { @class = "btn btn-default btn-xs" })
+                    @Html.ActionLink("Lägg till dokument", "Create", "Documents", new { gId, cId, aId = item.ActivityId }, new { @class = "btn btn-default btn-xs" })
+                    @Html.ActionLink("Visa dokument", "Index", "Documents", new { gId, cId, aId = item.ActivityId }, new { @class = "btn btn-default btn-xs" })
+
+                    @*@Html.ActionLink("Dokument", "Documents", new { id = item.ActivityId }, new { @class = "btn btn-default btn-xs" })*@
+
+
+             
+
             </td>
         }
         else
         {
             <td>
-                    @Html.ActionLink("Detaljer", "Details", new { id = item.CourseId }, new { @class = "btn btn-default btn-xs" })
+                    @Html.ActionLink("Detaljer", "Details", new { id = item.ActivityId }, new { @class = "btn btn-default btn-xs" })
+                    @Html.ActionLink("Visa dokument", "Create", "Documents", new { gId, cId, aId = item.ActivityId }, new { @class = "btn btn-default btn-xs" })
+                    @Html.ActionLink("Visa dokument", "Index", "Documents", new { gId, cId, aId = item.ActivityId }, new { @class = "btn btn-default btn-xs" })
             </td>
 
         }
