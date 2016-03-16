@@ -70,7 +70,6 @@ namespace Lexicon_LMS
                 //        //upload.
                 //    };
                     //string str = Path.Combine(Server.MapPath("~/LMS_Documents"),System.IO.Path.GetFileName(upload.FileName));
-                    document.GroupId = null;
                     document.FileName = System.IO.Path.GetFileName(upload.FileName);
                     upload.SaveAs(Path.Combine(Server.MapPath("~/LMS_Documents"), upload.FileName));
                     //course.Documents = new List<Document>();
@@ -78,7 +77,7 @@ namespace Lexicon_LMS
                 }
                 db.Documents.Add(document);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { document.GroupId, document.CourseId, document.ActivityId });
             }
 
             ViewBag.ActivityId = new SelectList(db.Activities, "ActivityId", "Type", document.ActivityId);
