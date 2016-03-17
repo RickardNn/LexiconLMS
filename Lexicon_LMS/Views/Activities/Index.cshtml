@@ -1,16 +1,13 @@
 ﻿@model IEnumerable<Lexicon_LMS.Models.Activity>
 
-
-
-
 @{
-   ViewBag.Title = "Index";
+    ViewBag.Title = "Index";
 
     int GroupId = 0;
     if (ViewBag.GroupId != null)
     {
         GroupId = (int)ViewBag.GroupId;
-}
+    }
 
     string GroupName = ViewBag.GroupName;
 
@@ -28,7 +25,6 @@
 {
     <h4>
         / @Html.ActionLink("Lista samtliga grupper på Lexicon", "ListAllGroups", "Groups") / @Html.ActionLink("Mina grupper", "Index", "Groups") / @Html.ActionLink(GroupName, "Index", "Courses", new { id = GroupId }, null) / @CourseName / Aktiviteter
-@*        / @Html.ActionLink(GroupName, "Index", "Documents", new { id = GroupId, aid = null }, null) / @CourseName / Aktiviteter*@
     </h4>
 
     <p>
@@ -71,43 +67,43 @@ else
 
     @foreach (var item in Model)
     {
-    <tr>
+        <tr>
             @*<td>
-            @Html.DisplayFor(modelItem => item.Course.Name)
+                @Html.DisplayFor(modelItem => item.Course.Name)
+                    </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Teacher)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Description)
                 </td>*@
-        <td>
-            @Html.DisplayFor(modelItem => item.Type)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Teacher)
-        </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>*@
 
-        <td>
-            @{
+            <td>
+                @{
         string str = (string)item.Description;
         if (str.Count() > 10)
         {
             str = str.Substring(0, 10);
         }
-            }
-            @str...
-        </td>
+                }
+                @str...
+            </td>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.StartDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndDate)
-        </td>
-        @if (User.IsInRole("Teacher"))
-        {
             <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            @if (User.IsInRole("Teacher"))
+            {
+                <td>
 
                     @Html.ActionLink("Detaljer", "Details", new { id = item.ActivityId }, new { @class = "btn btn-default btn-xs" })
                     @Html.ActionLink("Ändra", "Edit", new { id = item.ActivityId }, new { @class = "btn btn-default btn-xs" })
@@ -117,28 +113,25 @@ else
 
                     @*@Html.ActionLink("Dokument", "Documents", new { id = item.ActivityId }, new { @class = "btn btn-default btn-xs" })*@
 
-
-             
-
-            </td>
-        }
-        else
-        {
-            <td>
+                </td>
+            }
+            else
+            {
+                <td>
                     @Html.ActionLink("Detaljer", "Details", new { id = item.ActivityId }, new { @class = "btn btn-default btn-xs" })
                     @Html.ActionLink("Lägg till dokument", "Create", "Documents", new { gId, cId, aId = item.ActivityId }, new { @class = "btn btn-default btn-xs" })
                     @Html.ActionLink("Visa dokument", "Index", "Documents", new { gId, cId, aId = item.ActivityId }, new { @class = "btn btn-default btn-xs" })
-            </td>
+                </td>
 
-        }
+            }
 
-        
-        @*<td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ActivityId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ActivityId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ActivityId })
-        </td>*@
-    </tr>
-}
+
+            @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.ActivityId }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.ActivityId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.ActivityId })
+                </td>*@
+        </tr>
+    }
 
 </table>
